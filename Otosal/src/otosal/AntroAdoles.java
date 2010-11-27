@@ -1290,20 +1290,305 @@ public class AntroAdoles extends javax.swing.JDialog {
     }//GEN-LAST:event_RBNCHSActionPerformed
 
     private void RBCDCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBCDCActionPerformed
-       if (RBCDC.isSelected()) {
-            LIE.setEnabled(true);
-            LTE.setEnabled(true);
-            LPE.setEnabled(true);
-            LPBE.setEnabled(false);
-            LPTE.setEnabled(false);
-            LPL.setEnabled(false);
-            RBTE.setEnabled(true);
-            RBPE.setEnabled(true);
-            RBPTE.setEnabled(false);
-            RBPBE.setEnabled(false);
-            RBPT.setEnabled(false);
-            RBIE.setEnabled(true);
-        }
+       try {
+            if (RBCDC.isSelected()) {
+                LIE.setEnabled(true);
+                LTE.setEnabled(true);
+                LPE.setEnabled(true);
+                LPBE.setEnabled(false);
+                LPTE.setEnabled(false);
+                LPL.setEnabled(false);
+                RBTE.setEnabled(true);
+                RBPE.setEnabled(true);
+                RBPTE.setEnabled(false);
+                RBPBE.setEnabled(false);
+                RBPT.setEnabled(false);
+                RBIE.setEnabled(true);
+
+                if (!TFPeso.getText().equals("") && !TFLongitud.getText().equals("")) {
+
+                    edadMes=calcularMesesCDC(TFFechNac.getText());
+
+                    ResultSet rs = instruccion.executeQuery("select id, edad from AdolesCDCV");
+                    while(rs.next()){
+                        if (rs.getDouble(2) > edadMes) {
+                            cod=rs.getInt(1);
+                            break;
+                        } else if (rs.getDouble(2) == edadMes) {
+                            cod=rs.getInt(1);
+                            break;
+                        }
+                    }
+                    rs.close();
+                    if (RBVaron.isSelected())
+                        rs = instruccion.executeQuery("Select * from AdolesCDCV where id = " + cod );
+                    else if (RBHembra.isSelected())
+                        rs = instruccion.executeQuery("Select * from AdolesCDCM where id = " + cod );
+                    rs.next();
+                    TFLEP50.setText(rs.getString(7));
+                    TFPEP50.setText(rs.getString(16));
+                    TFIEP50.setText(rs.getString(25));
+                    Double Lon = Double.valueOf(TFLongitud.getText().trim()).doubleValue();
+                    if ( Lon < rs.getDouble(3)) {
+                        LINLE.setText("Desnutrición");
+                        TFLEP.setText("< P3");
+                    }
+                    if (rs.getDouble(3) == Lon ) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P3");
+                    }
+                    if (rs.getDouble(4) > Lon  && Lon > rs.getDouble(3)) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P3 - P5");
+                    }
+                    if (rs.getDouble(4) == Lon ) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P5");
+                    }
+                    if (rs.getDouble(5) > Lon  && Lon > rs.getDouble(4)) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P5 - P10");
+                    }
+                    if (rs.getDouble(5) == Lon ) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P10");
+                    }
+                    if (rs.getDouble(6) > Lon && Lon > rs.getDouble(5)) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P10 - P25");
+                    }
+                    if (rs.getDouble(6) == Lon ) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P25");
+                    }
+                    if (rs.getDouble(7) > Lon && Lon > rs.getDouble(6)) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P25 - P50");
+                    }
+                    if (rs.getDouble(7) == Lon ) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P50");
+                    }
+                    if (rs.getDouble(8) > Lon && Lon > rs.getDouble(7)) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P50 - P75");
+                    }
+                    if (rs.getDouble(8) == Lon ) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P75");
+                    }
+                    if (rs.getDouble(9) > Lon && Lon > rs.getDouble(8)) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P75 - P90");
+                    }
+                    if (rs.getDouble(9) == Lon ) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P90");
+                    }
+                    if (rs.getDouble(10) > Lon && Lon > rs.getDouble(9)) {
+                        LINLE.setText("Normal");
+                        TFLEP.setText("P90 - P95");
+                    }
+                    if (rs.getDouble(10) == Lon) {
+                        LINLE.setText("Alto");
+                        TFLEP.setText("P95");
+                    }
+                    if (rs.getDouble(11) > Lon && Lon > rs.getDouble(10)) {
+                        LINLE.setText("Alto");
+                        TFLEP.setText("P95 - P97");
+                    }
+                    if (rs.getDouble(11) == Lon) {
+                        LINLE.setText("Alto");
+                        TFLEP.setText("P97");
+                    }
+                    if (rs.getDouble(11) < Lon) {
+                        LINLE.setText("Alto");
+                        TFLEP.setText("> P97");
+                    }
+                    Double Peso = Double.valueOf(TFPeso.getText().trim()).doubleValue();
+                     if ( Peso < rs.getDouble(12)) {
+                        LINPE.setText("Desnutrición");
+                        TFPPE.setText("< P3");
+                    }
+                    if (rs.getDouble(12) == Peso ) {
+                        LINPE.setText("Normal");
+                        TFPPE.setText("P3");
+                    }
+                    if (rs.getDouble(13) > Peso  && Peso > rs.getDouble(12)) {
+                        LINPE.setText("Normal");
+                        TFPPE.setText("P3 - P5");
+                    }
+                    if (rs.getDouble(13) == Peso ) {
+                        LINPE.setText("Normal");
+                        TFPPE.setText("P5");
+                    }
+                    if (rs.getDouble(14) > Peso && Peso > rs.getDouble(13)) {
+                        LINPE.setText("Normal");
+                        TFPPE.setText("P5 - P10");
+                    }
+                    if (rs.getDouble(14) == Peso ) {
+                        LINPE.setText("Normal");
+                        TFPPE.setText("P10");
+                    }
+                    if (rs.getDouble(15) > Peso && Peso > rs.getDouble(14)) {
+                        LINPE.setText("Normal");
+                        TFPPE.setText("P10 - P25");
+                    }
+                    if (rs.getDouble(15) == Peso ) {
+                        LINPE.setText("Normal");
+                        TFPPE.setText("P25");
+                    }
+                    if (rs.getDouble(16) > Peso && Peso > rs.getDouble(15)) {
+                        LINPE.setText("Normal");
+                        TFPPE.setText("P25 - P50");
+                    }
+                    if (rs.getDouble(16) == Peso ) {
+                        LINPE.setText("Normal");
+                        TFPPE.setText("P50");
+                    }
+                    if (rs.getDouble(17) > Peso && Peso > rs.getDouble(16)) {
+                        LINPE.setText("Normal");
+                        TFPPE.setText("P50 - P75");
+                    }
+                    if (rs.getDouble(17) == Peso ) {
+                        LINPE.setText("Normal");
+                        TFPPE.setText("P75");
+                    }
+                    if (rs.getDouble(18) > Peso && Peso > rs.getDouble(17)) {
+                        LINPE.setText("Normal");
+                        TFPPE.setText("P75 - P90");
+                    }
+                    if (rs.getDouble(18) == Peso ) {
+                        LINPE.setText("Sobrepeso");
+                        TFPPE.setText("P90");
+                    }
+                     if (rs.getDouble(19) > Peso && Peso > rs.getDouble(18)) {
+                        LINPE.setText("Sobrepeso");
+                        TFPPE.setText("P90 - P95");
+                    }
+                    if (rs.getDouble(19) == Peso ) {
+                        LINPE.setText("Sobrepeso");
+                        TFPPE.setText("P95");
+                    }
+                     if (rs.getDouble(20) > Peso && Peso > rs.getDouble(19)) {
+                        LINPE.setText("Obesidad");
+                        TFPPE.setText("P95 - P97");
+                    }
+                    if (rs.getDouble(20) == Peso ) {
+                        LINPE.setText("Obesidad");
+                        TFPPE.setText("P97");
+                    }
+                    if (rs.getDouble(20) < Peso) {
+                        LINPE.setText("Obesidad");
+                        TFPPE.setText("> P97");
+                    }
+                    Double IMC = Double.valueOf(TFIMC.getText().trim()).doubleValue();
+                    if ( IMC < rs.getDouble(21)) {
+                        LINIE.setText("Desnutrición");
+                        TFIEP.setText("< P3");
+                    }
+                    if (rs.getDouble(21) == IMC ) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P3");
+                    }
+                    if (rs.getDouble(22) > IMC  && IMC > rs.getDouble(21)) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P3 - P5");
+                    }
+                    if (rs.getDouble(22) == IMC ) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P5");
+                    }
+                    if (rs.getDouble(23) > IMC && IMC > rs.getDouble(22)) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P5 - P10");
+                    }
+                    if (rs.getDouble(23) == IMC ) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P10");
+                    }
+                    if (rs.getDouble(24) > IMC && IMC > rs.getDouble(23)) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P10 - P25");
+                    }
+                    if (rs.getDouble(24) == IMC ) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P25");
+                    }
+                    if (rs.getDouble(25) > IMC && IMC > rs.getDouble(24)) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P25 - P50");
+                    }
+                    if (rs.getDouble(25) == IMC ) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P50");
+                    }
+                    if (rs.getDouble(26) > IMC && IMC > rs.getDouble(25)) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P50 - P75");
+                    }
+                    if (rs.getDouble(26) == IMC ) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P75");
+                    }
+                    if (rs.getDouble(27) > IMC && IMC > rs.getDouble(26)) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P75 - P85");
+                    }
+                    if (rs.getDouble(27) == IMC ) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P85");
+                    }
+                    if (rs.getDouble(28) > IMC && IMC > rs.getDouble(27)) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P85 - P90");
+                    }
+                    if (rs.getDouble(28) == IMC ) {
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P90");
+                    }
+                    if (rs.getDouble(29) > IMC && IMC > rs.getDouble(28)) {
+                        LINIE.setText("Sobrepeso");
+                        TFIEP.setText("P90 - P95");
+                    }
+                    if (rs.getDouble(29) == IMC ) {
+                        LINIE.setText("Sobrepeso");
+                        TFIEP.setText("P95");
+                    }
+                    if (rs.getDouble(30) > IMC && IMC > rs.getDouble(29)) {
+                        LINIE.setText("Sobrepeso");
+                        TFIEP.setText("P95 - P97");
+                    }
+                    if (rs.getDouble(30) == IMC ) {
+                        LINIE.setText("Obesidad");
+                        TFIEP.setText("P97");
+                    }
+                    if (rs.getDouble(30) < IMC) {
+                        LINIE.setText("Obesidad");
+                        TFIEP.setText("> P97");
+                    }
+                    rs.close();
+                    instruccion.close();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Tienes que rellenar los campos Talla y Peso",
+                    "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+                    LIE.setEnabled(false);
+                    LTE.setEnabled(false);
+                    LPE.setEnabled(false);
+                    LPBE.setEnabled(false);
+                    LPTE.setEnabled(false);
+                    LPL.setEnabled(false);
+                    RBTE.setEnabled(false);
+                    RBPE.setEnabled(false);
+                    RBPTE.setEnabled(false);
+                    RBPBE.setEnabled(false);
+                    RBPT.setEnabled(false);
+                    RBIE.setEnabled(false);
+                    TFLongitud.requestFocus();
+                    TFLongitud.selectAll();
+                }
+            }
+        } catch (Exception e) {}
     }//GEN-LAST:event_RBCDCActionPerformed
 
     private void RBWhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBWhoActionPerformed
@@ -1566,6 +1851,22 @@ public class AntroAdoles extends javax.swing.JDialog {
         meses = (today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) ) *12;
         meses = meses + (today.get(Calendar.MONTH) - birth.get(Calendar.MONTH));
         edad =  meses / 12.0;
+        return edad;
+    }
+
+    public static Double calcularMesesCDC (String fecha) throws ParseException {
+        Double edad = new Double(1);
+        String datetext = fecha;
+        Calendar birth = new GregorianCalendar();
+        Calendar today = new GregorianCalendar();
+        int meses = 0;
+        Date birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(datetext);
+        Date currentDate = new Date(); //current date
+        birth.setTime(birthDate);
+        today.setTime(currentDate);
+        meses = (today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) ) *12;
+        meses = meses + (today.get(Calendar.MONTH) - birth.get(Calendar.MONTH));
+        edad =  (double)meses;
         return edad;
     }
 

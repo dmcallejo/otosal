@@ -135,7 +135,7 @@ public class AntroAdoles extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         TFIMC = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        TFPerCra = new javax.swing.JTextField();
+        TFPerBra = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         BGuardar2 = new javax.swing.JButton();
         BCerrar = new javax.swing.JButton();
@@ -328,8 +328,8 @@ public class AntroAdoles extends javax.swing.JDialog {
         jLabel7.setText("Perimetro braquial (cm)");
         jLabel7.setName("jLabel7"); // NOI18N
 
-        TFPerCra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TFPerCra.setName("TFPerCra"); // NOI18N
+        TFPerBra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TFPerBra.setName("TFPerBra"); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -354,7 +354,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 .addGap(36, 36, 36)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(TFPerCra, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TFPerBra, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(110, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -367,7 +367,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                     .addComponent(jLabel6)
                     .addComponent(TFPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(TFPerCra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFPerBra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -547,11 +547,11 @@ public class AntroAdoles extends javax.swing.JDialog {
         LINPBE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINPBE.setName("LINPBE"); // NOI18N
 
-        LINIE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LINIE.setFont(new java.awt.Font("Tahoma", 1, 12));
         LINIE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINIE.setName("LINIE"); // NOI18N
 
-        LINLP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LINLP.setFont(new java.awt.Font("Tahoma", 1, 12));
         LINLP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINLP.setName("LINLP"); // NOI18N
 
@@ -838,16 +838,15 @@ public class AntroAdoles extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DPImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(926, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DPImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -956,6 +955,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                     TFLEP50.setText(rs.getString(4));
                     TFPEP50.setText(rs.getString(7));
                     TFIEP50.setText(rs.getString(10));
+                    TFPBEP50.setText(rs.getString(17));
                     Double Lon = Double.valueOf(TFLongitud.getText().trim()).doubleValue();
                     if ( Lon < rs.getDouble(3)) {
                         LINLE.setText("Desnutrición");
@@ -1058,6 +1058,67 @@ public class AntroAdoles extends javax.swing.JDialog {
                     if (rs.getDouble(13) < IMC) {
                         LINIE.setText("Obesidad");
                         TFIEP.setText("> P97");
+                    }
+                    Double PBraE = Double.valueOf(TFPerBra.getText().trim()).doubleValue();
+                    if ( PBraE < rs.getDouble(14)) {
+                        LINPBE.setText("Desnutrición");
+                        TFPBEP.setText("< P3");
+                    }
+                    if (rs.getDouble(14) == PBraE ) {
+                        LINPBE.setText("Normal");
+                        TFPBEP.setText("P3");
+                    }
+                    if (rs.getDouble(15) > PBraE  && PBraE > rs.getDouble(14)) {
+                        LINPBE.setText("Normal");
+                        TFPBEP.setText("P3 - P10");
+                    }
+                    if (rs.getDouble(15) == PBraE ) {
+                        LINPBE.setText("Normal");
+                        TFPBEP.setText("P10");
+                    }
+                    if (rs.getDouble(16) > PBraE  && PBraE > rs.getDouble(15)) {
+                        LINPBE.setText("Normal");
+                        TFPBEP.setText("P10 - P25");
+                    }
+                    if (rs.getDouble(16) == PBraE ) {
+                        LINPBE.setText("Normal");
+                        TFPBEP.setText("P25");
+                    }
+                    if (rs.getDouble(17) > PBraE && PBraE > rs.getDouble(16)) {
+                        LINPBE.setText("Normal");
+                        TFPBEP.setText("P25 - P50");
+                    }
+                    if (rs.getDouble(17) == PBraE ) {
+                        LINPBE.setText("Normal");
+                        TFPBEP.setText("P50");
+                    }
+                    if (rs.getDouble(18) > PBraE && PBraE > rs.getDouble(17)) {
+                        LINPBE.setText("Normal");
+                        TFPBEP.setText("P50 - P75");
+                    }
+                    if (rs.getDouble(18) == PBraE ) {
+                        LINPBE.setText("Normal");
+                        TFPBEP.setText("P75");
+                    }
+                    if (rs.getDouble(19) > PBraE && PBraE > rs.getDouble(18)) {
+                        LINPBE.setText("Normal");
+                        TFPBEP.setText("P75 - P90");
+                    }
+                    if (rs.getDouble(19) == PBraE ) {
+                        LINPBE.setText("Normal");
+                        TFPBEP.setText("P90");
+                    }
+                    if (rs.getDouble(20) > PBraE && PBraE > rs.getDouble(19)) {
+                        LINPBE.setText("Normal");
+                        TFPBEP.setText("P90 - P97");
+                    }
+                    if (rs.getDouble(20) == PBraE ) {
+                        LINPBE.setText("Alto");
+                        TFPBEP.setText("P97");
+                    }
+                    if (rs.getDouble(20) < PBraE) {
+                        LINPBE.setText("Obesidad");
+                        TFPBEP.setText("> P97");
                     }
                     rs.close();
                     instruccion.close();
@@ -1986,7 +2047,7 @@ public class AntroAdoles extends javax.swing.JDialog {
     private javax.swing.JTextField TFPL;
     private javax.swing.JTextField TFPLP50;
     private javax.swing.JTextField TFPPE;
-    private javax.swing.JTextField TFPerCra;
+    private javax.swing.JTextField TFPerBra;
     private javax.swing.JTextField TFPeso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

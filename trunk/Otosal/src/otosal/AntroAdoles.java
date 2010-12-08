@@ -559,7 +559,7 @@ public class AntroAdoles extends javax.swing.JDialog {
         LINLE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINLE.setName("LINLE"); // NOI18N
 
-        LINPE.setFont(new java.awt.Font("Tahoma", 1, 12));
+        LINPE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LINPE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINPE.setName("LINPE"); // NOI18N
 
@@ -635,11 +635,11 @@ public class AntroAdoles extends javax.swing.JDialog {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel18)
-                    .addComponent(TFIEP)
                     .addComponent(TFPBEP)
                     .addComponent(TFPPE)
                     .addComponent(TFLEP, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                    .addComponent(TFPL))
+                    .addComponent(TFPL)
+                    .addComponent(TFIEP))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
@@ -723,8 +723,8 @@ public class AntroAdoles extends javax.swing.JDialog {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -732,9 +732,9 @@ public class AntroAdoles extends javax.swing.JDialog {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         DPImagen.setBackground(new java.awt.Color(229, 184, 183));

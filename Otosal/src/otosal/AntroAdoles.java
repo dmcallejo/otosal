@@ -939,6 +939,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                     ResultSet rs = instruccion.executeQuery("select id, edad from AdolesOrbegozoV");
                     while(rs.next()){
                         if (rs.getDouble(2) > edadMes) {
+                            rs.previous();
                             cod=rs.getInt(1);
                             break;
                         } else if (rs.getDouble(2) == edadMes) {
@@ -1163,6 +1164,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                     ResultSet rs = instruccion.executeQuery("select id, edad from AdolesCarrasV");
                     while(rs.next()){
                         if (rs.getDouble(2) > edadMes) {
+                            rs.previous();
                             cod=rs.getInt(1);
                             break;
                         } else if (rs.getDouble(2) == edadMes) {
@@ -1420,6 +1422,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                     ResultSet rs = instruccion.executeQuery("select id, edad from AdolesCDCV");
                     while(rs.next()){
                         if (rs.getDouble(2) > edadMes) {
+                            rs.previous();
                             cod=rs.getInt(1);
                             break;
                         } else if (rs.getDouble(2) == edadMes) {

@@ -979,6 +979,7 @@ public class AntroInfan extends javax.swing.JDialog {
                     ResultSet rs = instruccion.executeQuery("select id, edad from InfaOrbegozoV");
                     while(rs.next()){
                         if (rs.getInt(2) > edad) {
+                            rs.previous();
                             cod=rs.getInt(1);
                             break;
                         } else if (rs.getInt(2) == edad) {
@@ -1181,6 +1182,7 @@ public class AntroInfan extends javax.swing.JDialog {
                     ResultSet rs = instruccion.executeQuery("select id, edad from InfaCDCV1");
                     while(rs.next()){
                         if (rs.getInt(2) > edad) {
+                            rs.previous();
                             cod=rs.getInt(1);
                             break;
                         } else if (rs.getInt(2) == edad) {
@@ -1580,6 +1582,7 @@ public class AntroInfan extends javax.swing.JDialog {
                         ResultSet rs = instruccion.executeQuery("select id, edad from InfaWHOV1");
                         while(rs.next()){
                             if (rs.getInt(2) > edad) {
+                                rs.previous();
                                 cod=rs.getInt(1);
                                 break;
                             } else if (rs.getInt(2) == edad) {

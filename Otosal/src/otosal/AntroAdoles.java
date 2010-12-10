@@ -925,10 +925,10 @@ public class AntroAdoles extends javax.swing.JDialog {
                 LIE.setEnabled(true);
                 LTE.setEnabled(true);
                 LPE.setEnabled(true);
-                LPBE.setEnabled(true);
+                LPBE.setEnabled(false);
                 LPL.setEnabled(false);
                 RBTE.setEnabled(true);
-                RBPE.setEnabled(true);
+                RBPE.setEnabled(false);
                 RBPBE.setEnabled(true);
                 RBPT.setEnabled(false);
                 RBIE.setEnabled(true);
@@ -939,7 +939,6 @@ public class AntroAdoles extends javax.swing.JDialog {
                     ResultSet rs = instruccion.executeQuery("select id, edad from AdolesOrbegozoV");
                     while(rs.next()){
                         if (rs.getDouble(2) > edadMes) {
-                            rs.previous();
                             cod=rs.getInt(1);
                             break;
                         } else if (rs.getDouble(2) == edadMes) {
@@ -1164,7 +1163,6 @@ public class AntroAdoles extends javax.swing.JDialog {
                     ResultSet rs = instruccion.executeQuery("select id, edad from AdolesCarrasV");
                     while(rs.next()){
                         if (rs.getDouble(2) > edadMes) {
-                            rs.previous();
                             cod=rs.getInt(1);
                             break;
                         } else if (rs.getDouble(2) == edadMes) {
@@ -1422,7 +1420,6 @@ public class AntroAdoles extends javax.swing.JDialog {
                     ResultSet rs = instruccion.executeQuery("select id, edad from AdolesCDCV");
                     while(rs.next()){
                         if (rs.getDouble(2) > edadMes) {
-                            rs.previous();
                             cod=rs.getInt(1);
                             break;
                         } else if (rs.getDouble(2) == edadMes) {

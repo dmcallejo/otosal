@@ -376,7 +376,7 @@ public class OtosalView extends FrameView {
             JFrame mainFrame = OtosalApp.getApplication().getMainFrame();
             aPaciente = new APacientes(mainFrame, true);
             aPaciente.setLocationRelativeTo(mainFrame);
-        }
+        } 
         OtosalApp.getApplication().show(aPaciente);
     }
 

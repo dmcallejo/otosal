@@ -30,6 +30,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -38,6 +39,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -57,13 +59,13 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel2" min="-2" max="-2" attributes="1"/>
-                              <Component id="jPanel7" min="-2" max="-2" attributes="1"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jPanel7" pref="791" max="32767" attributes="1"/>
+                              <Component id="jPanel2" alignment="0" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="DPImagen" pref="366" max="32767" attributes="1"/>
+                              <Component id="DPImagen" pref="417" max="32767" attributes="1"/>
                               <Component id="jPanel10" alignment="0" min="-2" max="-2" attributes="1"/>
                           </Group>
                       </Group>
@@ -282,7 +284,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="RBVaron" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="5" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="RBHembra" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -351,7 +353,7 @@
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                           <Component id="TFPerBra" min="-2" pref="83" max="-2" attributes="0"/>
-                          <EmptySpace pref="110" max="32767" attributes="0"/>
+                          <EmptySpace pref="117" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -514,11 +516,11 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel8" max="32767" attributes="1"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jPanel9" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jPanel8" alignment="0" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -529,9 +531,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="18" max="32767" attributes="0"/>
-                      <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jPanel9" min="-2" pref="326" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -566,7 +567,7 @@
                               <Component id="RBWho" min="-2" max="-2" attributes="0"/>
                               <Component id="RBSiri" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="141" max="32767" attributes="0"/>
+                          <EmptySpace pref="59" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -705,56 +706,91 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="LTE" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
-                              <Component id="LPE" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LPBE" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LIE" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LPL" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="1"/>
-                              <Component id="TFPBEP" alignment="0" max="32767" attributes="1"/>
-                              <Component id="TFPPE" alignment="0" max="32767" attributes="1"/>
-                              <Component id="TFLEP" alignment="0" pref="60" max="32767" attributes="1"/>
-                              <Component id="TFPL" alignment="0" max="32767" attributes="1"/>
-                              <Component id="TFIEP" alignment="0" max="32767" attributes="1"/>
-                          </Group>
-                          <EmptySpace pref="76" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel21" min="-2" pref="63" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" pref="217" max="32767" attributes="1"/>
-                              </Group>
+                              <Component id="LPBE" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="TFLEP50" alignment="1" pref="62" max="32767" attributes="1"/>
-                                      <Component id="TFPEP50" alignment="1" pref="63" max="32767" attributes="1"/>
-                                      <Component id="TFPBEP50" alignment="1" pref="62" max="32767" attributes="1"/>
-                                      <Component id="TFIEP50" alignment="1" max="32767" attributes="1"/>
-                                      <Component id="TFPLP50" alignment="1" max="32767" attributes="1"/>
+                                      <Component id="LTE" alignment="0" pref="164" max="32767" attributes="1"/>
+                                      <Component id="LPE" alignment="0" max="32767" attributes="1"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="LINPBE" alignment="0" pref="157" max="32767" attributes="1"/>
-                                      <Component id="LINPE" alignment="0" pref="157" max="32767" attributes="1"/>
-                                      <Component id="LINLE" alignment="1" pref="157" max="32767" attributes="1"/>
-                                      <Component id="LINLP" alignment="1" pref="157" max="32767" attributes="1"/>
-                                      <Component id="LINIE" alignment="1" pref="157" max="32767" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="LIE" min="-2" max="-2" attributes="0"/>
+                              <Component id="LPL" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="TFPL" min="-2" pref="75" max="-2" attributes="1"/>
+                              <Component id="TFPPE" min="-2" pref="75" max="-2" attributes="1"/>
+                              <Component id="TFIEP" alignment="0" min="-2" pref="75" max="-2" attributes="1"/>
+                              <Component id="TFPBEP" alignment="0" min="-2" pref="75" max="-2" attributes="1"/>
+                              <Component id="jLabel18" alignment="0" pref="75" max="32767" attributes="1"/>
+                              <Component id="TFLEP" alignment="0" min="-2" pref="75" max="-2" attributes="1"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="TFPBEP50" min="-2" pref="75" max="-2" attributes="1"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="TFIEP50" min="-2" pref="75" max="-2" attributes="1"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel21" max="32767" attributes="1"/>
+                                      <Component id="TFPLP50" alignment="0" min="-2" pref="75" max="-2" attributes="1"/>
+                                      <Component id="TFLEP50" alignment="0" min="-2" pref="75" max="-2" attributes="1"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="TFPEP50" min="-2" pref="75" max="-2" attributes="1"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="LINLP" pref="144" max="32767" attributes="1"/>
+                              <Component id="LINIE" pref="144" max="32767" attributes="0"/>
+                              <Component id="LINPBE" pref="144" max="32767" attributes="1"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Component id="LINPE" pref="132" max="32767" attributes="1"/>
+                              </Group>
+                              <Component id="LINLE" alignment="1" pref="144" max="32767" attributes="1"/>
+                              <Component id="jLabel11" alignment="0" pref="144" max="32767" attributes="1"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="373" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="LPE" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="LTE" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="LIE" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="LPBE" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="LPL" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -762,58 +798,53 @@
                               <Component id="jLabel11" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                               <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="LTE" min="-2" max="-2" attributes="0"/>
-                                      <Component id="TFLEP" max="32767" attributes="1"/>
-                                  </Group>
+                              <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="TFPPE" alignment="3" min="-2" max="-2" attributes="1"/>
-                                      <Component id="LPE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="TFPBEP" alignment="3" min="-2" max="-2" attributes="1"/>
-                                      <Component id="LPBE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="TFIEP" alignment="3" min="-2" max="-2" attributes="1"/>
-                                      <Component id="LIE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="LPL" min="-2" max="-2" attributes="0"/>
-                                      <Component id="TFPL" min="-2" max="-2" attributes="1"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="TFLEP50" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="TFLEP" alignment="0" max="32767" attributes="1"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="LINLE" pref="20" max="32767" attributes="1"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="LINPE" min="-2" pref="20" max="-2" attributes="1"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="LINPBE" min="-2" pref="19" max="-2" attributes="1"/>
-                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="LINIE" min="-2" pref="21" max="-2" attributes="1"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="LINLP" min="-2" pref="22" max="-2" attributes="1"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="TFLEP50" max="32767" attributes="1"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="TFPEP50" min="-2" max="-2" attributes="1"/>
-                                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                                  <Component id="TFPBEP50" min="-2" max="-2" attributes="1"/>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="TFIEP50" min="-2" max="-2" attributes="1"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="TFPLP50" pref="20" max="32767" attributes="1"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="LINLE" max="32767" attributes="1"/>
+                              <Component id="TFPEP50" alignment="1" max="32767" attributes="1"/>
+                              <Component id="TFPL" alignment="1" max="32767" attributes="1"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="TFPBEP50" alignment="3" min="-2" max="-2" attributes="1"/>
+                                  <Component id="TFPPE" alignment="3" min="-2" max="-2" attributes="1"/>
+                              </Group>
+                              <Component id="LINPBE" alignment="0" min="-2" pref="19" max="-2" attributes="1"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="TFIEP50" min="-2" max="-2" attributes="1"/>
+                                      <Component id="TFPBEP" alignment="0" min="-2" max="-2" attributes="1"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="TFIEP" alignment="1" min="-2" max="-2" attributes="1"/>
+                                      <Component id="TFPLP50" alignment="0" min="-2" max="-2" attributes="1"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="1">
+                                  <Component id="LINIE" min="-2" pref="21" max="-2" attributes="1"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="LINLP" min="-2" pref="22" max="-2" attributes="1"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -942,6 +973,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="Percentiles"/>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[75, 17]"/>
+                    </Property>
                     <Property name="name" type="java.lang.String" value="jLabel18" noResource="true"/>
                   </Properties>
                 </Component>
@@ -1008,7 +1042,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                       <Component id="jLabel15" min="-2" pref="65" max="-2" attributes="0"/>
-                      <EmptySpace pref="156" max="32767" attributes="0"/>
+                      <EmptySpace pref="207" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
@@ -1052,7 +1086,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="RBPT" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

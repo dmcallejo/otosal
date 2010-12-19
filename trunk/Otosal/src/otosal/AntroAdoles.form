@@ -518,13 +518,13 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jPanel9" alignment="0" max="32767" attributes="1"/>
                           <Component id="jPanel8" alignment="0" max="32767" attributes="1"/>
                       </Group>
-                      <EmptySpace pref="11" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -534,8 +534,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="31" max="32767" attributes="0"/>
+                      <Component id="jPanel9" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -560,17 +560,20 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="RBOrbegozo" min="-2" max="-2" attributes="0"/>
-                              <Component id="RBCarrascosa" min="-2" max="-2" attributes="0"/>
-                              <Component id="RBNCHS" min="-2" max="-2" attributes="0"/>
+                              <Component id="RBSiri" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="RBOrbegozo" min="-2" max="-2" attributes="0"/>
+                                      <Component id="RBCarrascosa" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="RBCDC" min="-2" max="-2" attributes="0"/>
+                                      <Component id="RBWho" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="RBCDC" min="-2" max="-2" attributes="0"/>
-                              <Component id="RBWho" min="-2" max="-2" attributes="0"/>
-                              <Component id="RBSiri" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="140" max="32767" attributes="0"/>
+                          <EmptySpace pref="149" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -578,27 +581,18 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="RBSiri" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="RBNCHS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="RBCDC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="RBOrbegozo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="RBWho" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="RBCarrascosa" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="RBCDC" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="RBOrbegozo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="RBWho" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="RBCarrascosa" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="RBSiri" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="10" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -630,6 +624,9 @@
                     <Property name="text" type="java.lang.String" value="Ecuaci&#xf3;n de Siri (1956) % Grasa Corporal"/>
                     <Property name="name" type="java.lang.String" value="RBSiri" noResource="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBSiriActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="RBWho">
                   <Properties>
@@ -676,21 +673,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBCarrascosaActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="RBNCHS">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="b7" green="b8" red="e5" type="rgb"/>
-                    </Property>
-                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="BGPaper"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="The National Centre Health Statistics (NCHS) 1979"/>
-                    <Property name="name" type="java.lang.String" value="RBNCHS" noResource="true"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBNCHSActionPerformed"/>
-                  </Events>
-                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel9">
@@ -720,12 +702,14 @@
                           </Group>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="TFPL" alignment="0" pref="70" max="32767" attributes="1"/>
                               <Component id="jLabel18" alignment="0" pref="70" max="32767" attributes="1"/>
-                              <Component id="TFIEP" alignment="0" pref="70" max="32767" attributes="1"/>
-                              <Component id="TFPPE" alignment="0" pref="70" max="32767" attributes="1"/>
-                              <Component id="TFLEP" alignment="0" pref="70" max="32767" attributes="1"/>
-                              <Component id="TFPBEP" alignment="0" pref="70" max="32767" attributes="1"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="TFPL" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="TFIEP" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="TFPBEP" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="TFPPE" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="TFLEP" alignment="0" min="-2" pref="62" max="-2" attributes="1"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -734,8 +718,8 @@
                               <Component id="TFPBEP50" alignment="0" pref="64" max="32767" attributes="1"/>
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="TFPEP50" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="TFLEP50" alignment="0" pref="64" max="32767" attributes="1"/>
                                   <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="1"/>
-                                  <Component id="TFLEP50" alignment="0" min="-2" pref="64" max="-2" attributes="1"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
@@ -745,29 +729,29 @@
                               <Component id="jLabel11" alignment="0" max="32767" attributes="1"/>
                               <Component id="LINLE" alignment="0" pref="172" max="32767" attributes="1"/>
                               <Component id="LINPE" alignment="0" max="32767" attributes="1"/>
-                              <Component id="LINPBE" alignment="0" max="32767" attributes="1"/>
+                              <Component id="LINPBE" alignment="0" min="-2" max="-2" attributes="1"/>
                           </Group>
-                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel11" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                               <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="LINLE" alignment="0" pref="20" max="32767" attributes="1"/>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="TFLEP50" alignment="1" max="32767" attributes="1"/>
-                                  <Component id="TFLEP" alignment="1" max="32767" attributes="1"/>
-                                  <Component id="LTE" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                  <Component id="TFLEP50" alignment="3" max="32767" attributes="1"/>
+                                  <Component id="TFLEP" alignment="3" min="-2" max="-2" attributes="1"/>
                               </Group>
+                              <Component id="LTE" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -822,7 +806,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

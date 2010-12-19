@@ -127,6 +127,7 @@ public class OtosalView extends FrameView {
         MIAdultos = new javax.swing.JMenuItem();
         MIAncianos = new javax.swing.JMenuItem();
         MHisClin = new javax.swing.JMenu();
+        jMenuItem12 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -185,7 +186,7 @@ public class OtosalView extends FrameView {
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(644, Short.MAX_VALUE))
+                .addContainerGap(632, Short.MAX_VALUE))
         );
 
         menuBar.setName("menuBar"); // NOI18N
@@ -238,6 +239,13 @@ public class OtosalView extends FrameView {
 
         MHisClin.setText(resourceMap.getString("MHisClin.text")); // NOI18N
         MHisClin.setName("MHisClin"); // NOI18N
+
+        jMenuItem12.setAction(actionMap.get("MIAntClinicos")); // NOI18N
+        jMenuItem12.setText(resourceMap.getString("AntClinicos.text")); // NOI18N
+        jMenuItem12.setName("AntClinicos"); // NOI18N
+        MHisClin.add(jMenuItem12);
+        jMenuItem12.getAccessibleContext().setAccessibleName(resourceMap.getString("jMenuItem12.AccessibleContext.accessibleName")); // NOI18N
+
         menuBar.add(MHisClin);
 
         jMenu2.setText(resourceMap.getString("jMenu2.text")); // NOI18N
@@ -339,7 +347,7 @@ public class OtosalView extends FrameView {
             .addGroup(statusPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 915, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 899, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)
@@ -450,6 +458,16 @@ public static int calcularMeses (String fecha) throws ParseException {
                     }
                     OtosalApp.getApplication().show(AInfanAdoles);
     }
+     @Action
+    public void MIAntClinicos() {
+         AInfanAdoles=null;
+                    if (AInfanAdoles == null) {
+                        JFrame mainFrame = OtosalApp.getApplication().getMainFrame();
+                        AInfanAdoles = new AntClinicos(mainFrame, true);
+                        AInfanAdoles.setLocationRelativeTo(mainFrame);
+                    }
+                    OtosalApp.getApplication().show(AInfanAdoles);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MAntro;
@@ -472,6 +490,7 @@ public static int calcularMeses (String fecha) throws ParseException {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

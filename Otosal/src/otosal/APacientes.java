@@ -756,6 +756,15 @@ public class APacientes extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSalirActionPerformed
+        /*
+         * Para no bloquear la base de datos, es necesario cerrar la conexión al cerrar.
+         */
+        try {
+            this.conexion.close();
+            System.out.println("Conexión cerrada");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         dispose();
     }//GEN-LAST:event_BSalirActionPerformed
 
@@ -1397,6 +1406,5 @@ public static int calcularEdad(String fecha){
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-
     private javax.swing.JDialog cuestionario;
 }

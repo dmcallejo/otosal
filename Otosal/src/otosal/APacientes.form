@@ -92,7 +92,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="566" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="653" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -187,8 +187,8 @@
                                   <Component id="TFDirec" alignment="0" max="32767" attributes="1"/>
                                   <Component id="TFCodPac" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="TFProv" alignment="0" pref="480" max="32767" attributes="0"/>
-                              <Component id="TFEmail" alignment="0" pref="480" max="32767" attributes="0"/>
+                              <Component id="TFProv" alignment="0" pref="537" max="32767" attributes="0"/>
+                              <Component id="TFEmail" alignment="0" pref="537" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -604,7 +604,7 @@
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="744" max="32767" attributes="0"/>
+                  <EmptySpace pref="846" max="32767" attributes="0"/>
                   <Component id="BSalir" min="-2" pref="68" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -731,7 +731,7 @@
                   <Component id="BVisitas" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="BHistorial" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="324" max="32767" attributes="0"/>
+                  <EmptySpace pref="375" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

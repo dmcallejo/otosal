@@ -21,7 +21,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jToolBar1" min="-2" pref="25" max="-2" attributes="0"/>
-                  <EmptySpace pref="632" max="32767" attributes="0"/>
+                  <EmptySpace pref="644" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -151,9 +151,6 @@
                 <Property name="text" type="java.lang.String" resourceKey="AntClinicos.text"/>
                 <Property name="name" type="java.lang.String" value="AntClinicos" noResource="true"/>
               </Properties>
-              <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleName" type="java.lang.String" resourceKey="jMenuItem12.AccessibleContext.accessibleName"/>
-              </AccessibilityProperties>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -303,7 +300,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="statusMessageLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="899" max="32767" attributes="0"/>
+                  <EmptySpace pref="915" max="32767" attributes="0"/>
                   <Component id="progressBar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="statusAnimationLabel" min="-2" max="-2" attributes="0"/>

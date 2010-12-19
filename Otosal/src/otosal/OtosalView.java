@@ -186,7 +186,7 @@ public class OtosalView extends FrameView {
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(632, Short.MAX_VALUE))
+                .addContainerGap(644, Short.MAX_VALUE))
         );
 
         menuBar.setName("menuBar"); // NOI18N
@@ -244,7 +244,6 @@ public class OtosalView extends FrameView {
         jMenuItem12.setText(resourceMap.getString("AntClinicos.text")); // NOI18N
         jMenuItem12.setName("AntClinicos"); // NOI18N
         MHisClin.add(jMenuItem12);
-        jMenuItem12.getAccessibleContext().setAccessibleName(resourceMap.getString("jMenuItem12.AccessibleContext.accessibleName")); // NOI18N
 
         menuBar.add(MHisClin);
 
@@ -347,7 +346,7 @@ public class OtosalView extends FrameView {
             .addGroup(statusPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 899, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 915, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)

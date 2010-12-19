@@ -1,7 +1,6 @@
 /*
  * OtosalView.java
  */
-
 package otosal;
 
 import org.jdesktop.application.Action;
@@ -32,7 +31,6 @@ import javax.swing.JOptionPane;
  */
 public class OtosalView extends FrameView {
 
-
     public OtosalView(SingleFrameApplication app) {
         super(app);
 
@@ -43,6 +41,7 @@ public class OtosalView extends FrameView {
         ResourceMap resourceMap = getResourceMap();
         int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
         messageTimer = new Timer(messageTimeout, new ActionListener() {
+
             public void actionPerformed(ActionEvent e) {
                 statusMessageLabel.setText("");
             }
@@ -53,6 +52,7 @@ public class OtosalView extends FrameView {
             busyIcons[i] = resourceMap.getIcon("StatusBar.busyIcons[" + i + "]");
         }
         busyIconTimer = new Timer(busyAnimationRate, new ActionListener() {
+
             public void actionPerformed(ActionEvent e) {
                 busyIconIndex = (busyIconIndex + 1) % busyIcons.length;
                 statusAnimationLabel.setIcon(busyIcons[busyIconIndex]);
@@ -65,6 +65,7 @@ public class OtosalView extends FrameView {
         // connecting action tasks to status bar via TaskMonitor
         TaskMonitor taskMonitor = new TaskMonitor(getApplication().getContext());
         taskMonitor.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 String propertyName = evt.getPropertyName();
                 if ("started".equals(propertyName)) {
@@ -81,11 +82,11 @@ public class OtosalView extends FrameView {
                     progressBar.setVisible(false);
                     progressBar.setValue(0);
                 } else if ("message".equals(propertyName)) {
-                    String text = (String)(evt.getNewValue());
+                    String text = (String) (evt.getNewValue());
                     statusMessageLabel.setText((text == null) ? "" : text);
                     messageTimer.restart();
                 } else if ("progress".equals(propertyName)) {
-                    int value = (Integer)(evt.getNewValue());
+                    int value = (Integer) (evt.getNewValue());
                     progressBar.setVisible(true);
                     progressBar.setIndeterminate(false);
                     progressBar.setValue(value);
@@ -127,7 +128,9 @@ public class OtosalView extends FrameView {
         MIAdultos = new javax.swing.JMenuItem();
         MIAncianos = new javax.swing.JMenuItem();
         MHisClin = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
         jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -186,7 +189,7 @@ public class OtosalView extends FrameView {
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(644, Short.MAX_VALUE))
+                .addContainerGap(632, Short.MAX_VALUE))
         );
 
         menuBar.setName("menuBar"); // NOI18N
@@ -240,10 +243,20 @@ public class OtosalView extends FrameView {
         MHisClin.setText(resourceMap.getString("MHisClin.text")); // NOI18N
         MHisClin.setName("MHisClin"); // NOI18N
 
-        jMenuItem12.setAction(actionMap.get("MIAntClinicos")); // NOI18N
-        jMenuItem12.setText(resourceMap.getString("AntClinicos.text")); // NOI18N
-        jMenuItem12.setName("AntClinicos"); // NOI18N
-        MHisClin.add(jMenuItem12);
+        jMenu7.setText(resourceMap.getString("jMenu7.text")); // NOI18N
+        jMenu7.setName("jMenu7"); // NOI18N
+
+        jMenuItem12.setAction(actionMap.get("MIAntFamiliares")); // NOI18N
+        jMenuItem12.setText(resourceMap.getString("jMenuItem12.text")); // NOI18N
+        jMenuItem12.setName("jMenuItem12"); // NOI18N
+        jMenu7.add(jMenuItem12);
+
+        jMenuItem13.setAction(actionMap.get("MIAntPersonales")); // NOI18N
+        jMenuItem13.setText(resourceMap.getString("jMenuItem13.text")); // NOI18N
+        jMenuItem13.setName("jMenuItem13"); // NOI18N
+        jMenu7.add(jMenuItem13);
+
+        MHisClin.add(jMenu7);
 
         menuBar.add(MHisClin);
 
@@ -346,7 +359,7 @@ public class OtosalView extends FrameView {
             .addGroup(statusPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 915, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 899, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)
@@ -378,18 +391,18 @@ public class OtosalView extends FrameView {
 
     @Action
     public void AltaPac() {
-        aPaciente=null;
+        aPaciente = null;
         if (aPaciente == null) {
             JFrame mainFrame = OtosalApp.getApplication().getMainFrame();
             aPaciente = new APacientes(mainFrame, true);
             aPaciente.setLocationRelativeTo(mainFrame);
-        } 
+        }
         OtosalApp.getApplication().show(aPaciente);
     }
 
     @Action
     public void HistoPaci() {
-        hPaciente=null;
+        hPaciente = null;
         if (hPaciente == null) {
             JFrame mainFrame = OtosalApp.getApplication().getMainFrame();
             hPaciente = new HPacientes(mainFrame, true);
@@ -401,19 +414,19 @@ public class OtosalView extends FrameView {
     @Action
     public void MInfancia() {
         String ControladorJDBC = "org.sqlite.JDBC";
-         String baseDatos = "jdbc:sqlite:Otosal.sqlite";
-         Connection conexion;
-         Statement instruccion;
-         try{
+        String baseDatos = "jdbc:sqlite:Otosal.sqlite";
+        Connection conexion;
+        Statement instruccion;
+        try {
             Class.forName(ControladorJDBC);
             conexion = DriverManager.getConnection(baseDatos);
             instruccion = conexion.createStatement();
             System.out.println("Base de datos cargada");
             ResultSet rs = instruccion.executeQuery("Select FechNac from TempPaci");
             rs.next();
-            if ( !rs.isClosed() ) {
-                if (calcularMeses(rs.getString(1)) < 24 ) {
-                    AInfan=null;
+            if (!rs.isClosed()) {
+                if (calcularMeses(rs.getString(1)) < 24) {
+                    AInfan = null;
                     if (AInfan == null) {
                         JFrame mainFrame = OtosalApp.getApplication().getMainFrame();
                         AInfan = new AntroInfan(mainFrame, true);
@@ -422,52 +435,58 @@ public class OtosalView extends FrameView {
                     OtosalApp.getApplication().show(AInfan);
                 } else {
                     JOptionPane.showMessageDialog(null, "El paciente seleccionado no corresponde con este rango de edades",
-                        "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+                            "Otoño Salud", JOptionPane.ERROR_MESSAGE);
                 }
                 rs.close();
             } else {
-                 JOptionPane.showMessageDialog(null, "No hay ningún paciente seleccionado",
+                JOptionPane.showMessageDialog(null, "No hay ningún paciente seleccionado",
                         "Otoño Salud", JOptionPane.ERROR_MESSAGE);
             }
             instruccion.close();
-         }catch(Exception e) {}
+        } catch (Exception e) {
+        }
     }
 
-public static int calcularMeses (String fecha) throws ParseException {
-    String datetext = fecha;
-    Calendar birth = new GregorianCalendar();
-    Calendar today = new GregorianCalendar();
-    int meses = 0;
-    Date birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(datetext);
-    Date currentDate = new Date(); //current date
-    birth.setTime(birthDate);
-    today.setTime(currentDate);
-    meses = (today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) ) *12;
-    meses = meses + (today.get(Calendar.MONTH) - birth.get(Calendar.MONTH));
-    return meses;
-}
+    public static int calcularMeses(String fecha) throws ParseException {
+        String datetext = fecha;
+        Calendar birth = new GregorianCalendar();
+        Calendar today = new GregorianCalendar();
+        int meses = 0;
+        Date birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(datetext);
+        Date currentDate = new Date(); //current date
+        birth.setTime(birthDate);
+        today.setTime(currentDate);
+        meses = (today.get(Calendar.YEAR) - birth.get(Calendar.YEAR)) * 12;
+        meses = meses + (today.get(Calendar.MONTH) - birth.get(Calendar.MONTH));
+        return meses;
+    }
 
     @Action
     public void MIInfanAdoles() {
-         AInfanAdoles=null;
-                    if (AInfanAdoles == null) {
-                        JFrame mainFrame = OtosalApp.getApplication().getMainFrame();
-                        AInfanAdoles = new AntroAdoles(mainFrame, true);
-                        AInfanAdoles.setLocationRelativeTo(mainFrame);
-                    }
-                    OtosalApp.getApplication().show(AInfanAdoles);
-    }
-     @Action
-    public void MIAntClinicos() {
-         AInfanAdoles=null;
-                    if (AInfanAdoles == null) {
-                        JFrame mainFrame = OtosalApp.getApplication().getMainFrame();
-                        AInfanAdoles = new AntClinicos(mainFrame, true);
-                        AInfanAdoles.setLocationRelativeTo(mainFrame);
-                    }
-                    OtosalApp.getApplication().show(AInfanAdoles);
+        AInfanAdoles = null;
+        if (AInfanAdoles == null) {
+            JFrame mainFrame = OtosalApp.getApplication().getMainFrame();
+            AInfanAdoles = new AntroAdoles(mainFrame, true);
+            AInfanAdoles.setLocationRelativeTo(mainFrame);
+        }
+        OtosalApp.getApplication().show(AInfanAdoles);
     }
 
+    @Action
+    public void MIAntFamiliares() {
+        JFrame mainFrame = OtosalApp.getApplication().getMainFrame();
+        JDialog dialogo = new AntFamiliares(mainFrame, true);
+        dialogo.setLocationRelativeTo(mainFrame);
+        OtosalApp.getApplication().show(dialogo);
+    }
+
+    @Action
+    public void MIAntPersonales() {
+        JFrame mainFrame = OtosalApp.getApplication().getMainFrame();
+        JDialog dialogo = new AntPersonales(mainFrame, true);
+        dialogo.setLocationRelativeTo(mainFrame);
+        OtosalApp.getApplication().show(dialogo);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MAntro;
     private javax.swing.JMenu MHisClin;
@@ -486,10 +505,12 @@ public static int calcularMeses (String fecha) throws ParseException {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -506,13 +527,11 @@ public static int calcularMeses (String fecha) throws ParseException {
     private javax.swing.JLabel statusMessageLabel;
     private javax.swing.JPanel statusPanel;
     // End of variables declaration//GEN-END:variables
-
     private final Timer messageTimer;
     private final Timer busyIconTimer;
     private final Icon idleIcon;
     private final Icon[] busyIcons = new Icon[15];
     private int busyIconIndex = 0;
-
     private JDialog aboutBox;
     private JDialog aPaciente;
     private JDialog hPaciente;

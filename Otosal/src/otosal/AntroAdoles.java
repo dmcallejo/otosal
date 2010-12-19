@@ -537,7 +537,7 @@ public class AntroAdoles extends javax.swing.JDialog {
         LINPBE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINPBE.setName("LINPBE"); // NOI18N
 
-        LINIE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LINIE.setFont(new java.awt.Font("Tahoma", 1, 12));
         LINIE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINIE.setName("LINIE"); // NOI18N
 
@@ -545,11 +545,11 @@ public class AntroAdoles extends javax.swing.JDialog {
         LINLP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINLP.setName("LINLP"); // NOI18N
 
-        LINLE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LINLE.setFont(new java.awt.Font("Tahoma", 1, 12));
         LINLE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINLE.setName("LINLE"); // NOI18N
 
-        LINPE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LINPE.setFont(new java.awt.Font("Tahoma", 1, 12));
         LINPE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINPE.setName("LINPE"); // NOI18N
 

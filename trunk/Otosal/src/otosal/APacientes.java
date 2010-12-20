@@ -8,7 +8,6 @@
  *
  * Created on 22-oct-2009, 19:02:00
  */
-
 package otosal;
 
 import java.awt.event.KeyEvent;
@@ -40,7 +39,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.File;
 
-
 /**
  *
  * @author Portatil An
@@ -48,10 +46,9 @@ import java.io.File;
 public class APacientes extends javax.swing.JDialog {
 
     DefaultTableModel modelo = new DefaultTableModel();
-
     static final String ControladorJDBC = "org.sqlite.JDBC";
     static final String baseDatos = "jdbc:sqlite:Otosal.sqlite";
-    String sql ="";
+    String sql = "";
     private Connection conexion;
     private Statement instruccion;
 
@@ -59,19 +56,20 @@ public class APacientes extends javax.swing.JDialog {
     public APacientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
-        try{
+
+        try {
             Class.forName(ControladorJDBC);
             conexion = DriverManager.getConnection(baseDatos);
             instruccion = conexion.createStatement();
             System.out.println("Base de datos cargada");
-           }catch(Exception e){
-                JOptionPane.showMessageDialog(null, e.getMessage(),
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(),
                     "Error en la base de datos", JOptionPane.ERROR_MESSAGE);
             System.exit(1);
-           }finally{
-           }
-        sql="select * from TempPaci";
+        } finally {
+            System.out.println("WHA?");
+        }
+        sql = "select * from TempPaci";
         CargaTabla();
         RBHembra.setSelected(true);
         BAnadir.setEnabled(false);
@@ -91,41 +89,44 @@ public class APacientes extends javax.swing.JDialog {
         PBuscar.setVisible(false);
     }
 
-    public void CargaTabla2 () {
+    public void CargaTabla2() {
         //Con  este metodo lo que hago es cargar la tabla de las busquedas
         modelo.setColumnCount(0);
-	modelo.setRowCount(0);
-	modelo.addColumn("Cod. Paciente");
-	modelo.addColumn("Paciente");
+        modelo.setRowCount(0);
+        modelo.addColumn("Cod. Paciente");
+        modelo.addColumn("Paciente");
         try {
             //Cambiar pacientes por pacientes temporal
             ResultSet rs = instruccion.executeQuery(sql);
-             if ( !rs.isClosed() ) {
-                 Object [] fila = new Object[2];
-                 while (rs.next()) {
-                    fila[0]=rs.getInt(1);
-                    fila[1]=rs.getString(2);
+            if (!rs.isClosed()) {
+                Object[] fila = new Object[2];
+                while (rs.next()) {
+                    fila[0] = rs.getInt(1);
+                    fila[1] = rs.getString(2);
                     modelo.addRow(fila);
-                 }
-             }
-        } catch (Exception e) {System.out.println(e);}
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    public void CargaTabla () {
+
+    public void CargaTabla() {
         //Cargo primero la tabla y por ultimo compruebo si hay seleccionado algun paciente en la tabla temporal
         //si hay alguno seleccionado solo muestro el seleccionado y si no lo hay, muestro todos los pacientes que
         //no esten traspasados al historico.
         modelo.setColumnCount(0);
-	modelo.setRowCount(0);
-	modelo.addColumn("Cod. Paciente");
-	modelo.addColumn("Paciente");
+        modelo.setRowCount(0);
+        modelo.addColumn("Cod. Paciente");
+        modelo.addColumn("Paciente");
         try {
             //Cambiar pacientes por pacientes temporal
             ResultSet rs = instruccion.executeQuery(sql);
             rs.next();
-            if ( !rs.isClosed() ) {
-                Object [] fila = new Object[2];
-                fila[0]=rs.getInt(1);
-                fila[1]=rs.getString(2);
+            if (!rs.isClosed()) {
+                Object[] fila = new Object[2];
+                fila[0] = rs.getInt(1);
+                fila[1] = rs.getString(2);
                 modelo.addRow(fila);
                 BSelec.setText("Cerrar Consulta");
                 BBorrar.setEnabled(false);
@@ -136,12 +137,12 @@ public class APacientes extends javax.swing.JDialog {
                 //Esto es para cuando en la tabla temporal no tengo paciente seleccionado,
                 //se muestra los de la tabla pacientes
                 rs = instruccion.executeQuery("select * from Pacientes where Historico like 'No' order by id;");
-                if ( !rs.isClosed() ) {
+                if (!rs.isClosed()) {
                     //Activar solo el boton de visitas del panel Añadir
-                    Object [] fila = new Object[2];
+                    Object[] fila = new Object[2];
                     while (rs.next()) {
-                        fila[0]=rs.getInt(1);
-                        fila[1]=rs.getString(2);
+                        fila[0] = rs.getInt(1);
+                        fila[1] = rs.getString(2);
                         modelo.addRow(fila);
                     }
                     BBorrar.setEnabled(true);
@@ -156,6 +157,7 @@ public class APacientes extends javax.swing.JDialog {
         }
 
     }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -762,34 +764,32 @@ public class APacientes extends javax.swing.JDialog {
         try {
             this.conexion.close();
             System.out.println("Conexión cerrada");
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         dispose();
     }//GEN-LAST:event_BSalirActionPerformed
 
     private void RBVaronActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBVaronActionPerformed
-  
     }//GEN-LAST:event_RBVaronActionPerformed
 
     private void RBHembraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBHembraActionPerformed
-   
     }//GEN-LAST:event_RBHembraActionPerformed
 
     private void BSelecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSelecActionPerformed
         //Aqui guardo en la tabla temporal los datos del paciente seleccionado
         if (BSelec.getText().equals("Seleccionar")) {
             if (!TFNom.getText().equals("")) {
-                String sex =new String();
+                String sex = new String();
                 if (RBVaron.isSelected()) {
-                        sex = "Varon";
-                    } else {
-                        sex = "Mujer";
-                    }
+                    sex = "Varon";
+                } else {
+                    sex = "Mujer";
+                }
                 try {
-                    instruccion.executeUpdate("insert into TempPaci values ("+TFCodPac.getText() + ", '"+TFNom.getText()+ "', '" +TFDirec.getText()+ "', '" + TFPob.getText()+ "', '" + TFCP.getText() +
-                            "', '" + TFProv.getText()+ "', '" + TFTelef.getText()+ "', '" + TFTelfMov.getText() +"', '"+ TFEmail.getText()+"', '" + TFFechNac.getText() + "', '" + sex + "', 'No')");
-                    sql="select * from TempPaci";
+                    instruccion.executeUpdate("insert into TempPaci values (" + TFCodPac.getText() + ", '" + TFNom.getText() + "', '" + TFDirec.getText() + "', '" + TFPob.getText() + "', '" + TFCP.getText()
+                            + "', '" + TFProv.getText() + "', '" + TFTelef.getText() + "', '" + TFTelfMov.getText() + "', '" + TFEmail.getText() + "', '" + TFFechNac.getText() + "', '" + sex + "', 'No')");
+                    sql = "select * from TempPaci";
                     CargaTabla();
                     aNull();
                     BBorrar.setEnabled(false);
@@ -799,36 +799,44 @@ public class APacientes extends javax.swing.JDialog {
                     BSelec.setText("Cerrar Consulta");
 
                     JOptionPane.showMessageDialog(null, "Paciente seleccionado correctamente",
-                    "Otoño Salud", JOptionPane.INFORMATION_MESSAGE + JOptionPane.OK_OPTION);
+                            "Otoño Salud", JOptionPane.INFORMATION_MESSAGE + JOptionPane.OK_OPTION);
                 } catch (Exception e) {
-                     System.out.println(e);
+                    System.out.println(e);
+                } finally {
+                    try {
+                        conexion.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Debes seleccionar un Paciente",
-                    "Otoño Salud", JOptionPane.ERROR_MESSAGE + JOptionPane.OK_OPTION);
+                        "Otoño Salud", JOptionPane.ERROR_MESSAGE + JOptionPane.OK_OPTION);
             }
         } else {
             try {
                 instruccion.execute("DELETE FROM TempPaci");
                 instruccion.close();
                 instruccion = conexion.createStatement();
-                sql="select * from Pacientes where Historico like 'No' order by id;";
-                    CargaTabla2();
-                    aNull();
-                    BBorrar.setEnabled(true);
-                    BNuevo.setEnabled(true);
-                    BBusqueda.setEnabled(true);
-                    BHistorial.setEnabled(false);
-                    BSelec.setText("Seleccionar");
-                    JOptionPane.showMessageDialog(null, "Consulta terminada correctamente",
-                    "Otoño Salud", JOptionPane.INFORMATION_MESSAGE + JOptionPane.OK_OPTION);
-            } catch( Exception e) {System.out.println(e);}
+                sql = "select * from Pacientes where Historico like 'No' order by id;";
+                CargaTabla2();
+                aNull();
+                BBorrar.setEnabled(true);
+                BNuevo.setEnabled(true);
+                BBusqueda.setEnabled(true);
+                BHistorial.setEnabled(false);
+                BSelec.setText("Seleccionar");
+                JOptionPane.showMessageDialog(null, "Consulta terminada correctamente",
+                        "Otoño Salud", JOptionPane.INFORMATION_MESSAGE + JOptionPane.OK_OPTION);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
     }//GEN-LAST:event_BSelecActionPerformed
 
     private void TPacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TPacMouseClicked
         //cuando de un click sobre la tabla muestro todos los campos de la bbdd del paciente seleccionado
-        if (evt.getClickCount()==1) {
+        if (evt.getClickCount() == 1) {
             int linea = TPac.getSelectedRow();
             try {
                 ResultSet rs = instruccion.executeQuery("select * from Pacientes where historico='No' and id=" + (Integer) modelo.getValueAt(linea, 0));
@@ -851,7 +859,7 @@ public class APacientes extends javax.swing.JDialog {
                 TFTelfMov.setText(Movil);
                 String email = rs.getString(9);
                 TFEmail.setText(email);
-                String fecha =  rs.getString(10);
+                String fecha = rs.getString(10);
                 TFFechNac.setText(rs.getString(10));
                 //Calcular la edad
                 Integer edad = calcularEdad(fecha);
@@ -873,7 +881,7 @@ public class APacientes extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_TPacMouseClicked
 
-    public void aNull () {
+    public void aNull() {
         //Pongo todos los campos vacios para poder actuar con ellos si es necesario
         TFCodPac.setText("");
         TFNom.setText("");
@@ -890,50 +898,50 @@ public class APacientes extends javax.swing.JDialog {
         RBVaron.setSelected(false);
     }
 
-
     private void BNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BNuevoActionPerformed
-        
+
         int cdg = new Integer(0);
         try {
             ResultSet rs = instruccion.executeQuery("SELECT count (*) as  id FROM Pacientes");
             rs.next();
             cdg = rs.getInt(1) + 1;
             System.out.println(cdg);
-        }catch(Exception e){}
+        } catch (Exception e) {
+        }
         //Variable para que solo se puedan meter 25 pacientes DESCOMENTAR
         //if (cdg< 7) {
-            aNull();
-            TFCodPac.setText(Integer.toString(cdg));
-            TFNom.setEditable(true);
-            TFDirec.setEditable(true);
-            TFPob.setEditable(true);
-            TFCP.setEditable(true);
-            TFProv.setEditable(true);
-            TFTelef.setEditable(true);
-            TFTelfMov.setEditable(true);
-            TFEmail.setEditable(true);
-            TFFechNac.setEditable(true);
-            TFNom.requestFocus();
-            BNuevo.setEnabled(false);
-            BModif.setEnabled(false);
-            BBusqueda.setEnabled(false);
-            PBuscar.setVisible(false);
-            BBusqueda.setText("Busqueda");
-            BSelec.setEnabled(false);
-            BSalir.setEnabled(false);
-            BBorrar.setEnabled(false);
-            BAnadir.setEnabled(true);
-            BCancel.setEnabled(true);
-            BVisitas.setEnabled(false);
-            BHistorial.setEnabled(true);
+        aNull();
+        TFCodPac.setText(Integer.toString(cdg));
+        TFNom.setEditable(true);
+        TFDirec.setEditable(true);
+        TFPob.setEditable(true);
+        TFCP.setEditable(true);
+        TFProv.setEditable(true);
+        TFTelef.setEditable(true);
+        TFTelfMov.setEditable(true);
+        TFEmail.setEditable(true);
+        TFFechNac.setEditable(true);
+        TFNom.requestFocus();
+        BNuevo.setEnabled(false);
+        BModif.setEnabled(false);
+        BBusqueda.setEnabled(false);
+        PBuscar.setVisible(false);
+        BBusqueda.setText("Busqueda");
+        BSelec.setEnabled(false);
+        BSalir.setEnabled(false);
+        BBorrar.setEnabled(false);
+        BAnadir.setEnabled(true);
+        BCancel.setEnabled(true);
+        BVisitas.setEnabled(false);
+        BHistorial.setEnabled(true);
         //Descomentar para que solo se puedan meter 25 pacientes
         /*} else {
-            JOptionPane.showMessageDialog(null, "Has alcanzado el limite maximo de pacientes",
-                    "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Has alcanzado el limite maximo de pacientes",
+        "Otoño Salud", JOptionPane.ERROR_MESSAGE);
         }*/
     }//GEN-LAST:event_BNuevoActionPerformed
 
-     //metodo para validar correo electronio
+    //metodo para validar correo electronio
     public boolean isEmail(String correo) {
         Pattern pat = null;
         Matcher mat = null;
@@ -942,12 +950,10 @@ public class APacientes extends javax.swing.JDialog {
         if (mat.find()) {
             System.out.println("[" + mat.group() + "]");
             return true;
-        }else{
+        } else {
             return false;
         }
     }
-
-
 
     //metodo para validar si la fecha es correcta
     public boolean isDate(String fechax) {
@@ -962,9 +968,9 @@ public class APacientes extends javax.swing.JDialog {
 
     private void TFFechNacFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TFFechNacFocusLost
         if (!TFFechNac.getText().equals("")) {
-            if (!isDate(TFFechNac.getText()) ) {
+            if (!isDate(TFFechNac.getText())) {
                 JOptionPane.showMessageDialog(null, "La fecha introducida no es correcta",
-                    "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+                        "Otoño Salud", JOptionPane.ERROR_MESSAGE);
             } else {
                 Integer edad = calcularEdad(TFFechNac.getText());
                 TFEdad.setText(edad.toString());
@@ -976,14 +982,14 @@ public class APacientes extends javax.swing.JDialog {
         if (!TFEmail.getText().equals("")) {
             if (!isEmail(TFEmail.getText())) {
                 JOptionPane.showMessageDialog(null, "El E-mail introducido no es correcto",
-                    "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+                        "Otoño Salud", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_TFEmailFocusLost
 
     private void BCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCancelActionPerformed
         int n = JOptionPane.showConfirmDialog(null, "¿Quieres cancelar la introduccion de datos?",
-                    "Otoño Salud", JOptionPane.YES_NO_OPTION);
+                "Otoño Salud", JOptionPane.YES_NO_OPTION);
         if (n == JOptionPane.YES_OPTION) {
             aNull();
             TFNom.setEditable(false);
@@ -1011,12 +1017,13 @@ public class APacientes extends javax.swing.JDialog {
     private void BBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBorrarActionPerformed
         if (!TFCodPac.getText().equals("")) {
             int n = JOptionPane.showConfirmDialog(null, "¿Quieres borrar el Paciente?",
-                        "Otoño Salud", JOptionPane.YES_NO_OPTION);
+                    "Otoño Salud", JOptionPane.YES_NO_OPTION);
             if (n == JOptionPane.YES_OPTION) {
                 if (!TFCodPac.getText().equals("")) {
                     try {
                         instruccion.executeQuery("Update Pacientes set Historico = 'Si' where id=" + TFCodPac.getText());
-                    }catch (Exception e) {}
+                    } catch (Exception e) {
+                    }
                     aNull();
                     CargaTabla();
                 }
@@ -1025,151 +1032,163 @@ public class APacientes extends javax.swing.JDialog {
     }//GEN-LAST:event_BBorrarActionPerformed
 
     private void BModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BModifActionPerformed
-    if (!TFNom.getText().equals("")) {
-        TFNom.setEditable(true);
-        TFDirec.setEditable(true);
-        TFPob.setEditable(true);
-        TFCP.setEditable(true);
-        TFProv.setEditable(true);
-        TFTelef.setEditable(true);
-        TFTelfMov.setEditable(true);
-        TFEmail.setEditable(true);
-        TFFechNac.setEditable(true);
-        TFNom.requestFocus();
-        TFNom.selectAll();
-        BNuevo.setEnabled(false);
-        BModif.setEnabled(false);
-        BBusqueda.setEnabled(false);
-        BBusqueda.setText("Busqueda");
-        BSelec.setEnabled(false);
-        BSalir.setEnabled(false);
-        BBorrar.setEnabled(false);
-        BAnadir.setEnabled(true);
-        PBuscar.setVisible(false);
-        BAnadir.setText("Modificar");
-        BCancel.setEnabled(true);
-        BVisitas.setEnabled(false);
-        BHistorial.setEnabled(false);
-    }
+        if (!TFNom.getText().equals("")) {
+            TFNom.setEditable(true);
+            TFDirec.setEditable(true);
+            TFPob.setEditable(true);
+            TFCP.setEditable(true);
+            TFProv.setEditable(true);
+            TFTelef.setEditable(true);
+            TFTelfMov.setEditable(true);
+            TFEmail.setEditable(true);
+            TFFechNac.setEditable(true);
+            TFNom.requestFocus();
+            TFNom.selectAll();
+            BNuevo.setEnabled(false);
+            BModif.setEnabled(false);
+            BBusqueda.setEnabled(false);
+            BBusqueda.setText("Busqueda");
+            BSelec.setEnabled(false);
+            BSalir.setEnabled(false);
+            BBorrar.setEnabled(false);
+            BAnadir.setEnabled(true);
+            PBuscar.setVisible(false);
+            BAnadir.setText("Modificar");
+            BCancel.setEnabled(true);
+            BVisitas.setEnabled(false);
+            BHistorial.setEnabled(false);
+        }
     }//GEN-LAST:event_BModifActionPerformed
 
     private void BAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BAnadirActionPerformed
-      if (!TFNom.getText().equals("") && !TFFechNac.getText().equals("")) {
-        int n = JOptionPane.showConfirmDialog(null, "¿Quieres guardar el Paciente?",
+        if (!TFNom.getText().equals("") && !TFFechNac.getText().equals("")) {
+            int n = JOptionPane.showConfirmDialog(null, "¿Quieres guardar el Paciente?",
                     "Otoño Salud", JOptionPane.YES_NO_OPTION);
-        if (n == JOptionPane.YES_OPTION) {
-            String temp1 = new String(TFCodPac.getText());
-            String temp2 = new String (TFNom.getText());
-            String temp3 = new String ("");
-            if (!TFDirec.getText().equals(""))
-                temp3 = TFDirec.getText();
-            String temp4 = new String ("");
-            if (!TFPob.getText().equals(""))
-                temp4 = TFPob.getText();
-            String temp5 = new String ("");
-            if (!TFCP.getText().equals(""))
-                temp5 = TFCP.getText();
-            else
-                temp5 = "0";
-            String temp6 = new String ("");
-            if (!TFProv.getText().equals(""))
-                temp6 = TFProv.getText();
-            String temp7 = new String ("");
-            if (!TFTelef.getText().equals(""))
-                temp7 = TFTelef.getText();
-            else
-                temp7 = "0";
-            String temp8 = new String ("");
-            if (!TFTelfMov.getText().equals(""))
-                temp8 = TFTelfMov.getText();
-            else
-                temp8 = "0";
-            String temp9 = new String("");
-            if (!TFEmail.getText().equals(""))
-                temp9 = TFEmail.getText();
-            String temp10 = new String ("");
-            if (!TFFechNac.getText().equals(""))
-                temp10 = TFFechNac.getText();
-            String sexo = new String("");
-                    if (RBVaron.isSelected())
-                        sexo = "Varon";
-                    else if (RBHembra.isSelected())
-                        sexo = "Mujer";
-            if (BAnadir.getText().equals("Modificar")) {
-                BAnadir.setText("Añadir");
-                //Inserto una sql para modificar el registro
+            if (n == JOptionPane.YES_OPTION) {
+                String temp1 = new String(TFCodPac.getText());
+                String temp2 = new String(TFNom.getText());
+                String temp3 = new String("");
+                if (!TFDirec.getText().equals("")) {
+                    temp3 = TFDirec.getText();
+                }
+                String temp4 = new String("");
+                if (!TFPob.getText().equals("")) {
+                    temp4 = TFPob.getText();
+                }
+                String temp5 = new String("");
+                if (!TFCP.getText().equals("")) {
+                    temp5 = TFCP.getText();
+                } else {
+                    temp5 = "0";
+                }
+                String temp6 = new String("");
+                if (!TFProv.getText().equals("")) {
+                    temp6 = TFProv.getText();
+                }
+                String temp7 = new String("");
+                if (!TFTelef.getText().equals("")) {
+                    temp7 = TFTelef.getText();
+                } else {
+                    temp7 = "0";
+                }
+                String temp8 = new String("");
+                if (!TFTelfMov.getText().equals("")) {
+                    temp8 = TFTelfMov.getText();
+                } else {
+                    temp8 = "0";
+                }
+                String temp9 = new String("");
+                if (!TFEmail.getText().equals("")) {
+                    temp9 = TFEmail.getText();
+                }
+                String temp10 = new String("");
+                if (!TFFechNac.getText().equals("")) {
+                    temp10 = TFFechNac.getText();
+                }
+                String sexo = new String("");
+                if (RBVaron.isSelected()) {
+                    sexo = "Varon";
+                } else if (RBHembra.isSelected()) {
+                    sexo = "Mujer";
+                }
+                if (BAnadir.getText().equals("Modificar")) {
+                    BAnadir.setText("Añadir");
+                    //Inserto una sql para modificar el registro
                     try {
-                        instruccion.executeUpdate("UPDATE Pacientes set Nombre = '" + temp2 +
-                             "', Direccion = '" + temp3 + "', Poblacion = '" + temp4 + "', cp = "  + Integer.parseInt(temp5) +
-                             ", Provincia = '" + temp6 + "', Telefono = " + Integer.parseInt(temp7) + ", Movil = " + Integer.parseInt(temp8) +
-                             ", Email = '" + temp9 + "', FechNac = '" + temp10 + "', sexo = '" + sexo + "', Historico = 'No' where id = " + temp1 );
-                    } catch (Exception e) {System.out.println(e);}
-            } else {
-                //Inserto una sql para añadir el paciente a la tabla
-                try {
-                    instruccion.execute("insert into TempPaci values ('" + temp1 + "', '" + temp2 +
-                             "', '" + temp3 + "', '" + temp4 + "', "  + Integer.parseInt(temp5) +
-                             ", '" + temp6 + "', " + Integer.parseInt(temp7) + ", " + Integer.parseInt(temp8) +
-                             ", '" + temp9 + "', '" + temp10 + "', '" + sexo + "', 'No')");
-                    instruccion.executeUpdate("INSERT INTO Pacientes SELECT * FROM TempPaci");
-                } catch(Exception e) {System.out.println(e);}
-                //Como lo guardo en la tabla temporal muestro el temporal
-                sql="select * from TempPaci";
-                CargaTabla();
-                //Como el paciente es nuevo lo que hago es rellenar el cuestionario inicial
-                cuestionario=null;
+                        instruccion.executeUpdate("UPDATE Pacientes set Nombre = '" + temp2
+                                + "', Direccion = '" + temp3 + "', Poblacion = '" + temp4 + "', cp = " + Integer.parseInt(temp5)
+                                + ", Provincia = '" + temp6 + "', Telefono = " + Integer.parseInt(temp7) + ", Movil = " + Integer.parseInt(temp8)
+                                + ", Email = '" + temp9 + "', FechNac = '" + temp10 + "', sexo = '" + sexo + "', Historico = 'No' where id = " + temp1);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                } else {
+                    //Inserto una sql para añadir el paciente a la tabla
+                    try {
+                        instruccion.execute("insert into TempPaci values ('" + temp1 + "', '" + temp2
+                                + "', '" + temp3 + "', '" + temp4 + "', " + Integer.parseInt(temp5)
+                                + ", '" + temp6 + "', " + Integer.parseInt(temp7) + ", " + Integer.parseInt(temp8)
+                                + ", '" + temp9 + "', '" + temp10 + "', '" + sexo + "', 'No')");
+                        instruccion.executeUpdate("INSERT INTO Pacientes SELECT * FROM TempPaci");
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                    //Como lo guardo en la tabla temporal muestro el temporal
+                    sql = "select * from TempPaci";
+                    CargaTabla();
+                    //Como el paciente es nuevo lo que hago es rellenar el cuestionario inicial
+                    cuestionario = null;
                     if (cuestionario == null) {
                         JFrame mainFrame = OtosalApp.getApplication().getMainFrame();
                         cuestionario = new Cuestionario(mainFrame, true);
                         cuestionario.setLocationRelativeTo(mainFrame);
                     }
                     OtosalApp.getApplication().show(cuestionario);
+                }
+                //Pongo los campo a null y a continuacion lo que hago es poner los campos a no editables y los botones a enabled para no utilizarlos
+                aNull();
+                TFNom.setEditable(false);
+                TFDirec.setEditable(false);
+                TFPob.setEditable(false);
+                TFCP.setEditable(false);
+                TFProv.setEditable(false);
+                TFTelef.setEditable(false);
+                TFTelfMov.setEditable(false);
+                TFEmail.setEditable(false);
+                TFFechNac.setEditable(false);
+                BNuevo.setEnabled(true);
+                BModif.setEnabled(true);
+                BBusqueda.setEnabled(true);
+                BSelec.setEnabled(true);
+                BSalir.setEnabled(true);
+                BBorrar.setEnabled(true);
+                BAnadir.setEnabled(false);
+                BCancel.setEnabled(false);
+                BVisitas.setEnabled(false);
+                BHistorial.setEnabled(false);
             }
-            //Pongo los campo a null y a continuacion lo que hago es poner los campos a no editables y los botones a enabled para no utilizarlos
-            aNull();
-            TFNom.setEditable(false);
-            TFDirec.setEditable(false);
-            TFPob.setEditable(false);
-            TFCP.setEditable(false);
-            TFProv.setEditable(false);
-            TFTelef.setEditable(false);
-            TFTelfMov.setEditable(false);
-            TFEmail.setEditable(false);
-            TFFechNac.setEditable(false);
-            BNuevo.setEnabled(true);
-            BModif.setEnabled(true);
-            BBusqueda.setEnabled(true);
-            BSelec.setEnabled(true);
-            BSalir.setEnabled(true);
-            BBorrar.setEnabled(true);
-            BAnadir.setEnabled(false);
-            BCancel.setEnabled(false);
-            BVisitas.setEnabled(false);
-            BHistorial.setEnabled(false);
+        } else {
         }
-      }  else {
-
-      }
     }//GEN-LAST:event_BAnadirActionPerformed
 
     private void BBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusquedaActionPerformed
         if (BBusqueda.getText().equals("Ocultar Busqueda")) {
-           PBuscar.setVisible(false);
-           BBusqueda.setText("Busqueda");
+            PBuscar.setVisible(false);
+            BBusqueda.setText("Busqueda");
         } else {
-           PBuscar.setVisible(true);
-           TFNomBusqueda.requestFocus();
-           BBusqueda.setText("Ocultar Busqueda");
+            PBuscar.setVisible(true);
+            TFNomBusqueda.requestFocus();
+            BBusqueda.setText("Ocultar Busqueda");
         }
     }//GEN-LAST:event_BBusquedaActionPerformed
 
     private void TFNomBusquedaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFNomBusquedaKeyPressed
-        sql="select * from Pacientes where Historico like 'No' and nombre like '%"+ TFNomBusqueda.getText().toString().toUpperCase() +"%' order by id;";
+        sql = "select * from Pacientes where Historico like 'No' and nombre like '%" + TFNomBusqueda.getText().toString().toUpperCase() + "%' order by id;";
         CargaTabla2();
     }//GEN-LAST:event_TFNomBusquedaKeyPressed
 
     private void BRestBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRestBusqActionPerformed
-        sql="select * from Pacientes where Historico like 'No' order by id;";
+        sql = "select * from Pacientes where Historico like 'No' order by id;";
         CargaTabla2();
         BBusqueda.setText("");
         PBuscar.setVisible(false);
@@ -1177,185 +1196,180 @@ public class APacientes extends javax.swing.JDialog {
     }//GEN-LAST:event_BRestBusqActionPerformed
 
     private void TFCPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFCPKeyTyped
-         char caracter = evt.getKeyChar();
-      // Verificar si la tecla pulsada no es un digito
-      if(((caracter < '0') ||
-         (caracter > '9')) &&
-         (caracter != KeyEvent.VK_BACK_SPACE))
-      {
-         evt.consume();  // ignorar el evento de teclado
-      }
-      if (TFCP.getText().length()>4) {
+        char caracter = evt.getKeyChar();
+        // Verificar si la tecla pulsada no es un digito
+        if (((caracter < '0')
+                || (caracter > '9'))
+                && (caracter != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();  // ignorar el evento de teclado
+        }
+        if (TFCP.getText().length() > 4) {
             getToolkit().beep();
             evt.consume();
         }
     }//GEN-LAST:event_TFCPKeyTyped
 
     private void TFTelefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFTelefKeyTyped
-         char caracter = evt.getKeyChar();
-      // Verificar si la tecla pulsada no es un digito
-      if(((caracter < '0') ||
-         (caracter > '9')) &&
-         (caracter != KeyEvent.VK_BACK_SPACE))
-      {
-         evt.consume();  // ignorar el evento de teclado
-      }
-       if (TFTelef.getText().length()>11) {
+        char caracter = evt.getKeyChar();
+        // Verificar si la tecla pulsada no es un digito
+        if (((caracter < '0')
+                || (caracter > '9'))
+                && (caracter != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();  // ignorar el evento de teclado
+        }
+        if (TFTelef.getText().length() > 11) {
             getToolkit().beep();
             evt.consume();
         }
     }//GEN-LAST:event_TFTelefKeyTyped
 
     private void TFTelfMovKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFTelfMovKeyTyped
-         char caracter = evt.getKeyChar();
-      // Verificar si la tecla pulsada no es un digito
-      if(((caracter < '0') ||
-         (caracter > '9')) &&
-         (caracter != KeyEvent.VK_BACK_SPACE))
-      {
-         evt.consume();  // ignorar el evento de teclado
-      }
-      if (TFTelfMov.getText().length()>11) {
+        char caracter = evt.getKeyChar();
+        // Verificar si la tecla pulsada no es un digito
+        if (((caracter < '0')
+                || (caracter > '9'))
+                && (caracter != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();  // ignorar el evento de teclado
+        }
+        if (TFTelfMov.getText().length() > 11) {
             getToolkit().beep();
             evt.consume();
         }
     }//GEN-LAST:event_TFTelfMovKeyTyped
 
     private void TFCPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFCPKeyPressed
-       
     }//GEN-LAST:event_TFCPKeyPressed
 
     private void BHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BHistorialActionPerformed
-    if (!TFNom.getText().equals("")) {
-        Document doc = new Document();
-        try {
-        Font negrita=new Font(Font.COURIER,10,Font.BOLD);
-        Font normal = new Font(Font.COURIER, 10, Font.NORMAL);
-        PdfWriter.getInstance(doc, new FileOutputStream("informe.pdf"));
-        doc.open();
-        //Añado los datos del pdf
-        doc.addTitle("Informe Personal");
-        doc.addSubject("Informe de Paciente");
-        doc.addAuthor("Otoño Salud");
-        doc.addCreator("Otoño Salud");
-        //Ahora creo la hoja
-        Paragraph pag = new Paragraph();
-        //Primero dejo una linea en blanco
-        addEmptyLine(pag, 1);
-        pag.add(new Paragraph("Nombre: " + TFNom.getText() + "       Edad: " + TFEdad.getText(), negrita));
-        addEmptyLine(pag, 1);
-        pag.add(new Paragraph("Medidas antropométricas:", negrita));
-        pag.add(new Paragraph("Altura (cm): ", normal));
-        pag.add(new Paragraph("Peso Actual (kg): ", normal));
-        pag.add(new Paragraph("Peso habitual (kg): ", normal));
-        pag.add(new Paragraph("IMC (kg/m2): ", normal));
-        pag.add(new Paragraph("Peso deseable (kg): ", normal));
-        pag.add(new Paragraph("Porcentaje de Peso deseable (%): ", normal));
-        pag.add(new Paragraph("Circunferencia de brazo (cm): ", normal));
-        pag.add(new Paragraph("Perimetro muscular del brazo (cm): ", normal));
-        pag.add(new Paragraph("Pliegue Tricipital (mm): ", normal));
-        pag.add(new Paragraph("Porcentaje de grasa corporal (%): ", normal));
-        addEmptyLine(pag, 1);
-        pag.add(new Paragraph("Determinaciones bioquímicas:", negrita));
-        pag.add(new Paragraph("Albúmina (g/dl): ", normal));
-        pag.add(new Paragraph("Prealbúmina (mg/dl): ", normal));
-        pag.add(new Paragraph("Transferrina (mg/dl): ", normal));
-        pag.add(new Paragraph("Proteina de unión a retinol (mg/dl): ", normal));
-        pag.add(new Paragraph("Linfocitos totales (cel/mm3): ", normal));
-        pag.add(new Paragraph("Prueba de hiperssensibilidad cutánea: ", normal));
-        pag.add(new Paragraph("Indice creatinina/altura (%): ", normal));
-        pag.add(new Paragraph("Balance nutricional: ", normal));
-        pag.add(new Paragraph("Colesterol total (mg/dl): ", normal));
-        pag.add(new Paragraph("LDL-Colesterol (mg/dl): ", normal));
-        pag.add(new Paragraph("HDL-Colesterol (mg/dl): ", normal));
-        pag.add(new Paragraph("HemoglobinaA1C (%): ", normal));
-        addEmptyLine(pag, 1);
-        pag.add(new Paragraph("Diagnóstico nutricional:", negrita));
-        pag.add(new Paragraph("Indice pronostrico nutricional (IPN): ", normal));
-        pag.add(new Paragraph("DETERMINE: ", normal));
-        pag.add(new Paragraph("MUST: ", normal));
-        pag.add(new Paragraph("MNA: ", normal));
-        pag.add(new Paragraph("Pronóstico síndrome metabólico: ", normal));
-        pag.add(new Paragraph("Pronóstico riesgo cardiovascular: ", normal));
-        pag.add(new Paragraph("Genetic Risk Score: ", normal));
-        addEmptyLine(pag, 1);
-        pag.add(new Paragraph("Cálculos energéticos:", negrita));
-        pag.add(new Paragraph("Gasto energético basal (Kcal/día): ", normal));
-        pag.add(new Paragraph("Gasto energético total (Kcal/día): ", normal));
-        pag.add(new Paragraph("Ingesta Calórica (Kcal/día): ", normal));
-        doc.add(pag);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-        doc.close();
-        try {
-            File path = new File ("informe.pdf");
-            Desktop.getDesktop().open(path);
-        }catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    } else {
-        JOptionPane.showMessageDialog(null, "No has seleccionado ningún Paciente",
+        if (!TFNom.getText().equals("")) {
+            Document doc = new Document();
+            try {
+                Font negrita = new Font(Font.COURIER, 10, Font.BOLD);
+                Font normal = new Font(Font.COURIER, 10, Font.NORMAL);
+                PdfWriter.getInstance(doc, new FileOutputStream("informe.pdf"));
+                doc.open();
+                //Añado los datos del pdf
+                doc.addTitle("Informe Personal");
+                doc.addSubject("Informe de Paciente");
+                doc.addAuthor("Otoño Salud");
+                doc.addCreator("Otoño Salud");
+                //Ahora creo la hoja
+                Paragraph pag = new Paragraph();
+                //Primero dejo una linea en blanco
+                addEmptyLine(pag, 1);
+                pag.add(new Paragraph("Nombre: " + TFNom.getText() + "       Edad: " + TFEdad.getText(), negrita));
+                addEmptyLine(pag, 1);
+                pag.add(new Paragraph("Medidas antropométricas:", negrita));
+                pag.add(new Paragraph("Altura (cm): ", normal));
+                pag.add(new Paragraph("Peso Actual (kg): ", normal));
+                pag.add(new Paragraph("Peso habitual (kg): ", normal));
+                pag.add(new Paragraph("IMC (kg/m2): ", normal));
+                pag.add(new Paragraph("Peso deseable (kg): ", normal));
+                pag.add(new Paragraph("Porcentaje de Peso deseable (%): ", normal));
+                pag.add(new Paragraph("Circunferencia de brazo (cm): ", normal));
+                pag.add(new Paragraph("Perimetro muscular del brazo (cm): ", normal));
+                pag.add(new Paragraph("Pliegue Tricipital (mm): ", normal));
+                pag.add(new Paragraph("Porcentaje de grasa corporal (%): ", normal));
+                addEmptyLine(pag, 1);
+                pag.add(new Paragraph("Determinaciones bioquímicas:", negrita));
+                pag.add(new Paragraph("Albúmina (g/dl): ", normal));
+                pag.add(new Paragraph("Prealbúmina (mg/dl): ", normal));
+                pag.add(new Paragraph("Transferrina (mg/dl): ", normal));
+                pag.add(new Paragraph("Proteina de unión a retinol (mg/dl): ", normal));
+                pag.add(new Paragraph("Linfocitos totales (cel/mm3): ", normal));
+                pag.add(new Paragraph("Prueba de hiperssensibilidad cutánea: ", normal));
+                pag.add(new Paragraph("Indice creatinina/altura (%): ", normal));
+                pag.add(new Paragraph("Balance nutricional: ", normal));
+                pag.add(new Paragraph("Colesterol total (mg/dl): ", normal));
+                pag.add(new Paragraph("LDL-Colesterol (mg/dl): ", normal));
+                pag.add(new Paragraph("HDL-Colesterol (mg/dl): ", normal));
+                pag.add(new Paragraph("HemoglobinaA1C (%): ", normal));
+                addEmptyLine(pag, 1);
+                pag.add(new Paragraph("Diagnóstico nutricional:", negrita));
+                pag.add(new Paragraph("Indice pronostrico nutricional (IPN): ", normal));
+                pag.add(new Paragraph("DETERMINE: ", normal));
+                pag.add(new Paragraph("MUST: ", normal));
+                pag.add(new Paragraph("MNA: ", normal));
+                pag.add(new Paragraph("Pronóstico síndrome metabólico: ", normal));
+                pag.add(new Paragraph("Pronóstico riesgo cardiovascular: ", normal));
+                pag.add(new Paragraph("Genetic Risk Score: ", normal));
+                addEmptyLine(pag, 1);
+                pag.add(new Paragraph("Cálculos energéticos:", negrita));
+                pag.add(new Paragraph("Gasto energético basal (Kcal/día): ", normal));
+                pag.add(new Paragraph("Gasto energético total (Kcal/día): ", normal));
+                pag.add(new Paragraph("Ingesta Calórica (Kcal/día): ", normal));
+                doc.add(pag);
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+            doc.close();
+            try {
+                File path = new File("informe.pdf");
+                Desktop.getDesktop().open(path);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No has seleccionado ningún Paciente",
                     "Otoño Salud", JOptionPane.ERROR_MESSAGE);
-    }
+        }
     }//GEN-LAST:event_BHistorialActionPerformed
 
     private static void addEmptyLine(Paragraph paragraph, int number) {
-		for (int i = 0; i < number; i++) {
-			paragraph.add(new Paragraph(" "));
-		}
-	}
+        for (int i = 0; i < number; i++) {
+            paragraph.add(new Paragraph(" "));
+        }
+    }
 
-
-    public String afecha (String fecha) {
+    public String afecha(String fecha) {
         String ano = new String();
         String mes = new String();
         String dia = new String();
-        Integer sw=new Integer(0);
-        for (int i=0;i<fecha.length();i++) {
-            if (fecha.charAt(i)!= '-') {
-                if (sw==0) {
-                    ano=ano+fecha.charAt(i);
-                } else if (sw==1) {
-                    mes=mes +fecha.charAt(i);
+        Integer sw = new Integer(0);
+        for (int i = 0; i < fecha.length(); i++) {
+            if (fecha.charAt(i) != '-') {
+                if (sw == 0) {
+                    ano = ano + fecha.charAt(i);
+                } else if (sw == 1) {
+                    mes = mes + fecha.charAt(i);
                 } else {
-                    dia=dia +fecha.charAt(i);
+                    dia = dia + fecha.charAt(i);
                 }
             } else {
-                sw+=1;
+                sw += 1;
             }
 
         }
-        fecha=dia + "/" + mes + "/" + ano;
+        fecha = dia + "/" + mes + "/" + ano;
         return fecha;
     }
-public static int calcularEdad(String fecha){
-         String datetext = fecha;
-         try {
-             Calendar birth = new GregorianCalendar();
-             Calendar today = new GregorianCalendar();
-             int age = 0;
-             int factor = 0;
-             Date birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(datetext);
-             Date currentDate = new Date(); //current date
-             birth.setTime(birthDate);
-             today.setTime(currentDate);
-             if(today.get(Calendar.MONTH) <= birth.get(Calendar.MONTH)){
-                 if(today.get(Calendar.MONTH) == birth.get(Calendar.MONTH)){
-                     if(today.get(Calendar.DATE) > birth.get(Calendar.DATE)) {
-                         factor = -1; //Aun no celebra su cumpleaños
-                     }
-                 }else{
-                     factor = -1; //Aun no celebra su cumpleaños
-                 }
-             }
-             age =(today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) )+ factor;
-             return age;
-         } catch (Exception e) {
-             return -1;
-         }
-}
 
+    public static int calcularEdad(String fecha) {
+        String datetext = fecha;
+        try {
+            Calendar birth = new GregorianCalendar();
+            Calendar today = new GregorianCalendar();
+            int age = 0;
+            int factor = 0;
+            Date birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(datetext);
+            Date currentDate = new Date(); //current date
+            birth.setTime(birthDate);
+            today.setTime(currentDate);
+            if (today.get(Calendar.MONTH) <= birth.get(Calendar.MONTH)) {
+                if (today.get(Calendar.MONTH) == birth.get(Calendar.MONTH)) {
+                    if (today.get(Calendar.DATE) > birth.get(Calendar.DATE)) {
+                        factor = -1; //Aun no celebra su cumpleaños
+                    }
+                } else {
+                    factor = -1; //Aun no celebra su cumpleaños
+                }
+            }
+            age = (today.get(Calendar.YEAR) - birth.get(Calendar.YEAR)) + factor;
+            return age;
+        } catch (Exception e) {
+            return -1;
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BAnadir;
     private javax.swing.JButton BBorrar;

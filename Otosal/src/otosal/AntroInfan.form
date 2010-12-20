@@ -85,7 +85,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="DPImagen" pref="353" max="32767" attributes="1"/>
+                                  <Component id="DPImagen" pref="404" max="32767" attributes="1"/>
                                   <Component id="jPanel5" alignment="0" min="-2" max="-2" attributes="1"/>
                               </Group>
                           </Group>
@@ -235,7 +235,7 @@
                                       <Component id="TFEdad" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="21" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -316,7 +316,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="RBVaron" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="5" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="RBHembra" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -385,7 +385,7 @@
                                       <Component id="TFIMC" min="-2" pref="84" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="91" max="32767" attributes="0"/>
+                              <EmptySpace pref="92" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -490,7 +490,7 @@
                           <EmptySpace pref="216" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="114" max="32767" attributes="0"/>
+                          <EmptySpace pref="141" max="32767" attributes="0"/>
                           <Component id="PGrafico" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                       </Group>
@@ -684,15 +684,15 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="LINLE" pref="20" max="32767" attributes="1"/>
+                                      <Component id="LINLE" pref="27" max="32767" attributes="1"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="LINPE" pref="20" max="32767" attributes="1"/>
+                                      <Component id="LINPE" pref="27" max="32767" attributes="1"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="LINPCE" pref="20" max="32767" attributes="1"/>
+                                      <Component id="LINPCE" pref="27" max="32767" attributes="1"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="LINIE" pref="20" max="32767" attributes="1"/>
+                                      <Component id="LINIE" pref="27" max="32767" attributes="1"/>
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Component id="LINLP" pref="20" max="32767" attributes="1"/>
+                                      <Component id="LINLP" pref="30" max="32767" attributes="1"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -703,7 +703,7 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="LPE" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="TFPPE" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="TFPPE" alignment="0" pref="30" max="32767" attributes="1"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -907,7 +907,7 @@
                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="150" max="32767" attributes="0"/>
+                          <EmptySpace pref="201" max="32767" attributes="0"/>
                           <Component id="jLabel13" min="-2" pref="65" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                       </Group>

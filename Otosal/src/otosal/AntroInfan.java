@@ -8,7 +8,6 @@
  *
  * Created on 04-nov-2009, 9:30:56
  */
-
 package otosal;
 
 import java.awt.BorderLayout;
@@ -57,21 +56,15 @@ import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-
-
 /**
  *
  * @author Portatil An
  */
-
-
-
-
 public class AntroInfan extends javax.swing.JDialog {
 
     static final String ControladorJDBC = "org.sqlite.JDBC";
     static final String baseDatos = "jdbc:sqlite:Otosal.sqlite";
-    String sql ="";
+    String sql = "";
     private Connection conexion;
     private Statement instruccion;
     String codCliente;
@@ -84,8 +77,8 @@ public class AntroInfan extends javax.swing.JDialog {
         super(parent, modal);
 
         initComponents();
-        
-        try{
+
+        try {
             Class.forName(ControladorJDBC);
             conexion = DriverManager.getConnection(baseDatos);
             instruccion = conexion.createStatement();
@@ -97,10 +90,11 @@ public class AntroInfan extends javax.swing.JDialog {
             TFFechNac.setText(rs.getString(3));
             Integer edad = calcularEdad(TFFechNac.getText());
             TFEdad.setText(edad.toString());
-            if (rs.getString(4).equals("Varon"))
+            if (rs.getString(4).equals("Varon")) {
                 RBVaron.setSelected(true);
-            else if (rs.getString(4).equals("Mujer"))
+            } else if (rs.getString(4).equals("Mujer")) {
                 RBHembra.setSelected(true);
+            }
             rs.close();
             instruccion.close();
             //Pongo a editable false para que no se pueda modificar
@@ -131,7 +125,15 @@ public class AntroInfan extends javax.swing.JDialog {
             RBIE.setEnabled(false);
             RBPL.setEnabled(false);
             TFLongitud.requestFocus();
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conexion.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /** This method is called from within the constructor to
@@ -918,10 +920,14 @@ public class AntroInfan extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BGuardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGuardar2ActionPerformed
-
 }//GEN-LAST:event_BGuardar2ActionPerformed
 
     private void BCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCerrarActionPerformed
+        try {
+            conexion.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         dispose();
 }//GEN-LAST:event_BCerrarActionPerformed
 
@@ -929,10 +935,10 @@ public class AntroInfan extends javax.swing.JDialog {
         //Compruebo que el campo longitud y peso tenga valor y si lo tiene calculo el imc
         if (!TFLongitud.getText().equals("") && !TFPeso.getText().equals("")) {
             Double imc;
-            imc= (Double.valueOf(TFPeso.getText().trim()).doubleValue() / ((Double.valueOf(TFLongitud.getText().trim()).doubleValue()/100)*(Double.valueOf(TFLongitud.getText().trim()).doubleValue()/100)) );
+            imc = (Double.valueOf(TFPeso.getText().trim()).doubleValue() / ((Double.valueOf(TFLongitud.getText().trim()).doubleValue() / 100) * (Double.valueOf(TFLongitud.getText().trim()).doubleValue() / 100)));
             int numero = (int) (imc * 100);
             System.out.println(numero);
-            imc =  numero / 100. ;
+            imc = numero / 100.;
             System.out.println(imc);
             TFIMC.setText(Double.toString(imc));
             TFIMC.setEditable(false);
@@ -943,10 +949,10 @@ public class AntroInfan extends javax.swing.JDialog {
         //Compruebo que el campo longitud y peso tenga valor y si lo tiene calculo el imc
         if (!TFLongitud.getText().equals("") && !TFPeso.getText().equals("")) {
             Double imc;
-            imc= (Double.valueOf(TFPeso.getText().trim()).doubleValue() / ((Double.valueOf(TFLongitud.getText().trim()).doubleValue()/100)*(Double.valueOf(TFLongitud.getText().trim()).doubleValue()/100)) );
+            imc = (Double.valueOf(TFPeso.getText().trim()).doubleValue() / ((Double.valueOf(TFLongitud.getText().trim()).doubleValue() / 100) * (Double.valueOf(TFLongitud.getText().trim()).doubleValue() / 100)));
             int numero = (int) (imc * 100);
             System.out.println(numero);
-            imc =  numero / 100. ;
+            imc = numero / 100.;
             System.out.println(imc);
             TFIMC.setText(Double.toString(imc));
             TFIMC.setEditable(false);
@@ -975,49 +981,50 @@ public class AntroInfan extends javax.swing.JDialog {
                 TFPL.setText("");
                 TFPLP50.setText("");
                 if (!TFPeso.getText().equals("") && !TFLongitud.getText().equals("") && TFPerCra.getText().equals("")) {
-                    edad=calcularMeses(TFFechNac.getText());
+                    edad = calcularMeses(TFFechNac.getText());
                     ResultSet rs = instruccion.executeQuery("select id, edad from InfaOrbegozoV");
-                    while(rs.next()){
+                    while (rs.next()) {
                         if (rs.getInt(2) > edad) {
-                            cod=rs.getInt(1);
+                            cod = rs.getInt(1);
                             break;
                         } else if (rs.getInt(2) == edad) {
-                            cod=rs.getInt(1);
+                            cod = rs.getInt(1);
                             break;
                         }
                     }
                     rs.close();
-                    if (RBVaron.isSelected())
-                        rs = instruccion.executeQuery("Select * from InfaOrbegozoV where id = " + cod );
-                    else if (RBHembra.isSelected())
-                        rs = instruccion.executeQuery("Select * from InfaOrbegozoM where id = " + cod );
+                    if (RBVaron.isSelected()) {
+                        rs = instruccion.executeQuery("Select * from InfaOrbegozoV where id = " + cod);
+                    } else if (RBHembra.isSelected()) {
+                        rs = instruccion.executeQuery("Select * from InfaOrbegozoM where id = " + cod);
+                    }
                     rs.next();
                     TFLEP50.setText(rs.getString(3));
                     TFPEP50.setText(rs.getString(6));
                     TFPCEP50.setText(rs.getString(9));
                     TFIEP50.setText(rs.getString(12));
                     Double Lon = Double.valueOf(TFLongitud.getText().trim()).doubleValue();
-                    if ( Lon < rs.getDouble(2)) {
+                    if (Lon < rs.getDouble(2)) {
                         LINLE.setText("Desnutrición");
                         TFLEP.setText("< P3");
                     }
-                    if (rs.getDouble(2) == Lon ) {
+                    if (rs.getDouble(2) == Lon) {
                         LINLE.setText("Normal");
                         TFLEP.setText("P3");
                     }
-                    if (rs.getDouble(3) > Lon  && Lon > rs.getDouble(2)) {
+                    if (rs.getDouble(3) > Lon && Lon > rs.getDouble(2)) {
                         LINLE.setText("Normal");
                         TFLEP.setText("P3 - P50");
                     }
-                    if (rs.getDouble(3) == Lon ) {
+                    if (rs.getDouble(3) == Lon) {
                         LINLE.setText("Normal");
                         TFLEP.setText("P50");
                     }
-                    if (rs.getDouble(3) < Lon  && Lon < rs.getDouble(4)) {
+                    if (rs.getDouble(3) < Lon && Lon < rs.getDouble(4)) {
                         LINLE.setText("Normal");
                         TFLEP.setText("P50 - P97");
                     }
-                    if (rs.getDouble(4) == Lon ) {
+                    if (rs.getDouble(4) == Lon) {
                         LINLE.setText("Normal");
                         TFLEP.setText("P97");
                     }
@@ -1026,19 +1033,19 @@ public class AntroInfan extends javax.swing.JDialog {
                         TFLEP.setText("> P97");
                     }
                     Double Peso = Double.valueOf(TFPeso.getText().trim()).doubleValue();
-                    if ( Peso < rs.getDouble(5)) {
+                    if (Peso < rs.getDouble(5)) {
                         LINPE.setText("Desnutrición");
                         TFPPE.setText("< P3");
                     }
-                    if (rs.getDouble(5) == Peso ) {
+                    if (rs.getDouble(5) == Peso) {
                         LINPE.setText("Normal");
                         TFPPE.setText("P3");
                     }
-                    if (rs.getDouble(6) > Peso  && Peso > rs.getDouble(5)) {
+                    if (rs.getDouble(6) > Peso && Peso > rs.getDouble(5)) {
                         LINPE.setText("Normal");
                         TFPPE.setText("P3 - P50");
                     }
-                    if (rs.getDouble(6) == Peso ) {
+                    if (rs.getDouble(6) == Peso) {
                         LINPE.setText("Normal");
                         TFPPE.setText("P50");
                     }
@@ -1046,7 +1053,7 @@ public class AntroInfan extends javax.swing.JDialog {
                         LINPE.setText("Normal");
                         TFPPE.setText("P50 - P97");
                     }
-                    if (rs.getDouble(7) == Peso ) {
+                    if (rs.getDouble(7) == Peso) {
                         LINPE.setText("Normal");
                         TFPPE.setText("P97");
                     }
@@ -1055,19 +1062,19 @@ public class AntroInfan extends javax.swing.JDialog {
                         TFPPE.setText("> P97");
                     }
                     Double PeCra = Double.valueOf(TFPerCra.getText().trim()).doubleValue();
-                    if ( PeCra < rs.getDouble(8)) {
+                    if (PeCra < rs.getDouble(8)) {
                         LINPCE.setText("Desnutrición");
                         TFPCEP.setText("< P3");
                     }
-                    if (rs.getDouble(8) == PeCra ) {
+                    if (rs.getDouble(8) == PeCra) {
                         LINPCE.setText("Normal");
                         TFPCEP.setText("P3");
                     }
-                    if (rs.getDouble(9) > PeCra  && PeCra >= rs.getDouble(8)) {
+                    if (rs.getDouble(9) > PeCra && PeCra >= rs.getDouble(8)) {
                         LINPCE.setText("Normal");
                         TFPCEP.setText("P3 - P50");
                     }
-                    if (rs.getDouble(9) == PeCra ) {
+                    if (rs.getDouble(9) == PeCra) {
                         LINPCE.setText("Normal");
                         TFPCEP.setText("P50");
                     }
@@ -1075,7 +1082,7 @@ public class AntroInfan extends javax.swing.JDialog {
                         LINPCE.setText("Normal");
                         TFPCEP.setText("P50 - P97");
                     }
-                    if (rs.getDouble(10) == PeCra ) {
+                    if (rs.getDouble(10) == PeCra) {
                         LINPCE.setText("Normal");
                         TFPCEP.setText("P97");
                     }
@@ -1084,19 +1091,19 @@ public class AntroInfan extends javax.swing.JDialog {
                         TFPCEP.setText("> P97");
                     }
                     Double IMC = Double.valueOf(TFIMC.getText().trim()).doubleValue();
-                    if ( IMC < rs.getDouble(11)) {
+                    if (IMC < rs.getDouble(11)) {
                         LINIE.setText("Desnutrición");
                         TFIEP.setText("< P3");
                     }
-                    if (rs.getDouble(11) == IMC ) {
+                    if (rs.getDouble(11) == IMC) {
                         LINIE.setText("Normal");
                         TFIEP.setText("P3");
                     }
-                    if (rs.getDouble(12) > IMC  && IMC > rs.getDouble(11)) {
+                    if (rs.getDouble(12) > IMC && IMC > rs.getDouble(11)) {
                         LINIE.setText("Normal");
                         TFIEP.setText("P3 - P50");
                     }
-                    if (rs.getDouble(12) == IMC ) {
+                    if (rs.getDouble(12) == IMC) {
                         LINIE.setText("Normal");
                         TFIEP.setText("P50");
                     }
@@ -1104,7 +1111,7 @@ public class AntroInfan extends javax.swing.JDialog {
                         LINIE.setText("Normal");
                         TFIEP.setText("P50 - P85");
                     }
-                    if (rs.getDouble(13) == IMC ) {
+                    if (rs.getDouble(13) == IMC) {
                         LINIE.setText("Normal");
                         TFIEP.setText("P85");
                     }
@@ -1112,7 +1119,7 @@ public class AntroInfan extends javax.swing.JDialog {
                         LINIE.setText("Sobrepeso");
                         TFIEP.setText("P85 - P95");
                     }
-                    if (rs.getDouble(14) == IMC ) {
+                    if (rs.getDouble(14) == IMC) {
                         LINIE.setText("Sobrepeso");
                         TFIEP.setText("P95");
                     }
@@ -1120,11 +1127,11 @@ public class AntroInfan extends javax.swing.JDialog {
                         LINIE.setText("Obesidad");
                         TFIEP.setText("P95 - P97");
                     }
-                    if (rs.getDouble(15) == IMC ) {
+                    if (rs.getDouble(15) == IMC) {
                         LINIE.setText("Obesidad");
                         TFIEP.setText("97");
                     }
-                    if (rs.getDouble(15)< IMC) {
+                    if (rs.getDouble(15) < IMC) {
                         LINIE.setText("Obesidad");
                         TFIEP.setText("> P97");
                     }
@@ -1132,7 +1139,7 @@ public class AntroInfan extends javax.swing.JDialog {
                     instruccion.close();
                 } else {
                     JOptionPane.showMessageDialog(null, "Tienes que rellenar todos los campos",
-                    "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+                            "Otoño Salud", JOptionPane.ERROR_MESSAGE);
                     LPL.setEnabled(false);
                     TFPL.setEnabled(false);
                     TFPLP50.setEnabled(false);
@@ -1151,7 +1158,9 @@ public class AntroInfan extends javax.swing.JDialog {
                     TFLongitud.selectAll();
                 }
             }
-        } catch(Exception e) {System.out.println(e);}
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 }//GEN-LAST:event_RBOrbegozoActionPerformed
 
     private void RBCDCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBCDCActionPerformed
@@ -1176,23 +1185,24 @@ public class AntroInfan extends javax.swing.JDialog {
                 RBPL.setEnabled(true);
                 if (!TFPeso.getText().equals("") && !TFLongitud.getText().equals("") && TFPerCra.getText().equals("")) {
 
-                    edad=calcularMeses(TFFechNac.getText());
+                    edad = calcularMeses(TFFechNac.getText());
 
                     ResultSet rs = instruccion.executeQuery("select id, edad from InfaCDCV1");
-                    while(rs.next()){
+                    while (rs.next()) {
                         if (rs.getInt(2) > edad) {
-                            cod=rs.getInt(1);
+                            cod = rs.getInt(1);
                             break;
                         } else if (rs.getInt(2) == edad) {
-                            cod=rs.getInt(1);
+                            cod = rs.getInt(1);
                             break;
                         }
                     }
                     rs.close();
-                    if (RBVaron.isSelected())
-                        rs = instruccion.executeQuery("Select * from InfaCDCV1 where id = " + cod );
-                    else if (RBHembra.isSelected())
-                        rs = instruccion.executeQuery("Select * from InfaCDCM1 where id = " + cod );
+                    if (RBVaron.isSelected()) {
+                        rs = instruccion.executeQuery("Select * from InfaCDCV1 where id = " + cod);
+                    } else if (RBHembra.isSelected()) {
+                        rs = instruccion.executeQuery("Select * from InfaCDCM1 where id = " + cod);
+                    }
                     rs.next();
                     TFLEP50.setText(rs.getString(7));
                     TFPEP50.setText(rs.getString(16));
@@ -1200,75 +1210,75 @@ public class AntroInfan extends javax.swing.JDialog {
 
                     if (!TFLongitud.getText().equals("")) {
                         Double Lon = Double.valueOf(TFLongitud.getText().trim()).doubleValue();
-                        if ( Lon < rs.getDouble(3)) {
+                        if (Lon < rs.getDouble(3)) {
                             LINLE.setText("Desnutrición");
                             TFLEP.setText("< P3");
                         }
-                        if (rs.getDouble(3) == Lon ) {
+                        if (rs.getDouble(3) == Lon) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P3");
                         }
-                        if (rs.getDouble(4) > Lon  && Lon > rs.getDouble(3)) {
+                        if (rs.getDouble(4) > Lon && Lon > rs.getDouble(3)) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P3 - P5");
                         }
-                        if (rs.getDouble(4) == Lon ) {
+                        if (rs.getDouble(4) == Lon) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P5");
                         }
-                        if (rs.getDouble(4) < Lon  && Lon < rs.getDouble(5)) {
+                        if (rs.getDouble(4) < Lon && Lon < rs.getDouble(5)) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P5 - P10");
                         }
-                        if (rs.getDouble(5) == Lon ) {
+                        if (rs.getDouble(5) == Lon) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P10");
                         }
-                        if (rs.getDouble(5) < Lon  && Lon < rs.getDouble(6)) {
+                        if (rs.getDouble(5) < Lon && Lon < rs.getDouble(6)) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P10 - P25");
                         }
-                        if (rs.getDouble(6) == Lon ) {
+                        if (rs.getDouble(6) == Lon) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P25");
                         }
-                        if (rs.getDouble(6) < Lon  && Lon < rs.getDouble(7)) {
+                        if (rs.getDouble(6) < Lon && Lon < rs.getDouble(7)) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P25 - P50");
                         }
-                        if (rs.getDouble(7) == Lon ) {
+                        if (rs.getDouble(7) == Lon) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P50");
                         }
-                        if (rs.getDouble(7) < Lon  && Lon < rs.getDouble(8)) {
+                        if (rs.getDouble(7) < Lon && Lon < rs.getDouble(8)) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P50 - P75");
                         }
-                        if (rs.getDouble(8) == Lon ) {
+                        if (rs.getDouble(8) == Lon) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P75");
                         }
-                        if (rs.getDouble(8) < Lon  && Lon < rs.getDouble(9)) {
+                        if (rs.getDouble(8) < Lon && Lon < rs.getDouble(9)) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P75 - P90");
                         }
-                        if (rs.getDouble(9) == Lon ) {
+                        if (rs.getDouble(9) == Lon) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P90");
                         }
-                        if (rs.getDouble(9) < Lon  && Lon < rs.getDouble(10)) {
+                        if (rs.getDouble(9) < Lon && Lon < rs.getDouble(10)) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P90 - P95");
                         }
-                        if (rs.getDouble(10) == Lon ) {
+                        if (rs.getDouble(10) == Lon) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P95");
                         }
-                        if (rs.getDouble(10) < Lon  && Lon < rs.getDouble(11)) {
+                        if (rs.getDouble(10) < Lon && Lon < rs.getDouble(11)) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P95 - P97");
                         }
-                        if (rs.getDouble(11) == Lon ) {
+                        if (rs.getDouble(11) == Lon) {
                             LINLE.setText("Normal");
                             TFLEP.setText("P97");
                         }
@@ -1279,11 +1289,11 @@ public class AntroInfan extends javax.swing.JDialog {
                     }
                     if (!TFPeso.getText().equals("")) {
                         Double Peso = Double.valueOf(TFPeso.getText().trim()).doubleValue();
-                        if ( Peso < rs.getDouble(12)) {
+                        if (Peso < rs.getDouble(12)) {
                             LINPE.setText("Desnutrición");
                             TFPPE.setText("< P3");
                         }
-                        if (rs.getDouble(12) == Peso ) {
+                        if (rs.getDouble(12) == Peso) {
                             LINPE.setText("Normal");
                             TFPPE.setText("P3");
                         }
@@ -1291,7 +1301,7 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPE.setText("Normal");
                             TFPPE.setText("P3 - P5");
                         }
-                        if (rs.getDouble(13) == Peso ) {
+                        if (rs.getDouble(13) == Peso) {
                             LINPE.setText("Normal");
                             TFPPE.setText("P5");
                         }
@@ -1299,7 +1309,7 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPE.setText("Normal");
                             TFPPE.setText("P5 - P10");
                         }
-                        if (rs.getDouble(14) == Peso ) {
+                        if (rs.getDouble(14) == Peso) {
                             LINPE.setText("Normal");
                             TFPPE.setText("P10");
                         }
@@ -1307,23 +1317,23 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPE.setText("Normal");
                             TFPPE.setText("P10 - P25");
                         }
-                        if (rs.getDouble(15) == Peso ) {
+                        if (rs.getDouble(15) == Peso) {
                             LINPE.setText("Normal");
                             TFPPE.setText("P25");
                         }
-                        if (rs.getDouble(15) < Peso  && Peso < rs.getDouble(16)) {
+                        if (rs.getDouble(15) < Peso && Peso < rs.getDouble(16)) {
                             LINPE.setText("Normal");
                             TFPPE.setText("P25 - P50");
                         }
-                        if (rs.getDouble(16) == Peso ) {
+                        if (rs.getDouble(16) == Peso) {
                             LINPE.setText("Normal");
                             TFPPE.setText("P50");
                         }
-                        if (rs.getDouble(16) < Peso  && Peso < rs.getDouble(17)) {
+                        if (rs.getDouble(16) < Peso && Peso < rs.getDouble(17)) {
                             LINPE.setText("Normal");
                             TFPPE.setText("P50 - P75");
                         }
-                        if (rs.getDouble(17) == Peso ) {
+                        if (rs.getDouble(17) == Peso) {
                             LINPE.setText("Normal");
                             TFPPE.setText("P75");
                         }
@@ -1331,7 +1341,7 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPE.setText("Normal");
                             TFPPE.setText("P75 - P90");
                         }
-                        if (rs.getDouble(18) == Peso ) {
+                        if (rs.getDouble(18) == Peso) {
                             LINPE.setText("Normal");
                             TFPPE.setText("P90");
                         }
@@ -1339,7 +1349,7 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPE.setText("Normal");
                             TFPPE.setText("P90 - P95");
                         }
-                        if (rs.getDouble(19) == Peso ) {
+                        if (rs.getDouble(19) == Peso) {
                             LINPE.setText("Normal");
                             TFPPE.setText("P95");
                         }
@@ -1347,7 +1357,7 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPE.setText("Normal");
                             TFPPE.setText("P95 - P97");
                         }
-                        if (rs.getDouble(20) == Peso ) {
+                        if (rs.getDouble(20) == Peso) {
                             LINPE.setText("Normal");
                             TFPPE.setText("P97");
                         }
@@ -1358,11 +1368,11 @@ public class AntroInfan extends javax.swing.JDialog {
                     }
                     if (!TFPerCra.getText().equals("")) {
                         Double PeCra = Double.valueOf(TFPerCra.getText().trim()).doubleValue();
-                        if ( PeCra < rs.getDouble(21)) {
+                        if (PeCra < rs.getDouble(21)) {
                             LINPCE.setText("Desnutrición");
                             TFPCEP.setText("< P3");
                         }
-                        if (rs.getDouble(21) == PeCra ) {
+                        if (rs.getDouble(21) == PeCra) {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P3");
                         }
@@ -1370,7 +1380,7 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P3 - P5");
                         }
-                        if (rs.getDouble(22) == PeCra ) {
+                        if (rs.getDouble(22) == PeCra) {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P5");
                         }
@@ -1378,7 +1388,7 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P5 - P10");
                         }
-                        if (rs.getDouble(23) == PeCra ) {
+                        if (rs.getDouble(23) == PeCra) {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P10");
                         }
@@ -1386,7 +1396,7 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P10 - P25");
                         }
-                        if (rs.getDouble(24) == PeCra ) {
+                        if (rs.getDouble(24) == PeCra) {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P25");
                         }
@@ -1394,15 +1404,15 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P25 - P50");
                         }
-                        if (rs.getDouble(25) == PeCra ) {
+                        if (rs.getDouble(25) == PeCra) {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P50");
                         }
-                        if (rs.getDouble(25) < PeCra  && PeCra < rs.getDouble(26)) {
+                        if (rs.getDouble(25) < PeCra && PeCra < rs.getDouble(26)) {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P50 - P75");
                         }
-                        if (rs.getDouble(26) == PeCra ) {
+                        if (rs.getDouble(26) == PeCra) {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P75");
                         }
@@ -1410,7 +1420,7 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P75 - P90");
                         }
-                        if (rs.getDouble(27) == PeCra ) {
+                        if (rs.getDouble(27) == PeCra) {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P90");
                         }
@@ -1418,7 +1428,7 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P90 - P95");
                         }
-                        if (rs.getDouble(28) == PeCra ) {
+                        if (rs.getDouble(28) == PeCra) {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P95");
                         }
@@ -1426,7 +1436,7 @@ public class AntroInfan extends javax.swing.JDialog {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P95 - P97");
                         }
-                        if (rs.getDouble(29) == PeCra ) {
+                        if (rs.getDouble(29) == PeCra) {
                             LINPCE.setText("Normal");
                             TFPCEP.setText("P97");
                         }
@@ -1438,28 +1448,29 @@ public class AntroInfan extends javax.swing.JDialog {
                     rs.close();
                     rs = instruccion.executeQuery("select id, Altura from InfaCDCV2");
                     Double Longitud = Double.valueOf(TFLongitud.getText().trim()).doubleValue();
-                    while(rs.next()){
+                    while (rs.next()) {
                         if (rs.getDouble(2) > Longitud) {
-                            cod=rs.getInt(1);
+                            cod = rs.getInt(1);
                             break;
                         } else if (rs.getDouble(2) == Longitud) {
-                            cod=rs.getInt(1);
+                            cod = rs.getInt(1);
                             break;
                         }
                     }
                     rs.close();
-                    if (RBVaron.isSelected())
-                        rs = instruccion.executeQuery("Select * from InfaCDCV2 where id = " + cod );
-                    else if (RBHembra.isSelected())
-                        rs = instruccion.executeQuery("Select * from InfaCDCM2 where id = " + cod );
+                    if (RBVaron.isSelected()) {
+                        rs = instruccion.executeQuery("Select * from InfaCDCV2 where id = " + cod);
+                    } else if (RBHembra.isSelected()) {
+                        rs = instruccion.executeQuery("Select * from InfaCDCM2 where id = " + cod);
+                    }
                     rs.next();
                     TFPLP50.setText(rs.getString(7));
                     Double Pes = Double.valueOf(TFPeso.getText().trim()).doubleValue();
-                    if ( Pes < rs.getDouble(3)) {
+                    if (Pes < rs.getDouble(3)) {
                         LINLP.setText("Desnutrición");
                         TFPL.setText("< P3");
                     }
-                    if (rs.getDouble(3) == Pes ) {
+                    if (rs.getDouble(3) == Pes) {
                         LINLP.setText("Normal");
                         TFPL.setText("P3");
                     }
@@ -1467,7 +1478,7 @@ public class AntroInfan extends javax.swing.JDialog {
                         LINLP.setText("Normal");
                         TFPL.setText("P3 - P5");
                     }
-                    if (rs.getDouble(4) == Pes ) {
+                    if (rs.getDouble(4) == Pes) {
                         LINLP.setText("Normal");
                         TFPL.setText("P5");
                     }
@@ -1475,7 +1486,7 @@ public class AntroInfan extends javax.swing.JDialog {
                         LINLP.setText("Normal");
                         TFPL.setText("P5 - P10");
                     }
-                    if (rs.getDouble(5) == Pes ) {
+                    if (rs.getDouble(5) == Pes) {
                         LINLP.setText("Normal");
                         TFPL.setText("P10");
                     }
@@ -1483,23 +1494,23 @@ public class AntroInfan extends javax.swing.JDialog {
                         LINLP.setText("Normal");
                         TFPL.setText("P10 - P25");
                     }
-                    if (rs.getDouble(6) == Pes ) {
+                    if (rs.getDouble(6) == Pes) {
                         LINLP.setText("Normal");
                         TFPL.setText("P25");
                     }
-                    if (rs.getDouble(6) < Pes  && Pes < rs.getDouble(7)) {
+                    if (rs.getDouble(6) < Pes && Pes < rs.getDouble(7)) {
                         LINLP.setText("Normal");
                         TFPL.setText("P25 - P50");
                     }
-                    if (rs.getDouble(7) == Pes ) {
+                    if (rs.getDouble(7) == Pes) {
                         LINLP.setText("Normal");
                         TFPL.setText("P50");
                     }
-                    if (rs.getDouble(7) < Pes  && Pes < rs.getDouble(8)) {
+                    if (rs.getDouble(7) < Pes && Pes < rs.getDouble(8)) {
                         LINLP.setText("Normal");
                         TFPL.setText("P50 - P75");
                     }
-                    if (rs.getDouble(8) == Pes ) {
+                    if (rs.getDouble(8) == Pes) {
                         LINLP.setText("Normal");
                         TFPL.setText("P75");
                     }
@@ -1507,7 +1518,7 @@ public class AntroInfan extends javax.swing.JDialog {
                         LINLP.setText("Normal");
                         TFPL.setText("P75 - P90");
                     }
-                    if (rs.getDouble(9) == Pes ) {
+                    if (rs.getDouble(9) == Pes) {
                         LINLP.setText("Normal");
                         TFPL.setText("P90");
                     }
@@ -1515,7 +1526,7 @@ public class AntroInfan extends javax.swing.JDialog {
                         LINLP.setText("Normal");
                         TFPL.setText("P90 - P95");
                     }
-                    if (rs.getDouble(10) == Pes ) {
+                    if (rs.getDouble(10) == Pes) {
                         LINLP.setText("Normal");
                         TFPL.setText("P95");
                     }
@@ -1523,7 +1534,7 @@ public class AntroInfan extends javax.swing.JDialog {
                         LINLP.setText("Normal");
                         TFPL.setText("P95 - P97");
                     }
-                    if (rs.getDouble(11) == Pes ) {
+                    if (rs.getDouble(11) == Pes) {
                         LINLP.setText("Normal");
                         TFPL.setText("P97");
                     }
@@ -1531,30 +1542,32 @@ public class AntroInfan extends javax.swing.JDialog {
                         LINLP.setText("Obesidad");
                         TFPL.setText("> P97");
                     }
-                rs.close();
-                instruccion.close();
-            } else {
-                JOptionPane.showMessageDialog(null, "Tienes que rellenar todos los campos",
-                "Otoño Salud", JOptionPane.ERROR_MESSAGE);
-                LPL.setEnabled(false);
-                TFPL.setEnabled(false);
-                TFPLP50.setEnabled(false);
-                LLE.setEnabled(false);
-                LPE.setEnabled(false);
-                LPCE.setEnabled(false);
-                LIE.setEnabled(false);
-                TFIEP50.setEnabled(false);
-                TFIEP.setEnabled(false);
-                RBLE.setEnabled(false);
-                RBPE.setEnabled(false);
-                RBPCE.setEnabled(false);
-                RBIE.setEnabled(false);
-                RBPL.setEnabled(false);
-                TFLongitud.requestFocus();
-                TFLongitud.selectAll();
+                    rs.close();
+                    instruccion.close();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Tienes que rellenar todos los campos",
+                            "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+                    LPL.setEnabled(false);
+                    TFPL.setEnabled(false);
+                    TFPLP50.setEnabled(false);
+                    LLE.setEnabled(false);
+                    LPE.setEnabled(false);
+                    LPCE.setEnabled(false);
+                    LIE.setEnabled(false);
+                    TFIEP50.setEnabled(false);
+                    TFIEP.setEnabled(false);
+                    RBLE.setEnabled(false);
+                    RBPE.setEnabled(false);
+                    RBPCE.setEnabled(false);
+                    RBIE.setEnabled(false);
+                    RBPL.setEnabled(false);
+                    TFLongitud.requestFocus();
+                    TFLongitud.selectAll();
+                }
             }
-          }
-        }catch(Exception e) {System.out.println(e);}
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 }//GEN-LAST:event_RBCDCActionPerformed
 
     private void RBWhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBWhoActionPerformed
@@ -1574,317 +1587,321 @@ public class AntroInfan extends javax.swing.JDialog {
                 RBPCE.setEnabled(true);
                 RBIE.setEnabled(true);
                 RBPL.setEnabled(true);
-                    if (!TFPeso.getText().equals("") && !TFLongitud.getText().equals("") && !TFPerCra.getText().equals("")) {
-                        edad = calcularMeses(TFFechNac.getText());
+                if (!TFPeso.getText().equals("") && !TFLongitud.getText().equals("") && !TFPerCra.getText().equals("")) {
+                    edad = calcularMeses(TFFechNac.getText());
 
-                        ResultSet rs = instruccion.executeQuery("select id, edad from InfaWHOV1");
-                        while(rs.next()){
-                            if (rs.getInt(2) > edad) {
-                                cod=rs.getInt(1);
-                                break;
-                            } else if (rs.getInt(2) == edad) {
-                                cod=rs.getInt(1);
-                                break;
-                            }
+                    ResultSet rs = instruccion.executeQuery("select id, edad from InfaWHOV1");
+                    while (rs.next()) {
+                        if (rs.getInt(2) > edad) {
+                            cod = rs.getInt(1);
+                            break;
+                        } else if (rs.getInt(2) == edad) {
+                            cod = rs.getInt(1);
+                            break;
                         }
-                        rs.close();
-                        if (RBVaron.isSelected())
-                            rs = instruccion.executeQuery("Select * from InfaWHOV1 where id = " + cod );
-                        else if (RBHembra.isSelected())
-                            rs = instruccion.executeQuery("Select * from InfaWHOM1 where id = " + cod );
-                        rs.next();
-                        TFLEP50.setText(rs.getString(5));
-                        TFPEP50.setText(rs.getString(10));
-                        TFPCEP50.setText(rs.getString(20));
-                        TFIEP50.setText(rs.getString(15));
-                        if (!TFLongitud.getText().equals("")) {
-                            Double Lon = Double.valueOf(TFLongitud.getText().trim()).doubleValue();
-                            if (Lon < rs.getDouble(3)) {
-                                LINLE.setText("Desnutrición");
-                                TFLEP.setText("< P3");
-                            }
-                            if (Lon== rs.getDouble(3)) {
-                                LINLE.setText("Peligro Desnutrición");
-                                TFLEP.setText("P3");
-                            }
-                            if (rs.getDouble(3) < Lon && Lon < rs.getDouble(4)) {
-                                LINLE.setText("Peligro Desnutrición");
-                                TFLEP.setText("P3 - P15");
-                            }
-                            if (Lon == rs.getDouble(4)) {
-                                LINLE.setText("Normal");
-                                TFLEP.setText("P15");
-                            }
-                            if (rs.getDouble(4)< Lon && Lon < rs.getDouble(5)) {
-                                LINLE.setText("Normal");
-                                TFLEP.setText("P15 - P50");
-                            }
-                            if (Lon == rs.getDouble(5)) {
-                                LINLE.setText("Normal");
-                                TFLEP.setText("P50");
-                            }
-                            if (rs.getDouble(5)< Lon && Lon < rs.getDouble(6)) {
-                                LINLE.setText("Normal");
-                                TFLEP.setText("P50 - P85");
-                            }
-                            if (rs.getDouble(6) == Lon) {
-                                LINLE.setText("Normal");
-                                TFLEP.setText("P85");
-                            }
-                            if (rs.getDouble(6) < Lon && Lon < rs.getDouble(7)) {
-                                LINLE.setText("Normal");
-                                TFLEP.setText("P85 - P97");
-                            }
-                            if (rs.getDouble(7) == Lon) {
-                                LINLE.setText("Normal");
-                                TFLEP.setText("P97");
-                            }
-                            if (rs.getDouble(7) < Lon) {
-                                LINLE.setText("Alto");
-                                TFLEP.setText("> P97");
-                            }
-                        }
-                        if (!TFPeso.getText().equals("")) {
-                            Double Peso = Double.valueOf(TFPeso.getText().trim()).doubleValue();
-                            if (Peso < rs.getDouble(8)) {
-                                LINPE.setText("Desnutrición");
-                                TFPPE.setText("< P3");
-                            }
-                            if (Peso== rs.getDouble(8)) {
-                                LINPE.setText("Peligro Desnutrición");
-                                TFPPE.setText("P3");
-                            }
-                            if (rs.getDouble(8) < Peso && Peso < rs.getDouble(9)) {
-                                LINPE.setText("Peligro Desnutrición");
-                                TFPPE.setText("P3 - P15");
-                            }
-                            if (Peso == rs.getDouble(9)) {
-                                LINPE.setText("Normal");
-                                TFPPE.setText("P15");
-                            }
-                            if (rs.getDouble(9)< Peso && Peso < rs.getDouble(10)) {
-                                LINPE.setText("Normal");
-                                TFPPE.setText("P15 - P50");
-                            }
-                            if (Peso == rs.getDouble(10)) {
-                                LINPE.setText("Normal");
-                                TFPPE.setText("P50");
-                            }
-                            if (rs.getDouble(10)< Peso && Peso < rs.getDouble(11)) {
-                                LINPE.setText("Normal");
-                                TFPPE.setText("P50 - P85");
-                            }
-                            if (rs.getDouble(11) == Peso) {
-                                LINPE.setText("Normal");
-                                TFPPE.setText("P85");
-                            }
-                            if (rs.getDouble(11) < Peso && Peso < rs.getDouble(12)) {
-                                LINPE.setText("Sobrepeso");
-                                TFPPE.setText("P85 - P97");
-                            }
-                            if (rs.getDouble(12) == Peso) {
-                                LINPE.setText("Sobrepeso");
-                                TFPPE.setText("P97");
-                            }
-                            if (rs.getDouble(12) < Peso) {
-                                LINPE.setText("Obesisdad");
-                                TFPPE.setText("> P97");
-                            }
-                        }
-                        if (!TFIMC.getText().equals("")) {
-                            Double imc = Double.valueOf(TFIMC.getText().trim()).doubleValue();
-                            if (imc < rs.getDouble(13)) {
-                                LINIE.setText("Desnutrición");
-                                TFIEP.setText("< P3");
-                            }
-                            if (imc== rs.getDouble(13)) {
-                                LINIE.setText("Peligro Desnutrición");
-                                TFIEP.setText("P3");
-                            }
-                            if (rs.getDouble(13) < imc && imc < rs.getDouble(14)) {
-                                LINIE.setText("Peligro Desnutrición");
-                                TFIEP.setText("P3 - P15");
-                            }
-                            if (imc == rs.getDouble(14)) {
-                                LINIE.setText("Normal");
-                                TFIEP.setText("P15");
-                            }
-                            if (rs.getDouble(14)< imc && imc < rs.getDouble(15)) {
-                                LINIE.setText("Normal");
-                                TFIEP.setText("P15 - P50");
-                            }
-                            if (imc == rs.getDouble(15)) {
-                                LINIE.setText("Normal");
-                                TFIEP.setText("P50");
-                            }
-                            if (rs.getDouble(15)< imc && imc < rs.getDouble(16)) {
-                                LINIE.setText("Normal");
-                                TFIEP.setText("P50 - P85");
-                            }
-                            if (rs.getDouble(16) == imc) {
-                                LINIE.setText("Normal");
-                                TFIEP.setText("P85");
-                            }
-                            if (rs.getDouble(16) < imc && imc < rs.getDouble(17)) {
-                                LINIE.setText("Sobrepeso");
-                                TFIEP.setText("P85 - P97");
-                            }
-                            if (rs.getDouble(17) == imc) {
-                                LINIE.setText("Sobrepeso");
-                                TFIEP.setText("P97");
-                            }
-                            if (rs.getDouble(17) < imc) {
-                                LINIE.setText("Obesisdad");
-                                TFIEP.setText("> P97");
-                            }
-                        }
-                        if (!TFPerCra.getText().equals("")) {
-                            Double pC = Double.valueOf(TFPerCra.getText().trim()).doubleValue();
-                            if (pC < rs.getDouble(18)) {
-                                LINPCE.setText("Desnutrición");
-                                TFPCEP.setText("< P3");
-                            }
-                            if (pC== rs.getDouble(18)) {
-                                LINPCE.setText("Peligro Desnutrición");
-                                TFPCEP.setText("P3");
-                            }
-                            if (rs.getDouble(18) < pC && pC < rs.getDouble(19)) {
-                                LINPCE.setText("Peligro Desnutrición");
-                                TFPCEP.setText("P3 - P15");
-                            }
-                            if (pC == rs.getDouble(19)) {
-                                LINPCE.setText("Normal");
-                                TFPCEP.setText("P15");
-                            }
-                            if (rs.getDouble(19)< pC && pC < rs.getDouble(20)) {
-                                LINPCE.setText("Normal");
-                                TFPCEP.setText("P15 - P50");
-                            }
-                            if (pC == rs.getDouble(20)) {
-                                LINPCE.setText("Normal");
-                                TFPCEP.setText("P50");
-                            }
-                            if (rs.getDouble(20)< pC && pC < rs.getDouble(21)) {
-                                LINPCE.setText("Normal");
-                                TFPCEP.setText("P50 - P85");
-                            }
-                            if (rs.getDouble(21) == pC) {
-                                LINPCE.setText("Normal");
-                                TFPCEP.setText("P85");
-                            }
-                            if (rs.getDouble(21) < pC && pC < rs.getDouble(22)) {
-                                LINPCE.setText("Sobrepeso");
-                                TFPCEP.setText("P85 - P97");
-                            }
-                            if (rs.getDouble(22) == pC) {
-                                LINPCE.setText("Sobrepeso");
-                                TFPCEP.setText("P97");
-                            }
-                            if (rs.getDouble(22) < pC) {
-                                LINPCE.setText("Obesisdad");
-                                TFPCEP.setText("> P97");
-                            }
-                        }
-                        rs.close();
-                        rs = instruccion.executeQuery("select id, Altura from InfaWHOV2");
-                        Double Longitud = Double.valueOf(TFLongitud.getText().trim()).doubleValue();
-                        while(rs.next()){
-                            if (rs.getDouble(2) > Longitud) {
-                                cod=rs.getInt(1);
-                                break;
-                            } else if (rs.getDouble(2) == Longitud) {
-                                cod=rs.getInt(1);
-                                break;
-                            }
-                        }
-                        rs.close();
-                        if (RBVaron.isSelected())
-                            rs = instruccion.executeQuery("Select * from InfaWHOV2 where id = " + cod );
-                        else if (RBHembra.isSelected())
-                            rs = instruccion.executeQuery("Select * from InfaWHOM2 where id = " + cod );
-                        rs.next();
-                        TFPLP50.setText(rs.getString(5));
-
-                        Double Pes = Double.valueOf(TFPeso.getText().trim()).doubleValue();
-                        if ( Pes < rs.getDouble(3)) {
-                            LINLP.setText("Desnutrición");
-                            TFPL.setText("< P3");
-                        }
-                        if (Pes == rs.getDouble(3)) {
-                            LINLP.setText("Peligro Desnutrición");
-                            TFPL.setText("P3");
-                        }
-                        if (rs.getDouble(3) < Pes && Pes < rs.getDouble(4)) {
-                            LINLP.setText("Peligro Desnutrición");
-                            TFPL.setText("P3 - P15");
-                        }
-                        if (Pes == rs.getDouble(4)) {
-                            LINLP.setText("Normal");
-                            TFPL.setText("P15");
-                        }
-                        if (rs.getDouble(4)< Pes && Pes < rs.getDouble(5)) {
-                            LINLP.setText("Normal");
-                            TFPL.setText("P15 - P50");
-                        }
-                        if (Pes == rs.getDouble(5)) {
-                            LINLP.setText("Normal");
-                            TFPL.setText("P50");
-                        }
-                        if (rs.getDouble(5)< Pes && Pes < rs.getDouble(6)) {
-                            LINLP.setText("Normal");
-                            TFPL.setText("P50 - P85");
-                        }
-                        if (rs.getDouble(6) == Pes) {
-                            LINLP.setText("Normal");
-                            TFPL.setText("P85");
-                        }
-                        if (rs.getDouble(6) < Pes && Pes < rs.getDouble(7)) {
-                            LINLP.setText("Sobrepeso");
-                            TFPL.setText("P85 - P97");
-                        }
-                        if (rs.getDouble(7) == Pes) {
-                            LINLP.setText("Sobrepeso");
-                            TFPL.setText("P97");
-                        }
-                        if (rs.getDouble(7) < Pes) {
-                            LINLP.setText("Obesisdad");
-                            TFPL.setText("> P97");
-                        }
-                        rs.close();
-                        instruccion.close();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Tienes que rellenar todos los campos",
-                        "Otoño Salud", JOptionPane.ERROR_MESSAGE);
-                        LPL.setEnabled(false);
-                        TFPL.setEnabled(false);
-                        TFPLP50.setEnabled(false);
-                        LLE.setEnabled(false);
-                        LPE.setEnabled(false);
-                        LPCE.setEnabled(false);
-                        LIE.setEnabled(false);
-                        TFIEP50.setEnabled(false);
-                        TFIEP.setEnabled(false);
-                        RBLE.setEnabled(false);
-                        RBPE.setEnabled(false);
-                        RBPCE.setEnabled(false);
-                        RBIE.setEnabled(false);
-                        RBPL.setEnabled(false);
-                        TFLongitud.requestFocus();
-                        TFLongitud.selectAll();
                     }
+                    rs.close();
+                    if (RBVaron.isSelected()) {
+                        rs = instruccion.executeQuery("Select * from InfaWHOV1 where id = " + cod);
+                    } else if (RBHembra.isSelected()) {
+                        rs = instruccion.executeQuery("Select * from InfaWHOM1 where id = " + cod);
+                    }
+                    rs.next();
+                    TFLEP50.setText(rs.getString(5));
+                    TFPEP50.setText(rs.getString(10));
+                    TFPCEP50.setText(rs.getString(20));
+                    TFIEP50.setText(rs.getString(15));
+                    if (!TFLongitud.getText().equals("")) {
+                        Double Lon = Double.valueOf(TFLongitud.getText().trim()).doubleValue();
+                        if (Lon < rs.getDouble(3)) {
+                            LINLE.setText("Desnutrición");
+                            TFLEP.setText("< P3");
+                        }
+                        if (Lon == rs.getDouble(3)) {
+                            LINLE.setText("Peligro Desnutrición");
+                            TFLEP.setText("P3");
+                        }
+                        if (rs.getDouble(3) < Lon && Lon < rs.getDouble(4)) {
+                            LINLE.setText("Peligro Desnutrición");
+                            TFLEP.setText("P3 - P15");
+                        }
+                        if (Lon == rs.getDouble(4)) {
+                            LINLE.setText("Normal");
+                            TFLEP.setText("P15");
+                        }
+                        if (rs.getDouble(4) < Lon && Lon < rs.getDouble(5)) {
+                            LINLE.setText("Normal");
+                            TFLEP.setText("P15 - P50");
+                        }
+                        if (Lon == rs.getDouble(5)) {
+                            LINLE.setText("Normal");
+                            TFLEP.setText("P50");
+                        }
+                        if (rs.getDouble(5) < Lon && Lon < rs.getDouble(6)) {
+                            LINLE.setText("Normal");
+                            TFLEP.setText("P50 - P85");
+                        }
+                        if (rs.getDouble(6) == Lon) {
+                            LINLE.setText("Normal");
+                            TFLEP.setText("P85");
+                        }
+                        if (rs.getDouble(6) < Lon && Lon < rs.getDouble(7)) {
+                            LINLE.setText("Normal");
+                            TFLEP.setText("P85 - P97");
+                        }
+                        if (rs.getDouble(7) == Lon) {
+                            LINLE.setText("Normal");
+                            TFLEP.setText("P97");
+                        }
+                        if (rs.getDouble(7) < Lon) {
+                            LINLE.setText("Alto");
+                            TFLEP.setText("> P97");
+                        }
+                    }
+                    if (!TFPeso.getText().equals("")) {
+                        Double Peso = Double.valueOf(TFPeso.getText().trim()).doubleValue();
+                        if (Peso < rs.getDouble(8)) {
+                            LINPE.setText("Desnutrición");
+                            TFPPE.setText("< P3");
+                        }
+                        if (Peso == rs.getDouble(8)) {
+                            LINPE.setText("Peligro Desnutrición");
+                            TFPPE.setText("P3");
+                        }
+                        if (rs.getDouble(8) < Peso && Peso < rs.getDouble(9)) {
+                            LINPE.setText("Peligro Desnutrición");
+                            TFPPE.setText("P3 - P15");
+                        }
+                        if (Peso == rs.getDouble(9)) {
+                            LINPE.setText("Normal");
+                            TFPPE.setText("P15");
+                        }
+                        if (rs.getDouble(9) < Peso && Peso < rs.getDouble(10)) {
+                            LINPE.setText("Normal");
+                            TFPPE.setText("P15 - P50");
+                        }
+                        if (Peso == rs.getDouble(10)) {
+                            LINPE.setText("Normal");
+                            TFPPE.setText("P50");
+                        }
+                        if (rs.getDouble(10) < Peso && Peso < rs.getDouble(11)) {
+                            LINPE.setText("Normal");
+                            TFPPE.setText("P50 - P85");
+                        }
+                        if (rs.getDouble(11) == Peso) {
+                            LINPE.setText("Normal");
+                            TFPPE.setText("P85");
+                        }
+                        if (rs.getDouble(11) < Peso && Peso < rs.getDouble(12)) {
+                            LINPE.setText("Sobrepeso");
+                            TFPPE.setText("P85 - P97");
+                        }
+                        if (rs.getDouble(12) == Peso) {
+                            LINPE.setText("Sobrepeso");
+                            TFPPE.setText("P97");
+                        }
+                        if (rs.getDouble(12) < Peso) {
+                            LINPE.setText("Obesisdad");
+                            TFPPE.setText("> P97");
+                        }
+                    }
+                    if (!TFIMC.getText().equals("")) {
+                        Double imc = Double.valueOf(TFIMC.getText().trim()).doubleValue();
+                        if (imc < rs.getDouble(13)) {
+                            LINIE.setText("Desnutrición");
+                            TFIEP.setText("< P3");
+                        }
+                        if (imc == rs.getDouble(13)) {
+                            LINIE.setText("Peligro Desnutrición");
+                            TFIEP.setText("P3");
+                        }
+                        if (rs.getDouble(13) < imc && imc < rs.getDouble(14)) {
+                            LINIE.setText("Peligro Desnutrición");
+                            TFIEP.setText("P3 - P15");
+                        }
+                        if (imc == rs.getDouble(14)) {
+                            LINIE.setText("Normal");
+                            TFIEP.setText("P15");
+                        }
+                        if (rs.getDouble(14) < imc && imc < rs.getDouble(15)) {
+                            LINIE.setText("Normal");
+                            TFIEP.setText("P15 - P50");
+                        }
+                        if (imc == rs.getDouble(15)) {
+                            LINIE.setText("Normal");
+                            TFIEP.setText("P50");
+                        }
+                        if (rs.getDouble(15) < imc && imc < rs.getDouble(16)) {
+                            LINIE.setText("Normal");
+                            TFIEP.setText("P50 - P85");
+                        }
+                        if (rs.getDouble(16) == imc) {
+                            LINIE.setText("Normal");
+                            TFIEP.setText("P85");
+                        }
+                        if (rs.getDouble(16) < imc && imc < rs.getDouble(17)) {
+                            LINIE.setText("Sobrepeso");
+                            TFIEP.setText("P85 - P97");
+                        }
+                        if (rs.getDouble(17) == imc) {
+                            LINIE.setText("Sobrepeso");
+                            TFIEP.setText("P97");
+                        }
+                        if (rs.getDouble(17) < imc) {
+                            LINIE.setText("Obesisdad");
+                            TFIEP.setText("> P97");
+                        }
+                    }
+                    if (!TFPerCra.getText().equals("")) {
+                        Double pC = Double.valueOf(TFPerCra.getText().trim()).doubleValue();
+                        if (pC < rs.getDouble(18)) {
+                            LINPCE.setText("Desnutrición");
+                            TFPCEP.setText("< P3");
+                        }
+                        if (pC == rs.getDouble(18)) {
+                            LINPCE.setText("Peligro Desnutrición");
+                            TFPCEP.setText("P3");
+                        }
+                        if (rs.getDouble(18) < pC && pC < rs.getDouble(19)) {
+                            LINPCE.setText("Peligro Desnutrición");
+                            TFPCEP.setText("P3 - P15");
+                        }
+                        if (pC == rs.getDouble(19)) {
+                            LINPCE.setText("Normal");
+                            TFPCEP.setText("P15");
+                        }
+                        if (rs.getDouble(19) < pC && pC < rs.getDouble(20)) {
+                            LINPCE.setText("Normal");
+                            TFPCEP.setText("P15 - P50");
+                        }
+                        if (pC == rs.getDouble(20)) {
+                            LINPCE.setText("Normal");
+                            TFPCEP.setText("P50");
+                        }
+                        if (rs.getDouble(20) < pC && pC < rs.getDouble(21)) {
+                            LINPCE.setText("Normal");
+                            TFPCEP.setText("P50 - P85");
+                        }
+                        if (rs.getDouble(21) == pC) {
+                            LINPCE.setText("Normal");
+                            TFPCEP.setText("P85");
+                        }
+                        if (rs.getDouble(21) < pC && pC < rs.getDouble(22)) {
+                            LINPCE.setText("Sobrepeso");
+                            TFPCEP.setText("P85 - P97");
+                        }
+                        if (rs.getDouble(22) == pC) {
+                            LINPCE.setText("Sobrepeso");
+                            TFPCEP.setText("P97");
+                        }
+                        if (rs.getDouble(22) < pC) {
+                            LINPCE.setText("Obesisdad");
+                            TFPCEP.setText("> P97");
+                        }
+                    }
+                    rs.close();
+                    rs = instruccion.executeQuery("select id, Altura from InfaWHOV2");
+                    Double Longitud = Double.valueOf(TFLongitud.getText().trim()).doubleValue();
+                    while (rs.next()) {
+                        if (rs.getDouble(2) > Longitud) {
+                            cod = rs.getInt(1);
+                            break;
+                        } else if (rs.getDouble(2) == Longitud) {
+                            cod = rs.getInt(1);
+                            break;
+                        }
+                    }
+                    rs.close();
+                    if (RBVaron.isSelected()) {
+                        rs = instruccion.executeQuery("Select * from InfaWHOV2 where id = " + cod);
+                    } else if (RBHembra.isSelected()) {
+                        rs = instruccion.executeQuery("Select * from InfaWHOM2 where id = " + cod);
+                    }
+                    rs.next();
+                    TFPLP50.setText(rs.getString(5));
+
+                    Double Pes = Double.valueOf(TFPeso.getText().trim()).doubleValue();
+                    if (Pes < rs.getDouble(3)) {
+                        LINLP.setText("Desnutrición");
+                        TFPL.setText("< P3");
+                    }
+                    if (Pes == rs.getDouble(3)) {
+                        LINLP.setText("Peligro Desnutrición");
+                        TFPL.setText("P3");
+                    }
+                    if (rs.getDouble(3) < Pes && Pes < rs.getDouble(4)) {
+                        LINLP.setText("Peligro Desnutrición");
+                        TFPL.setText("P3 - P15");
+                    }
+                    if (Pes == rs.getDouble(4)) {
+                        LINLP.setText("Normal");
+                        TFPL.setText("P15");
+                    }
+                    if (rs.getDouble(4) < Pes && Pes < rs.getDouble(5)) {
+                        LINLP.setText("Normal");
+                        TFPL.setText("P15 - P50");
+                    }
+                    if (Pes == rs.getDouble(5)) {
+                        LINLP.setText("Normal");
+                        TFPL.setText("P50");
+                    }
+                    if (rs.getDouble(5) < Pes && Pes < rs.getDouble(6)) {
+                        LINLP.setText("Normal");
+                        TFPL.setText("P50 - P85");
+                    }
+                    if (rs.getDouble(6) == Pes) {
+                        LINLP.setText("Normal");
+                        TFPL.setText("P85");
+                    }
+                    if (rs.getDouble(6) < Pes && Pes < rs.getDouble(7)) {
+                        LINLP.setText("Sobrepeso");
+                        TFPL.setText("P85 - P97");
+                    }
+                    if (rs.getDouble(7) == Pes) {
+                        LINLP.setText("Sobrepeso");
+                        TFPL.setText("P97");
+                    }
+                    if (rs.getDouble(7) < Pes) {
+                        LINLP.setText("Obesisdad");
+                        TFPL.setText("> P97");
+                    }
+                    rs.close();
+                    instruccion.close();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Tienes que rellenar todos los campos",
+                            "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+                    LPL.setEnabled(false);
+                    TFPL.setEnabled(false);
+                    TFPLP50.setEnabled(false);
+                    LLE.setEnabled(false);
+                    LPE.setEnabled(false);
+                    LPCE.setEnabled(false);
+                    LIE.setEnabled(false);
+                    TFIEP50.setEnabled(false);
+                    TFIEP.setEnabled(false);
+                    RBLE.setEnabled(false);
+                    RBPE.setEnabled(false);
+                    RBPCE.setEnabled(false);
+                    RBIE.setEnabled(false);
+                    RBPL.setEnabled(false);
+                    TFLongitud.requestFocus();
+                    TFLongitud.selectAll();
+                }
             }
-        }catch(Exception e) {}
+        } catch (Exception e) {
+        }
 }//GEN-LAST:event_RBWhoActionPerformed
 
     private void RBLEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBLEActionPerformed
         //DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         if (RBOrbegozo.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaOrbegozoV");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaOrbegozoM");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep50 = new XYSeries("P50");
                 XYSeries seriep97 = new XYSeries("P97");
@@ -1896,21 +1913,21 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep50);
                 juegoDatos.addSeries(seriep97);
-                serieInt.add( Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFLongitud.getText().trim()));
+                serieInt.add(Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFLongitud.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("Longitud / Edad",
-                        "Edad","Longitud",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("Longitud / Edad",
+                        "Edad", "Longitud", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -1934,11 +1951,12 @@ public class AntroInfan extends javax.swing.JDialog {
             }
         } else if (RBCDC.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaCDCV1");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaCDCM1");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep5 = new XYSeries("P5");
                 XYSeries seriep10 = new XYSeries("P10");
@@ -1962,7 +1980,7 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep5);
                 juegoDatos.addSeries(seriep10);
@@ -1972,17 +1990,17 @@ public class AntroInfan extends javax.swing.JDialog {
                 juegoDatos.addSeries(seriep90);
                 juegoDatos.addSeries(seriep95);
                 juegoDatos.addSeries(seriep97);
-                serieInt.add( Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFLongitud.getText().trim()));
+                serieInt.add(Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFLongitud.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("Longitud / Edad",
-                        "Edad","Longitud",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("Longitud / Edad",
+                        "Edad", "Longitud", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -2012,11 +2030,12 @@ public class AntroInfan extends javax.swing.JDialog {
             }
         } else if (RBWho.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaWHOV1");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaWHOM1");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep15 = new XYSeries("P15");
                 XYSeries seriep50 = new XYSeries("P50");
@@ -2032,7 +2051,7 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep15);
                 juegoDatos.addSeries(seriep50);
@@ -2041,14 +2060,14 @@ public class AntroInfan extends javax.swing.JDialog {
                 serieInt.add(Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFLongitud.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("Longitud / Edad",
-                        "Edad","Longitud",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("Longitud / Edad",
+                        "Edad", "Longitud", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -2073,20 +2092,22 @@ public class AntroInfan extends javax.swing.JDialog {
                 System.out.println(ex);
             }
 
-        } else
+        } else {
             JOptionPane.showMessageDialog(null, "No has seleccionado ninguna fuente de archivos",
                     "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+        }
 }//GEN-LAST:event_RBLEActionPerformed
 
     private void RBPCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBPCEActionPerformed
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         if (RBOrbegozo.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaOrbegozoV");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaOrbegozoM");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep50 = new XYSeries("P50");
                 XYSeries seriep97 = new XYSeries("P97");
@@ -2098,21 +2119,21 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep50);
                 juegoDatos.addSeries(seriep97);
-                serieInt.add( Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFPerCra.getText().trim()));
+                serieInt.add(Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFPerCra.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("Perimetro Craneal / Edad",
-                        "Edad","Perimetro C.",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("Perimetro Craneal / Edad",
+                        "Edad", "Perimetro C.", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -2136,11 +2157,12 @@ public class AntroInfan extends javax.swing.JDialog {
             }
         } else if (RBCDC.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaCDCV1");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaCDCM1");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep5 = new XYSeries("P5");
                 XYSeries seriep10 = new XYSeries("P10");
@@ -2164,7 +2186,7 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep5);
                 juegoDatos.addSeries(seriep10);
@@ -2174,17 +2196,17 @@ public class AntroInfan extends javax.swing.JDialog {
                 juegoDatos.addSeries(seriep90);
                 juegoDatos.addSeries(seriep95);
                 juegoDatos.addSeries(seriep97);
-                serieInt.add( Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFPerCra.getText().trim()));
+                serieInt.add(Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFPerCra.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("Perimetro Craneal / Edad",
-                        "Edad","Perimetro C.",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("Perimetro Craneal / Edad",
+                        "Edad", "Perimetro C.", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -2215,11 +2237,12 @@ public class AntroInfan extends javax.swing.JDialog {
 
         } else if (RBWho.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaWHOV1");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaWHOM1");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep15 = new XYSeries("P15");
                 XYSeries seriep50 = new XYSeries("P50");
@@ -2235,7 +2258,7 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep15);
                 juegoDatos.addSeries(seriep50);
@@ -2244,14 +2267,14 @@ public class AntroInfan extends javax.swing.JDialog {
                 serieInt.add(Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFPerCra.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("Perimetro Craneal / Edad",
-                        "Edad","Perimetro C.",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("Perimetro Craneal / Edad",
+                        "Edad", "Perimetro C.", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -2275,19 +2298,21 @@ public class AntroInfan extends javax.swing.JDialog {
             } catch (Exception ex) {
                 System.out.println(ex);
             }
-        } else
+        } else {
             JOptionPane.showMessageDialog(null, "No has seleccionado ninguna fuente de archivos",
                     "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+        }
 }//GEN-LAST:event_RBPCEActionPerformed
 
     private void RBPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBPEActionPerformed
         if (RBOrbegozo.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaOrbegozoV");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaOrbegozoM");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep50 = new XYSeries("P50");
                 XYSeries seriep97 = new XYSeries("P97");
@@ -2299,21 +2324,21 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep50);
                 juegoDatos.addSeries(seriep97);
-                serieInt.add( Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFPeso.getText().trim()));
+                serieInt.add(Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFPeso.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("Peso / Edad",
-                        "Edad","Peso",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("Peso / Edad",
+                        "Edad", "Peso", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -2337,11 +2362,12 @@ public class AntroInfan extends javax.swing.JDialog {
             }
         } else if (RBCDC.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaCDCV1");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaCDCM1");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep5 = new XYSeries("P5");
                 XYSeries seriep10 = new XYSeries("P10");
@@ -2365,7 +2391,7 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep5);
                 juegoDatos.addSeries(seriep10);
@@ -2375,17 +2401,17 @@ public class AntroInfan extends javax.swing.JDialog {
                 juegoDatos.addSeries(seriep90);
                 juegoDatos.addSeries(seriep95);
                 juegoDatos.addSeries(seriep97);
-                serieInt.add( Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFPeso.getText().trim()));
+                serieInt.add(Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFPeso.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("Peso / Edad",
-                        "Edad","Peso",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("Peso / Edad",
+                        "Edad", "Peso", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -2415,11 +2441,12 @@ public class AntroInfan extends javax.swing.JDialog {
             }
         } else if (RBWho.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaWHOV1");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaWHOM1");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep15 = new XYSeries("P15");
                 XYSeries seriep50 = new XYSeries("P50");
@@ -2435,7 +2462,7 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep15);
                 juegoDatos.addSeries(seriep50);
@@ -2444,14 +2471,14 @@ public class AntroInfan extends javax.swing.JDialog {
                 serieInt.add(Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFPeso.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("Peso / Edad",
-                        "Edad","Peso",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("Peso / Edad",
+                        "Edad", "Peso", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -2475,20 +2502,22 @@ public class AntroInfan extends javax.swing.JDialog {
             } catch (Exception ex) {
                 System.out.println(ex);
             }
-        } else
+        } else {
             JOptionPane.showMessageDialog(null, "No has seleccionado ninguna fuente de archivos",
                     "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+        }
 }//GEN-LAST:event_RBPEActionPerformed
 
     private void RBIEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBIEActionPerformed
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         if (RBOrbegozo.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaOrbegozoV");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaOrbegozoM");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep50 = new XYSeries("P50");
                 XYSeries seriep85 = new XYSeries("P85");
@@ -2504,23 +2533,23 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep50);
                 juegoDatos.addSeries(seriep85);
                 juegoDatos.addSeries(seriep95);
                 juegoDatos.addSeries(seriep97);
-                serieInt.add( Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFIMC.getText().trim()));
+                serieInt.add(Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFIMC.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("I.M.C. / Edad",
-                        "Edad","I.M.C.",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("I.M.C. / Edad",
+                        "Edad", "I.M.C.", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -2545,14 +2574,14 @@ public class AntroInfan extends javax.swing.JDialog {
                 System.out.println(ex);
             }
         } else if (RBCDC.isSelected()) {
-
         } else if (RBWho.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaWHOV1");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaWHOM1");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep15 = new XYSeries("P15");
                 XYSeries seriep50 = new XYSeries("P50");
@@ -2568,7 +2597,7 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep15);
                 juegoDatos.addSeries(seriep50);
@@ -2577,14 +2606,14 @@ public class AntroInfan extends javax.swing.JDialog {
                 serieInt.add(Double.parseDouble(Integer.toString(calcularMeses(TFFechNac.getText()))), Double.parseDouble(TFIMC.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("I.M.C. / Edad",
-                        "Edad","I.M.C.",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("I.M.C. / Edad",
+                        "Edad", "I.M.C.", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -2608,19 +2637,21 @@ public class AntroInfan extends javax.swing.JDialog {
             } catch (Exception ex) {
                 System.out.println(ex);
             }
-        } else
+        } else {
             JOptionPane.showMessageDialog(null, "No has seleccionado ninguna fuente de archivos",
                     "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+        }
 }//GEN-LAST:event_RBIEActionPerformed
 
     private void RBPLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBPLActionPerformed
         if (RBCDC.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaCDCV2");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaCDCM2");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep5 = new XYSeries("P5");
                 XYSeries seriep10 = new XYSeries("P10");
@@ -2644,7 +2675,7 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep5);
                 juegoDatos.addSeries(seriep10);
@@ -2654,17 +2685,17 @@ public class AntroInfan extends javax.swing.JDialog {
                 juegoDatos.addSeries(seriep90);
                 juegoDatos.addSeries(seriep95);
                 juegoDatos.addSeries(seriep97);
-                serieInt.add( Double.parseDouble(TFLongitud.getText().trim()), Double.parseDouble(TFPeso.getText().trim()));
+                serieInt.add(Double.parseDouble(TFLongitud.getText().trim()), Double.parseDouble(TFPeso.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("Peso / Longitud",
-                        "Longitud","Peso",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("Peso / Longitud",
+                        "Longitud", "Peso", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -2695,11 +2726,12 @@ public class AntroInfan extends javax.swing.JDialog {
 
         } else if (RBWho.isSelected()) {
             try {
-                ResultSet rs=null;
-                if (RBVaron.isSelected())
+                ResultSet rs = null;
+                if (RBVaron.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaWHOV2");
-                else if (RBHembra.isSelected())
+                } else if (RBHembra.isSelected()) {
                     rs = instruccion.executeQuery("Select * from InfaWHOM2");
+                }
                 XYSeries seriep3 = new XYSeries("P3");
                 XYSeries seriep15 = new XYSeries("P15");
                 XYSeries seriep50 = new XYSeries("P50");
@@ -2715,23 +2747,23 @@ public class AntroInfan extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
-                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                XYSeriesCollection juegoDatos = new XYSeriesCollection();
                 juegoDatos.addSeries(seriep3);
                 juegoDatos.addSeries(seriep15);
                 juegoDatos.addSeries(seriep50);
                 juegoDatos.addSeries(seriep85);
                 juegoDatos.addSeries(seriep97);
-                serieInt.add( Double.parseDouble(TFLongitud.getText().trim()), Double.parseDouble(TFPeso.getText().trim()));
+                serieInt.add(Double.parseDouble(TFLongitud.getText().trim()), Double.parseDouble(TFPeso.getText().trim()));
                 juegoDatos.addSeries(serieInt);
 
-                JFreeChart chart = ChartFactory.createXYLineChart         ("Peso / Longitud",
-                        "Longitud","Peso",juegoDatos,PlotOrientation.VERTICAL,
+                JFreeChart chart = ChartFactory.createXYLineChart("Peso / Longitud",
+                        "Longitud", "Peso", juegoDatos, PlotOrientation.VERTICAL,
                         true,
                         true,
-                        true                // Show legend
+                        true // Show legend
                         );
 
-                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYPlot plot = (XYPlot) chart.getPlot();
                 XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
                 //Puntos en las líneas o no
                 renderer.setSeriesShapesVisible(0, false);
@@ -2756,69 +2788,63 @@ public class AntroInfan extends javax.swing.JDialog {
                 System.out.println(ex);
             }
 
-        } else
+        } else {
             JOptionPane.showMessageDialog(null, "No has seleccionado ninguna fuente de archivos",
                     "Otoño Salud", JOptionPane.ERROR_MESSAGE);
+        }
 }//GEN-LAST:event_RBPLActionPerformed
 
-
-    public  void cargarImagen(javax.swing.JDesktopPane jDeskp,File fileImagen)
-    {
-        try{
+    public void cargarImagen(javax.swing.JDesktopPane jDeskp, File fileImagen) {
+        try {
             BufferedImage image = ImageIO.read(fileImagen);
-              jDeskp.setBorder(new PintaImagen(image)); }
-        catch (Exception e){   System.out.println("No cargo imagen, sorry");   }
+            jDeskp.setBorder(new PintaImagen(image));
+        } catch (Exception e) {
+            System.out.println("No cargo imagen, sorry");
+        }
     }
 
+    public static int calcularEdad(String fecha) {
+        String datetext = fecha;
+        try {
+            Calendar birth = new GregorianCalendar();
+            Calendar today = new GregorianCalendar();
+            int age = 0;
+            int factor = 0;
+            Date birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(datetext);
+            Date currentDate = new Date(); //current date
+            birth.setTime(birthDate);
+            today.setTime(currentDate);
 
+            if (today.get(Calendar.MONTH) <= birth.get(Calendar.MONTH)) {
+                if (today.get(Calendar.MONTH) == birth.get(Calendar.MONTH)) {
+                    if (today.get(Calendar.DATE) > birth.get(Calendar.DATE)) {
+                        factor = -1; //Aun no celebra su cumpleaños
+                    }
+                } else {
+                    factor = -1; //Aun no celebra su cumpleaños
+                }
+            }
+            age = (today.get(Calendar.YEAR) - birth.get(Calendar.YEAR)) + factor;
 
+            return age;
+        } catch (Exception e) {
+            return -1;
+        }
+    }
 
-    
-
-public static int calcularEdad(String fecha){
-         String datetext = fecha;
-         try {
-             Calendar birth = new GregorianCalendar();
-             Calendar today = new GregorianCalendar();
-             int age = 0;
-             int factor = 0;
-             Date birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(datetext);
-             Date currentDate = new Date(); //current date
-             birth.setTime(birthDate);
-             today.setTime(currentDate);    
-
-             if(today.get(Calendar.MONTH) <= birth.get(Calendar.MONTH)){
-                 if(today.get(Calendar.MONTH) == birth.get(Calendar.MONTH)){
-                     if(today.get(Calendar.DATE) > birth.get(Calendar.DATE)) {
-                         factor = -1; //Aun no celebra su cumpleaños
-                     }
-                 }else{
-                     factor = -1; //Aun no celebra su cumpleaños
-                 }
-             }
-             age =(today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) )+ factor;
-
-             return age;
-         } catch (Exception e) {
-             return -1;
-         }
-}
-
-public static int calcularMeses (String fecha) throws ParseException {
-    String datetext = fecha;
-    Calendar birth = new GregorianCalendar();
-    Calendar today = new GregorianCalendar();
-    int meses = 0;
-    Date birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(datetext);
-    Date currentDate = new Date(); //current date
-    birth.setTime(birthDate);
-    today.setTime(currentDate);
-    meses = (today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) ) *12;
-    meses = meses + (today.get(Calendar.MONTH) - birth.get(Calendar.MONTH));
-    return meses;
-}
-
-
+    public static int calcularMeses(String fecha) throws ParseException {
+        String datetext = fecha;
+        Calendar birth = new GregorianCalendar();
+        Calendar today = new GregorianCalendar();
+        int meses = 0;
+        Date birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(datetext);
+        Date currentDate = new Date(); //current date
+        birth.setTime(birthDate);
+        today.setTime(currentDate);
+        meses = (today.get(Calendar.YEAR) - birth.get(Calendar.YEAR)) * 12;
+        meses = meses + (today.get(Calendar.MONTH) - birth.get(Calendar.MONTH));
+        return meses;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BCerrar;
     private javax.swing.ButtonGroup BGGrafico;
@@ -2888,10 +2914,4 @@ public static int calcularMeses (String fecha) throws ParseException {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
-
 }
-
-
-
-
-

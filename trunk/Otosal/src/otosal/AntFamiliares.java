@@ -278,6 +278,11 @@ public class AntFamiliares extends javax.swing.JDialog {
         jTextArea1.setRows(5);
         jTextArea1.setEnabled(false);
         jTextArea1.setName("jTextArea1"); // NOI18N
+        jTextArea1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextArea1FocusGained(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -567,6 +572,10 @@ public class AntFamiliares extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_jCheckBox10ActionPerformed
+
+    private void jTextArea1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextArea1FocusGained
+        jTextArea1.setText("");
+    }//GEN-LAST:event_jTextArea1FocusGained
 
     public void cargarImagen(javax.swing.JDesktopPane jDeskp, File fileImagen) {
         try {

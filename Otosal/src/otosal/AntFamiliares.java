@@ -560,7 +560,7 @@ public class AntFamiliares extends javax.swing.JDialog {
      * @param evt
      */
     private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
-        // TODO add your handling code here:
+
         if (jTextArea1.isEnabled()) {
             jTextArea1.setEnabled(false);
             jTextArea1.setBackground(java.awt.Color.LIGHT_GRAY);

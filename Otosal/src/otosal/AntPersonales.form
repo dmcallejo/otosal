@@ -2619,7 +2619,7 @@
                                                   <Component id="jLabel117" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jLabel118" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace pref="179" max="32767" attributes="0"/>
+                                              <EmptySpace pref="149" max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jCheckBox102" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jCheckBox101" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -2880,8 +2880,8 @@
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel20">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection component="jPanel2" name="background" type="property"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="b7" green="b8" red="e5" type="rgb"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="jPanel20" noResource="true"/>
                   </Properties>
@@ -2897,76 +2897,109 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="1">
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane4" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel119" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel120" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel121" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel122" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel124" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel125" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel126" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel123" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jCheckBox111" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox110" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox109" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox108" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox107" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox106" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox105" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox104" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTextField11" pref="596" max="32767" attributes="1"/>
+                                  <Component id="jTextField12" alignment="0" pref="596" max="32767" attributes="0"/>
+                                  <Component id="jTextField10" alignment="0" pref="596" max="32767" attributes="1"/>
+                                  <Component id="jTextField9" alignment="0" pref="596" max="32767" attributes="1"/>
+                                  <Component id="jTextField13" alignment="0" pref="596" max="32767" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel119" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel120" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel121" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel122" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel123" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel124" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel125" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel126" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jCheckBox111" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox110" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox109" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox108" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox107" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox106" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox105" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox104" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="552" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel119" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox104" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel119" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox104" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jCheckBox105" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel120" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jCheckBox106" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel121" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jCheckBox107" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel122" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jCheckBox108" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel123" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jCheckBox109" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel124" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jCheckBox110" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel125" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jCheckBox111" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel126" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="6" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jTextField13" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                      <Component id="jTextField12" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextField11" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Component id="jTextField10" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextField9" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jCheckBox105" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel120" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jCheckBox106" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel121" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jCheckBox107" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel122" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jCheckBox108" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel123" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jCheckBox109" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel124" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jCheckBox110" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel125" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jCheckBox111" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel126" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="110" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2980,51 +3013,61 @@
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox104">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jCheckBox104"/>
                         <Property name="name" type="java.lang.String" value="jCheckBox104" noResource="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox104ActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox105">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jCheckBox105"/>
                         <Property name="name" type="java.lang.String" value="jCheckBox105" noResource="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox105ActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox106">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jCheckBox106"/>
                         <Property name="name" type="java.lang.String" value="jCheckBox106" noResource="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox106ActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox107">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jCheckBox107"/>
                         <Property name="name" type="java.lang.String" value="jCheckBox107" noResource="true"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox108">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jCheckBox108"/>
                         <Property name="name" type="java.lang.String" value="jCheckBox108" noResource="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox108ActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox109">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jCheckBox109"/>
                         <Property name="name" type="java.lang.String" value="jCheckBox109" noResource="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox109ActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox110">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jCheckBox110"/>
                         <Property name="name" type="java.lang.String" value="jCheckBox110" noResource="true"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBox111">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jCheckBox111"/>
                         <Property name="name" type="java.lang.String" value="jCheckBox111" noResource="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox111ActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel120">
                       <Properties>
@@ -3066,6 +3109,56 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Otros"/>
                         <Property name="name" type="java.lang.String" value="jLabel126" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="jScrollPane4" noResource="true"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTextArea" name="jTextArea3">
+                          <Properties>
+                            <Property name="columns" type="int" value="20"/>
+                            <Property name="rows" type="int" value="5"/>
+                            <Property name="enabled" type="boolean" value="false"/>
+                            <Property name="name" type="java.lang.String" value="jTextArea3" noResource="true"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JTextField" name="jTextField9">
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="name" type="java.lang.String" value="jTextField9" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTextField10">
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="name" type="java.lang.String" value="jTextField10" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTextField11">
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="name" type="java.lang.String" value="jTextField11" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTextField12">
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="name" type="java.lang.String" value="jTextField12" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTextField13">
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="name" type="java.lang.String" value="jTextField13" noResource="true"/>
                       </Properties>
                     </Component>
                   </SubComponents>

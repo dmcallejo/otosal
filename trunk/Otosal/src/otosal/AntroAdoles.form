@@ -41,7 +41,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,13 +63,13 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel2" max="32767" attributes="1"/>
-                              <Component id="jPanel7" min="-2" pref="720" max="-2" attributes="1"/>
+                              <Component id="jPanel7" pref="727" max="32767" attributes="1"/>
+                              <Component id="jPanel2" alignment="1" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="DPImagen" pref="468" max="32767" attributes="1"/>
-                              <Component id="jPanel10" alignment="0" min="-2" max="-2" attributes="1"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="DPImagen" max="32767" attributes="1"/>
+                              <Component id="jPanel10" alignment="0" max="32767" attributes="1"/>
                           </Group>
                       </Group>
                   </Group>
@@ -84,7 +84,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jPanel10" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="DPImagen" min="-2" pref="351" max="-2" attributes="0"/>
+                          <Component id="DPImagen" min="-2" pref="318" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -175,7 +175,7 @@
                               <Component id="TFFechNac" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
                               <Component id="TFEdad" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="30" max="32767" attributes="0"/>
+                          <EmptySpace pref="37" max="32767" attributes="0"/>
                           <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -573,7 +573,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="60" max="32767" attributes="0"/>
+                          <EmptySpace pref="156" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -713,9 +713,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="TFPLP50" alignment="0" pref="75" max="32767" attributes="1"/>
-                              <Component id="TFIEP50" alignment="0" pref="75" max="32767" attributes="1"/>
-                              <Component id="TFPBEP50" alignment="0" pref="75" max="32767" attributes="1"/>
+                              <Component id="TFPLP50" alignment="0" pref="64" max="32767" attributes="1"/>
+                              <Component id="TFIEP50" alignment="0" pref="64" max="32767" attributes="1"/>
+                              <Component id="TFPBEP50" alignment="0" pref="64" max="32767" attributes="1"/>
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="TFPEP50" alignment="0" max="32767" attributes="1"/>
                                   <Component id="TFLEP50" alignment="0" pref="64" max="32767" attributes="1"/>
@@ -731,7 +731,7 @@
                               <Component id="LINPE" alignment="0" max="32767" attributes="1"/>
                               <Component id="LINPBE" alignment="0" min="-2" max="-2" attributes="1"/>
                           </Group>
-                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -746,7 +746,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="LINLE" alignment="0" pref="27" max="32767" attributes="1"/>
+                              <Component id="LINLE" alignment="0" pref="23" max="32767" attributes="1"/>
                               <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                                   <Component id="TFLEP50" alignment="3" max="32767" attributes="1"/>
                                   <Component id="TFLEP" alignment="3" min="-2" max="-2" attributes="1"/>
@@ -1001,31 +1001,22 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-                      <Component id="jLabel15" min="-2" pref="65" max="-2" attributes="0"/>
-                      <EmptySpace pref="258" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="RBPT" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Component id="RBPT" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="RBTE" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="RBPBE" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="RBTE" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="RBPBE" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="79" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="RBPE" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="RBIE" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabel15" alignment="1" min="-2" pref="65" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="RBPE" min="-2" max="-2" attributes="0"/>
+                          <Component id="RBIE" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1036,18 +1027,19 @@
                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="RBPE" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="RBIE" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
                               <Component id="RBTE" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="RBPBE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="RBIE" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="RBPBE" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="RBPT" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="RBPE" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="RBPT" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="80" max="32767" attributes="0"/>
                   </Group>
               </Group>

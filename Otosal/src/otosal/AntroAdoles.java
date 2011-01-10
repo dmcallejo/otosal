@@ -147,6 +147,14 @@ public class AntroAdoles extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         BGuardar2 = new javax.swing.JButton();
         BCerrar = new javax.swing.JButton();
+        DPImagen = new javax.swing.JDesktopPane();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        RBTE = new javax.swing.JRadioButton();
+        RBPBE = new javax.swing.JRadioButton();
+        RBIE = new javax.swing.JRadioButton();
+        RBPE = new javax.swing.JRadioButton();
+        RBPT = new javax.swing.JRadioButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         RBOrbegozo = new javax.swing.JRadioButton();
@@ -178,14 +186,6 @@ public class AntroAdoles extends javax.swing.JDialog {
         LPBE = new javax.swing.JLabel();
         LIE = new javax.swing.JLabel();
         LPL = new javax.swing.JLabel();
-        DPImagen = new javax.swing.JDesktopPane();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        RBTE = new javax.swing.JRadioButton();
-        RBPBE = new javax.swing.JRadioButton();
-        RBIE = new javax.swing.JRadioButton();
-        RBPE = new javax.swing.JRadioButton();
-        RBPT = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("AntopometríaInfancia y Adolescencia (2 - 18 años)");
@@ -274,7 +274,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TFFechNac, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TFEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -362,7 +362,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(TFPerBra, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -388,10 +388,10 @@ public class AntroAdoles extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -442,6 +442,102 @@ public class AntroAdoles extends javax.swing.JDialog {
                     .addComponent(BCerrar)
                     .addComponent(BGuardar2))
                 .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        DPImagen.setBackground(new java.awt.Color(229, 184, 183));
+        DPImagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        DPImagen.setName("DPImagen"); // NOI18N
+
+        jPanel10.setBackground(new java.awt.Color(229, 184, 183));
+        jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel10.setName("jPanel10"); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("Tahoma 14 Negrita cursiva", 3, 14));
+        jLabel15.setText("Graficas");
+        jLabel15.setName("jLabel15"); // NOI18N
+
+        RBTE.setBackground(new java.awt.Color(229, 184, 183));
+        BGGrafica.add(RBTE);
+        RBTE.setText("Talla / Edad");
+        RBTE.setName("RBTE"); // NOI18N
+        RBTE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBTEActionPerformed(evt);
+            }
+        });
+
+        RBPBE.setBackground(new java.awt.Color(229, 184, 183));
+        BGGrafica.add(RBPBE);
+        RBPBE.setText("Perimetro braquial / Edad");
+        RBPBE.setName("RBPBE"); // NOI18N
+
+        RBIE.setBackground(new java.awt.Color(229, 184, 183));
+        BGGrafica.add(RBIE);
+        RBIE.setText("I.M.C. / Edad");
+        RBIE.setName("RBIE"); // NOI18N
+        RBIE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBIEActionPerformed(evt);
+            }
+        });
+
+        RBPE.setBackground(new java.awt.Color(229, 184, 183));
+        BGGrafica.add(RBPE);
+        RBPE.setText("Peso / Edad");
+        RBPE.setName("RBPE"); // NOI18N
+        RBPE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBPEActionPerformed(evt);
+            }
+        });
+
+        RBPT.setBackground(new java.awt.Color(229, 184, 183));
+        BGGrafica.add(RBPT);
+        RBPT.setText("Peso / Talla");
+        RBPT.setName("RBPT"); // NOI18N
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RBTE)
+                            .addComponent(RBPBE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RBPE)
+                            .addComponent(RBIE))
+                        .addGap(58, 58, 58))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(RBPT)
+                        .addContainerGap(301, Short.MAX_VALUE))))
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(184, 184, 184)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(176, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(RBIE))
+                    .addComponent(RBPE)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(RBTE)
+                        .addGap(18, 18, 18)
+                        .addComponent(RBPBE)
+                        .addGap(18, 18, 18)
+                        .addComponent(RBPT)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jPanel7.setBackground(new java.awt.Color(229, 184, 183));
@@ -519,7 +615,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RBCDC)
                             .addComponent(RBWho))))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -657,7 +753,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                     .addComponent(LINLE, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                     .addComponent(LINPE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LINPBE))
-                .addGap(86, 86, 86))
+                .addGap(155, 155, 155))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -737,125 +833,34 @@ public class AntroAdoles extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        DPImagen.setBackground(new java.awt.Color(229, 184, 183));
-        DPImagen.setName("DPImagen"); // NOI18N
-
-        jPanel10.setBackground(new java.awt.Color(229, 184, 183));
-        jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel10.setName("jPanel10"); // NOI18N
-
-        jLabel15.setFont(new java.awt.Font("Tahoma 14 Negrita cursiva", 3, 14));
-        jLabel15.setText("Graficas");
-        jLabel15.setName("jLabel15"); // NOI18N
-
-        RBTE.setBackground(new java.awt.Color(229, 184, 183));
-        BGGrafica.add(RBTE);
-        RBTE.setText("Talla / Edad");
-        RBTE.setName("RBTE"); // NOI18N
-        RBTE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RBTEActionPerformed(evt);
-            }
-        });
-
-        RBPBE.setBackground(new java.awt.Color(229, 184, 183));
-        BGGrafica.add(RBPBE);
-        RBPBE.setText("Perimetro braquial / Edad");
-        RBPBE.setName("RBPBE"); // NOI18N
-
-        RBIE.setBackground(new java.awt.Color(229, 184, 183));
-        BGGrafica.add(RBIE);
-        RBIE.setText("I.M.C. / Edad");
-        RBIE.setName("RBIE"); // NOI18N
-        RBIE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RBIEActionPerformed(evt);
-            }
-        });
-
-        RBPE.setBackground(new java.awt.Color(229, 184, 183));
-        BGGrafica.add(RBPE);
-        RBPE.setText("Peso / Edad");
-        RBPE.setName("RBPE"); // NOI18N
-        RBPE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RBPEActionPerformed(evt);
-            }
-        });
-
-        RBPT.setBackground(new java.awt.Color(229, 184, 183));
-        BGGrafica.add(RBPT);
-        RBPT.setText("Peso / Talla");
-        RBPT.setName("RBPT"); // NOI18N
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(RBPT)
-                        .addComponent(RBTE)
-                        .addComponent(RBPBE))
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RBPE)
-                    .addComponent(RBIE))
-                .addGap(113, 113, 113))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel15)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(RBPE)
-                        .addGap(18, 18, 18)
-                        .addComponent(RBIE))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(RBTE)
-                        .addGap(18, 18, 18)
-                        .addComponent(RBPBE)
-                        .addGap(18, 18, 18)
-                        .addComponent(RBPT)))
-                .addContainerGap(80, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(DPImagen)
+                            .addComponent(jPanel2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DPImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
                             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(443, 443, 443))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DPImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DPImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -867,7 +872,7 @@ public class AntroAdoles extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -875,7 +880,7 @@ public class AntroAdoles extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -928,7 +933,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 LIE.setEnabled(true);
                 LTE.setEnabled(true);
                 LPE.setEnabled(true);
-                LPBE.setEnabled(false);
+                LPBE.setEnabled(true);
                 LPL.setEnabled(false);
                 RBTE.setEnabled(true);
                 RBPE.setEnabled(false);

@@ -55,38 +55,35 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jPanel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jPanel2" min="0" max="32767" attributes="1"/>
-                              <Component id="jPanel7" alignment="0" pref="796" max="32767" attributes="1"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="DPImagen" pref="429" max="32767" attributes="1"/>
-                              <Component id="jPanel10" alignment="0" max="32767" attributes="1"/>
-                          </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jPanel2" min="-2" max="-2" attributes="1"/>
+                      <Component id="jPanel7" min="-2" pref="797" max="-2" attributes="1"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jPanel10" min="-2" max="-2" attributes="1"/>
+                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                          <Component id="jPanel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="DPImagen" alignment="1" min="-2" pref="375" max="-2" attributes="1"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jPanel7" min="-2" pref="319" max="-2" attributes="1"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="1">
                           <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="DPImagen" pref="363" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jPanel7" min="-2" pref="333" max="-2" attributes="0"/>
+                          <Component id="DPImagen" max="32767" attributes="1"/>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -114,11 +111,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jPanel4" alignment="0" max="32767" attributes="1"/>
                           <Component id="jPanel5" alignment="0" max="32767" attributes="1"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -172,7 +169,7 @@
                               <Component id="TFFechNac" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
                               <Component id="TFEdad" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="106" max="32767" attributes="0"/>
+                          <EmptySpace pref="107" max="32767" attributes="0"/>
                           <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -340,19 +337,23 @@
                                   <Component id="jLabel6" min="-2" pref="52" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="TFPeso" min="-2" pref="87" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                  <Component id="TFPerBra" min="-2" pref="83" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="TFIMC" min="-2" pref="84" max="-2" attributes="0"/>
+                                  <EmptySpace min="313" pref="313" max="-2" attributes="0"/>
+                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                  <Component id="TFPerBra1" min="-2" pref="83" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                          <Component id="TFPerBra" min="-2" pref="83" max="-2" attributes="0"/>
-                          <EmptySpace pref="186" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -367,6 +368,8 @@
                               <Component id="TFPeso" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="TFPerBra" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TFPerBra1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -433,232 +436,20 @@
                     <Property name="name" type="java.lang.String" value="TFPerBra" noResource="true"/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JTextField" name="TFPerBra1">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="name" type="java.lang.String" value="TFPerBra1" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel9">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Pliegue Tricipital"/>
+                    <Property name="name" type="java.lang.String" value="jLabel9" noResource="true"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel3">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b7" green="b8" red="e5" type="rgb"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
-              </Border>
-            </Property>
-            <Property name="name" type="java.lang.String" value="jPanel3" noResource="true"/>
-          </Properties>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="BGuardar2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="BCerrar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="BCerrar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="BGuardar2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="13" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JButton" name="BGuardar2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Guardar"/>
-                <Property name="name" type="java.lang.String" value="BGuardar2" noResource="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BGuardar2ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="BCerrar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cerrar"/>
-                <Property name="name" type="java.lang.String" value="BCerrar" noResource="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BCerrarActionPerformed"/>
-              </Events>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JDesktopPane" name="DPImagen">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b7" green="b8" red="e5" type="rgb"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
-              </Border>
-            </Property>
-            <Property name="name" type="java.lang.String" value="DPImagen" noResource="true"/>
-          </Properties>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout"/>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel10">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b7" green="b8" red="e5" type="rgb"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
-              </Border>
-            </Property>
-            <Property name="name" type="java.lang.String" value="jPanel10" noResource="true"/>
-          </Properties>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="RBTE" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="RBPBE" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="86" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="RBPE" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="RBIE" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="RBPT" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="301" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
-                      <Component id="jLabel15" min="-2" pref="65" max="-2" attributes="0"/>
-                      <EmptySpace pref="176" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="RBIE" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="RBPE" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="RBTE" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="RBPBE" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="RBPT" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel15">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma 14 Negrita cursiva" size="14" style="3"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Graficas"/>
-                <Property name="name" type="java.lang.String" value="jLabel15" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="RBTE">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b7" green="b8" red="e5" type="rgb"/>
-                </Property>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="BGGrafica"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Talla / Edad"/>
-                <Property name="name" type="java.lang.String" value="RBTE" noResource="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBTEActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="RBPBE">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b7" green="b8" red="e5" type="rgb"/>
-                </Property>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="BGGrafica"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Perimetro braquial / Edad"/>
-                <Property name="name" type="java.lang.String" value="RBPBE" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="RBIE">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b7" green="b8" red="e5" type="rgb"/>
-                </Property>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="BGGrafica"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="I.M.C. / Edad"/>
-                <Property name="name" type="java.lang.String" value="RBIE" noResource="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBIEActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="RBPE">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b7" green="b8" red="e5" type="rgb"/>
-                </Property>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="BGGrafica"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Peso / Edad"/>
-                <Property name="name" type="java.lang.String" value="RBPE" noResource="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBPEActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="RBPT">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b7" green="b8" red="e5" type="rgb"/>
-                </Property>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="BGGrafica"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Peso / Talla"/>
-                <Property name="name" type="java.lang.String" value="RBPT" noResource="true"/>
-              </Properties>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel7">
@@ -680,24 +471,24 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jPanel9" alignment="0" max="32767" attributes="1"/>
-                          <Component id="jPanel8" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jPanel8" alignment="0" min="-2" max="-2" attributes="1"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="8" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jPanel9" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -722,20 +513,23 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="RBSiri" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="RBOrbegozo" min="-2" max="-2" attributes="0"/>
                                       <Component id="RBCarrascosa" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  <EmptySpace pref="185" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="RBCDC" min="-2" max="-2" attributes="0"/>
                                       <Component id="RBWho" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="RBSiri" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="529" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="225" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -743,17 +537,20 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="RBCDC" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="RBOrbegozo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="RBOrbegozo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="RBCarrascosa" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="RBSiri" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="RBCDC" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="RBWho" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="RBWho" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="RBCarrascosa" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="RBSiri" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -854,121 +651,151 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="LPBE" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LPL" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LIE" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LPE" alignment="0" min="-2" max="-2" attributes="1"/>
-                              <Component id="LTE" alignment="0" min="-2" max="-2" attributes="1"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel18" alignment="0" pref="70" max="32767" attributes="1"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="TFPL" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="TFIEP" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="TFPBEP" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="TFPPE" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="TFLEP" alignment="0" min="-2" pref="62" max="-2" attributes="1"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="jLabel18" min="-2" max="-2" attributes="1"/>
+                                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="LTE" min="-2" max="-2" attributes="1"/>
+                                          <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                                          <Component id="TFLEP" pref="67" max="32767" attributes="1"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="LPBE" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="LPE" alignment="0" min="-2" max="-2" attributes="1"/>
+                                              <Component id="LIE" min="-2" max="-2" attributes="0"/>
+                                              <Component id="LPL" min="-2" max="-2" attributes="0"/>
+                                              <Component id="LPTE" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="TFPPE" alignment="0" pref="67" max="32767" attributes="1"/>
+                                              <Component id="TFPBEP" alignment="0" pref="67" max="32767" attributes="1"/>
+                                              <Component id="TFPTEP" alignment="0" pref="67" max="32767" attributes="1"/>
+                                              <Component id="TFIEP" alignment="0" pref="67" max="32767" attributes="1"/>
+                                              <Component id="TFPL" alignment="0" pref="67" max="32767" attributes="1"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="TFPLP50" alignment="0" pref="64" max="32767" attributes="1"/>
-                              <Component id="TFIEP50" alignment="0" pref="64" max="32767" attributes="1"/>
-                              <Component id="TFPBEP50" alignment="0" pref="64" max="32767" attributes="1"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="TFPEP50" alignment="0" pref="70" max="32767" attributes="1"/>
+                                      <Component id="TFPBEP50" alignment="0" pref="70" max="32767" attributes="1"/>
+                                      <Component id="TFPTEP50" alignment="0" pref="70" max="32767" attributes="1"/>
+                                      <Component id="TFIEP50" alignment="0" pref="70" max="32767" attributes="1"/>
+                                      <Component id="TFPLP50" alignment="0" pref="70" max="32767" attributes="1"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel21" alignment="0" pref="70" max="32767" attributes="1"/>
+                              <Component id="TFLEP50" alignment="0" pref="70" max="32767" attributes="1"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="LINPE" pref="218" max="32767" attributes="1"/>
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="TFPEP50" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="TFLEP50" alignment="0" pref="64" max="32767" attributes="1"/>
-                                  <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="1"/>
+                                  <Component id="LINLE" alignment="0" pref="218" max="32767" attributes="1"/>
+                                  <Component id="LINPBE" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="LINPTE" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="LINIE" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="LINLP" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jLabel11" alignment="0" max="32767" attributes="1"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="LINLP" alignment="0" max="32767" attributes="1"/>
-                              <Component id="LINIE" alignment="0" max="32767" attributes="1"/>
-                              <Component id="jLabel11" alignment="0" max="32767" attributes="1"/>
-                              <Component id="LINLE" alignment="0" pref="172" max="32767" attributes="1"/>
-                              <Component id="LINPE" alignment="0" max="32767" attributes="1"/>
-                              <Component id="LINPBE" alignment="0" min="-2" max="-2" attributes="1"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel11" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
-                              <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="LINLE" alignment="0" pref="23" max="32767" attributes="1"/>
-                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                  <Component id="TFLEP50" alignment="3" max="32767" attributes="1"/>
-                                  <Component id="TFLEP" alignment="3" min="-2" max="-2" attributes="1"/>
-                              </Group>
-                              <Component id="LTE" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="LTE" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TFLEP" min="-2" max="-2" attributes="1"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="TFPPE" alignment="3" min="-2" max="-2" attributes="1"/>
                                       <Component id="LPE" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="LPBE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="TFPBEP" alignment="3" min="-2" max="-2" attributes="1"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="TFIEP" alignment="3" min="-2" max="-2" attributes="1"/>
-                                              <Component id="LIE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="LPBE" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TFPBEP" alignment="3" min="-2" max="-2" attributes="1"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="TFPTEP" alignment="3" min="-2" max="-2" attributes="1"/>
+                                      <Component id="LPTE" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="LPL" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="TFPL" alignment="3" min="-2" max="-2" attributes="1"/>
-                                          <Component id="TFPLP50" alignment="3" min="-2" max="-2" attributes="1"/>
-                                      </Group>
+                                      <Component id="LIE" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TFIEP" min="-2" max="-2" attributes="1"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="LPL" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TFPL" min="-2" max="-2" attributes="1"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="LINPE" alignment="0" max="32767" attributes="1"/>
-                                      <Component id="TFPEP50" alignment="0" min="-2" max="-2" attributes="1"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel11" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="LINLE" max="32767" attributes="1"/>
+                                      <Component id="TFLEP50" alignment="0" max="32767" attributes="1"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" attributes="1">
+                                          <Component id="LINPE" max="32767" attributes="1"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="LINPBE" min="-2" pref="19" max="-2" attributes="1"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="TFPEP50" min="-2" max="-2" attributes="1"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="TFPBEP50" min="-2" max="-2" attributes="1"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="TFPBEP50" min="-2" max="-2" attributes="1"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="TFIEP50" min="-2" max="-2" attributes="1"/>
-                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="LINPBE" min="-2" pref="19" max="-2" attributes="1"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="LINIE" pref="20" max="32767" attributes="1"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="LINLP" min="-2" pref="19" max="-2" attributes="1"/>
-                                      </Group>
+                                      <Component id="TFPTEP50" min="-2" max="-2" attributes="1"/>
+                                      <Component id="LINPTE" min="-2" pref="19" max="-2" attributes="1"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="TFIEP50" min="-2" max="-2" attributes="1"/>
+                                      <Component id="LINIE" min="-2" pref="21" max="-2" attributes="1"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="LINLP" min="-2" pref="19" max="-2" attributes="1"/>
+                                      <Component id="TFPLP50" alignment="0" min="-2" max="-2" attributes="1"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1133,8 +960,260 @@
                     <Property name="name" type="java.lang.String" value="LPL" noResource="true"/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JLabel" name="LINPTE">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="12" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="name" type="java.lang.String" value="LINPTE" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="LPTE">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Pliegue tricipitall / Edad"/>
+                    <Property name="name" type="java.lang.String" value="LPTE" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="TFPTEP">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="name" type="java.lang.String" value="TFPTEP" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="TFPTEP50">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="name" type="java.lang.String" value="TFPTEP50" noResource="true"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel10">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="b7" green="b8" red="e5" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+            <Property name="name" type="java.lang.String" value="jPanel10" noResource="true"/>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="RBTE" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RBPBE" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="44" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="RBPE" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RBIE" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="RBPT" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="249" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="158" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="RBTE" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="RBPBE" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="RBPT" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="RBIE" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="RBPE" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel15">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma 14 Negrita cursiva" size="14" style="3"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Graficas"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="name" type="java.lang.String" value="jLabel15" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="RBTE">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="b7" green="b8" red="e5" type="rgb"/>
+                </Property>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="BGGrafica"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Talla / Edad"/>
+                <Property name="name" type="java.lang.String" value="RBTE" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBTEActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="RBPBE">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="b7" green="b8" red="e5" type="rgb"/>
+                </Property>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="BGGrafica"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Perimetro braquial / Edad"/>
+                <Property name="name" type="java.lang.String" value="RBPBE" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="RBIE">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="b7" green="b8" red="e5" type="rgb"/>
+                </Property>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="BGGrafica"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="I.M.C. / Edad"/>
+                <Property name="name" type="java.lang.String" value="RBIE" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBIEActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="RBPE">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="b7" green="b8" red="e5" type="rgb"/>
+                </Property>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="BGGrafica"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Peso / Edad"/>
+                <Property name="name" type="java.lang.String" value="RBPE" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBPEActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="RBPT">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="b7" green="b8" red="e5" type="rgb"/>
+                </Property>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="BGGrafica"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Peso / Talla"/>
+                <Property name="name" type="java.lang.String" value="RBPT" noResource="true"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JDesktopPane" name="DPImagen">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="b7" green="b8" red="e5" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+            <Property name="name" type="java.lang.String" value="DPImagen" noResource="true"/>
+          </Properties>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout"/>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel3">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="b7" green="b8" red="e5" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+            <Property name="name" type="java.lang.String" value="jPanel3" noResource="true"/>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="BGuardar2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="BCerrar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="BCerrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="BGuardar2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="13" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="BGuardar2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
+                <Property name="name" type="java.lang.String" value="BGuardar2" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BGuardar2ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="BCerrar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cerrar"/>
+                <Property name="name" type="java.lang.String" value="BCerrar" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BCerrarActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

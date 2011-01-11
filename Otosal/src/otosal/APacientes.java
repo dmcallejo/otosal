@@ -59,9 +59,6 @@ public class APacientes extends javax.swing.JDialog {
 
         try {
             Class.forName(ControladorJDBC);
-            conexion = DriverManager.getConnection(baseDatos);
-            instruccion = conexion.createStatement();
-            System.out.println("Base de datos cargada");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(),
                     "Error en la base de datos", JOptionPane.ERROR_MESSAGE);
@@ -97,6 +94,9 @@ public class APacientes extends javax.swing.JDialog {
         modelo.addColumn("Paciente");
         try {
             //Cambiar pacientes por pacientes temporal
+            conexion = DriverManager.getConnection(baseDatos);
+            instruccion = conexion.createStatement();
+            System.out.println("Base de datos cargada");
             ResultSet rs = instruccion.executeQuery(sql);
             if (!rs.isClosed()) {
                 Object[] fila = new Object[2];
@@ -106,6 +106,9 @@ public class APacientes extends javax.swing.JDialog {
                     modelo.addRow(fila);
                 }
             }
+            rs.close();
+            instruccion.close();
+            conexion.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -121,6 +124,9 @@ public class APacientes extends javax.swing.JDialog {
         modelo.addColumn("Paciente");
         try {
             //Cambiar pacientes por pacientes temporal
+            conexion = DriverManager.getConnection(baseDatos);
+            instruccion = conexion.createStatement();
+            System.out.println("Base de datos cargada");
             ResultSet rs = instruccion.executeQuery(sql);
             rs.next();
             if (!rs.isClosed()) {
@@ -151,7 +157,9 @@ public class APacientes extends javax.swing.JDialog {
                     BHistorial.setEnabled(false);
                 }
             }
-
+            rs.close();
+            instruccion.close();
+            conexion.close();
         } catch (SQLException ex) {
             Logger.getLogger(APacientes.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -777,7 +785,13 @@ public class APacientes extends javax.swing.JDialog {
     }//GEN-LAST:event_RBHembraActionPerformed
 
     private void BSelecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSelecActionPerformed
-        //Aqui guardo en la tabla temporal los datos del paciente seleccionado
+        try {
+            //Aqui guardo en la tabla temporal los datos del paciente seleccionado
+            conexion = DriverManager.getConnection(baseDatos);
+            instruccion = conexion.createStatement();
+            System.out.println("Base de datos cargada");
+        } catch (Exception ex) {}
+
         if (BSelec.getText().equals("Seleccionar")) {
             if (!TFNom.getText().equals("")) {
                 String sex = new String();
@@ -832,6 +846,10 @@ public class APacientes extends javax.swing.JDialog {
                 System.out.println(e);
             }
         }
+        try {
+            instruccion.close();
+            conexion.close();
+        } catch (Exception ex) {}
     }//GEN-LAST:event_BSelecActionPerformed
 
     private void TPacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TPacMouseClicked
@@ -839,6 +857,9 @@ public class APacientes extends javax.swing.JDialog {
         if (evt.getClickCount() == 1) {
             int linea = TPac.getSelectedRow();
             try {
+                conexion = DriverManager.getConnection(baseDatos);
+                instruccion = conexion.createStatement();
+                System.out.println("Base de datos cargada");
                 ResultSet rs = instruccion.executeQuery("select * from Pacientes where historico='No' and id=" + (Integer) modelo.getValueAt(linea, 0));
                 rs.next();
                 Integer Cod = rs.getInt(1);
@@ -875,6 +896,7 @@ public class APacientes extends javax.swing.JDialog {
                 }
                 rs.close();
                 instruccion.close();
+                conexion.close();
             } catch (SQLException ex) {
                 Logger.getLogger(APacientes.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -902,10 +924,16 @@ public class APacientes extends javax.swing.JDialog {
 
         int cdg = new Integer(0);
         try {
+            conexion = DriverManager.getConnection(baseDatos);
+            instruccion = conexion.createStatement();
+            System.out.println("Base de datos cargada");
             ResultSet rs = instruccion.executeQuery("SELECT count (*) as  id FROM Pacientes");
             rs.next();
             cdg = rs.getInt(1) + 1;
             System.out.println(cdg);
+            rs.close();
+            instruccion.close();
+            conexion.close();
         } catch (Exception e) {
         }
         //Variable para que solo se puedan meter 25 pacientes DESCOMENTAR
@@ -1115,21 +1143,31 @@ public class APacientes extends javax.swing.JDialog {
                     BAnadir.setText("Añadir");
                     //Inserto una sql para modificar el registro
                     try {
+                        conexion = DriverManager.getConnection(baseDatos);
+                        instruccion = conexion.createStatement();
+                        System.out.println("Base de datos cargada");
                         instruccion.executeUpdate("UPDATE Pacientes set Nombre = '" + temp2
                                 + "', Direccion = '" + temp3 + "', Poblacion = '" + temp4 + "', cp = " + Integer.parseInt(temp5)
                                 + ", Provincia = '" + temp6 + "', Telefono = " + Integer.parseInt(temp7) + ", Movil = " + Integer.parseInt(temp8)
                                 + ", Email = '" + temp9 + "', FechNac = '" + temp10 + "', sexo = '" + sexo + "', Historico = 'No' where id = " + temp1);
+                        instruccion.close();
+                        conexion.close();
                     } catch (Exception e) {
                         System.out.println(e);
                     }
                 } else {
                     //Inserto una sql para añadir el paciente a la tabla
                     try {
+                        conexion = DriverManager.getConnection(baseDatos);
+                        instruccion = conexion.createStatement();
+                        System.out.println("Base de datos cargada");
                         instruccion.execute("insert into TempPaci values ('" + temp1 + "', '" + temp2
                                 + "', '" + temp3 + "', '" + temp4 + "', " + Integer.parseInt(temp5)
                                 + ", '" + temp6 + "', " + Integer.parseInt(temp7) + ", " + Integer.parseInt(temp8)
                                 + ", '" + temp9 + "', '" + temp10 + "', '" + sexo + "', 'No')");
                         instruccion.executeUpdate("INSERT INTO Pacientes SELECT * FROM TempPaci");
+                        instruccion.close();
+                        conexion.close();
                     } catch (Exception e) {
                         System.out.println(e);
                     }

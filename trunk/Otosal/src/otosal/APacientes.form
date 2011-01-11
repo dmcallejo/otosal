@@ -196,7 +196,7 @@
                               <Component id="PSex" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="101" max="32767" attributes="0"/>
+                          <EmptySpace pref="158" max="32767" attributes="0"/>
                           <Component id="PBuscar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -267,7 +267,7 @@
                       </Group>
                       <Component id="PBuscar" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                  <EmptySpace pref="77" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -621,7 +621,7 @@
                       <Component id="BSelec" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="BBorrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                  <EmptySpace pref="57" max="32767" attributes="0"/>
                   <Component id="BSalir" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -711,10 +711,10 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="BHistorial" alignment="0" pref="193" max="32767" attributes="0"/>
-                      <Component id="BCancel" alignment="0" pref="193" max="32767" attributes="0"/>
-                      <Component id="BAnadir" alignment="0" pref="193" max="32767" attributes="0"/>
-                      <Component id="BVisitas" alignment="0" pref="193" max="32767" attributes="0"/>
+                      <Component id="BHistorial" alignment="0" pref="238" max="32767" attributes="0"/>
+                      <Component id="BCancel" alignment="0" pref="238" max="32767" attributes="0"/>
+                      <Component id="BAnadir" alignment="0" pref="238" max="32767" attributes="0"/>
+                      <Component id="BVisitas" alignment="0" pref="238" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>

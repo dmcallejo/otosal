@@ -23,15 +23,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartUtilities;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 
 /**
  *
@@ -208,6 +199,7 @@ public class AntPersonales extends javax.swing.JDialog {
             TFEdad.setEditable(false);
             TFLongitud.requestFocus();
             conexion.close();
+            jTabbedPane1.setSelectedIndex(0);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -221,6 +213,7 @@ public class AntPersonales extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         BGPaper = new javax.swing.ButtonGroup();
         BGGrafica = new javax.swing.ButtonGroup();
@@ -2056,7 +2049,10 @@ public class AntPersonales extends javax.swing.JDialog {
         jLabel118.setName("jLabel118"); // NOI18N
 
         jCheckBox103.setName("jCheckBox103"); // NOI18N
-        jCheckBox103.setNextFocusableComponent(jTextArea2);
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jTextArea2, org.jdesktop.beansbinding.ObjectProperty.create(), jCheckBox103, org.jdesktop.beansbinding.BeanProperty.create("nextFocusableComponent"));
+        bindingGroup.addBinding(binding);
+
         jCheckBox103.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox103ActionPerformed(evt);
@@ -2368,6 +2364,8 @@ public class AntPersonales extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("Otros", jPanel20);
 
+        jTabbedPane1.setSelectedComponent(jPanel5);
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -2571,6 +2569,8 @@ public class AntPersonales extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -3047,5 +3047,6 @@ public class AntPersonales extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

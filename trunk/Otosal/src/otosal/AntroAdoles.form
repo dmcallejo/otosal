@@ -350,7 +350,7 @@
                                   <EmptySpace min="313" pref="313" max="-2" attributes="0"/>
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                  <Component id="TFPerBra1" min="-2" pref="83" max="-2" attributes="0"/>
+                                  <Component id="TFPliTri" min="-2" pref="83" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -369,7 +369,7 @@
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="TFPerBra" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="TFPerBra1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TFPliTri" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -436,10 +436,10 @@
                     <Property name="name" type="java.lang.String" value="TFPerBra" noResource="true"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="TFPerBra1">
+                <Component class="javax.swing.JTextField" name="TFPliTri">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="name" type="java.lang.String" value="TFPerBra1" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="TFPliTri" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel9">
@@ -688,16 +688,11 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="TFPEP50" alignment="0" pref="70" max="32767" attributes="1"/>
-                                      <Component id="TFPBEP50" alignment="0" pref="70" max="32767" attributes="1"/>
-                                      <Component id="TFPTEP50" alignment="0" pref="70" max="32767" attributes="1"/>
-                                      <Component id="TFIEP50" alignment="0" pref="70" max="32767" attributes="1"/>
-                                      <Component id="TFPLP50" alignment="0" pref="70" max="32767" attributes="1"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="TFPEP50" alignment="0" pref="70" max="32767" attributes="1"/>
+                              <Component id="TFPBEP50" alignment="0" pref="70" max="32767" attributes="1"/>
+                              <Component id="TFPTEP50" alignment="0" pref="70" max="32767" attributes="1"/>
+                              <Component id="TFIEP50" alignment="0" pref="70" max="32767" attributes="1"/>
+                              <Component id="TFPLP50" alignment="0" pref="70" max="32767" attributes="1"/>
                               <Component id="jLabel21" alignment="0" pref="70" max="32767" attributes="1"/>
                               <Component id="TFLEP50" alignment="0" pref="70" max="32767" attributes="1"/>
                           </Group>

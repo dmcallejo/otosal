@@ -11,6 +11,7 @@
 
 package otosal;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.sql.Connection;
@@ -150,7 +151,7 @@ public class AntroAdoles extends javax.swing.JDialog {
         TFIMC = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         TFPerBra = new javax.swing.JTextField();
-        TFPerBra1 = new javax.swing.JTextField();
+        TFPliTri = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -350,8 +351,8 @@ public class AntroAdoles extends javax.swing.JDialog {
         TFPerBra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TFPerBra.setName("TFPerBra"); // NOI18N
 
-        TFPerBra1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TFPerBra1.setName("TFPerBra1"); // NOI18N
+        TFPliTri.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TFPliTri.setName("TFPliTri"); // NOI18N
 
         jLabel9.setText("Pliegue Tricipital");
         jLabel9.setName("jLabel9"); // NOI18N
@@ -383,7 +384,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                         .addGap(313, 313, 313)
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
-                        .addComponent(TFPerBra1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(TFPliTri, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -398,7 +399,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                     .addComponent(jLabel7)
                     .addComponent(TFPerBra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(TFPerBra1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFPliTri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -540,7 +541,7 @@ public class AntroAdoles extends javax.swing.JDialog {
         LINLP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINLP.setName("LINLP"); // NOI18N
 
-        LINLE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LINLE.setFont(new java.awt.Font("Tahoma", 1, 12));
         LINLE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINLE.setName("LINLE"); // NOI18N
 
@@ -653,14 +654,11 @@ public class AntroAdoles extends javax.swing.JDialog {
                         .addGap(68, 68, 68)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TFPEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                            .addComponent(TFPBEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                            .addComponent(TFPTEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                            .addComponent(TFIEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                            .addComponent(TFPLP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addComponent(TFPEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addComponent(TFPBEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addComponent(TFPTEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addComponent(TFIEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addComponent(TFPLP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                     .addComponent(TFLEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
@@ -764,7 +762,7 @@ public class AntroAdoles extends javax.swing.JDialog {
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel10.setName("jPanel10"); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("Tahoma 14 Negrita cursiva", 3, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma 14 Negrita cursiva", 3, 14));
         jLabel15.setText("Graficas");
         jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel15.setName("jLabel15"); // NOI18N
@@ -1030,169 +1028,246 @@ public class AntroAdoles extends javax.swing.JDialog {
                     TFPEP50.setText(rs.getString(7));
                     TFIEP50.setText(rs.getString(10));
                     TFPBEP50.setText(rs.getString(17));
+                    TFPTEP50.setText(rs.getString(22));
                     Double Lon = Double.valueOf(TFLongitud.getText().trim()).doubleValue();
                     if ( Lon < rs.getDouble(3)) {
+                        LINLE.setForeground(Color.red);
                         LINLE.setText("Desnutrición");
                         TFLEP.setText("< P3");
                     }
                     if (rs.getDouble(3) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P3");
                     }
                     if (rs.getDouble(4) > Lon  && Lon > rs.getDouble(3)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P3 - P50");
                     }
                     if (rs.getDouble(4) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P50");
                     }
                     if (rs.getDouble(5) > Lon  && Lon > rs.getDouble(4)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P50 - P97");
                     }
                     if (rs.getDouble(5) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P97");
                     }
                     if (rs.getDouble(5) < Lon) {
+                        LINLE.setForeground(Color.red);
                         LINLE.setText("Alto");
                         TFLEP.setText("> P97");
                     }
                     Double Peso = Double.valueOf(TFPeso.getText().trim()).doubleValue();
                      if ( Peso < rs.getDouble(6)) {
+                         LINPE.setForeground(Color.red);
                         LINPE.setText("Desnutrición");
                         TFPPE.setText("< P3");
                     }
                     if (rs.getDouble(6) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P3");
                     }
                     if (rs.getDouble(7) > Peso  && Peso > rs.getDouble(6)) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P3 - P50");
                     }
                     if (rs.getDouble(7) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P50");
                     }
                     if (rs.getDouble(8) > Peso && Peso > rs.getDouble(7)) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P50 - P97");
                     }
                     if (rs.getDouble(8) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P97");
                     }
                     if (rs.getDouble(8) < Peso) {
+                        LINPE.setForeground(Color.red);
                         LINPE.setText("Obesidad");
                         TFPPE.setText("> P97");
                     }
                     Double IMC = Double.valueOf(TFIMC.getText().trim()).doubleValue();
                     if ( IMC < rs.getDouble(9)) {
+                        LINIE.setForeground(Color.red);
                         LINIE.setText("Desnutrición");
                         TFIEP.setText("< P3");
                     }
                     if (rs.getDouble(9) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P3");
                     }
                     if (rs.getDouble(10) > IMC  && IMC > rs.getDouble(9)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P3 - P50");
                     }
                     if (rs.getDouble(10) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P50");
                     }
                     if (rs.getDouble(11) > IMC && IMC > rs.getDouble(10)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P50 - P85");
                     }
                     if (rs.getDouble(11) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P85");
                     }
                     if (rs.getDouble(12) > IMC && IMC > rs.getDouble(11)) {
+                        LINIE.setForeground(Color.YELLOW);
                         LINIE.setText("Sobrepeso");
                         TFIEP.setText("P85 - P95");
                     }
                     if (rs.getDouble(12) == IMC ) {
+                        LINIE.setForeground(Color.yellow);
                         LINIE.setText("Sobrepeso");
                         TFIEP.setText("P95");
                     }
                     if (rs.getDouble(13) > IMC && IMC > rs.getDouble(12)) {
+                        LINIE.setForeground(Color.red);
                         LINIE.setText("Obesidad");
                         TFIEP.setText("P95 - P97");
                     }
                     if (rs.getDouble(13) == IMC ) {
+                        LINIE.setForeground(Color.red);
                         LINIE.setText("Obesidad");
                         TFIEP.setText("P97");
                     }
                     if (rs.getDouble(13) < IMC) {
+                        LINIE.setForeground(Color.red);
                         LINIE.setText("Obesidad");
                         TFIEP.setText("> P97");
                     }
                     Double PBraE = Double.valueOf(TFPerBra.getText().trim()).doubleValue();
                     if ( PBraE < rs.getDouble(14)) {
+                        LINPBE.setForeground(Color.red);
                         LINPBE.setText("Desnutrición");
                         TFPBEP.setText("< P3");
                     }
                     if (rs.getDouble(14) == PBraE ) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Normal");
                         TFPBEP.setText("P3");
                     }
                     if (rs.getDouble(15) > PBraE  && PBraE > rs.getDouble(14)) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Normal");
                         TFPBEP.setText("P3 - P10");
                     }
                     if (rs.getDouble(15) == PBraE ) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Normal");
                         TFPBEP.setText("P10");
                     }
                     if (rs.getDouble(16) > PBraE  && PBraE > rs.getDouble(15)) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Normal");
                         TFPBEP.setText("P10 - P25");
                     }
                     if (rs.getDouble(16) == PBraE ) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Normal");
                         TFPBEP.setText("P25");
                     }
                     if (rs.getDouble(17) > PBraE && PBraE > rs.getDouble(16)) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Normal");
                         TFPBEP.setText("P25 - P50");
                     }
                     if (rs.getDouble(17) == PBraE ) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Normal");
                         TFPBEP.setText("P50");
                     }
                     if (rs.getDouble(18) > PBraE && PBraE > rs.getDouble(17)) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Normal");
                         TFPBEP.setText("P50 - P75");
                     }
                     if (rs.getDouble(18) == PBraE ) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Normal");
                         TFPBEP.setText("P75");
                     }
                     if (rs.getDouble(19) > PBraE && PBraE > rs.getDouble(18)) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Normal");
                         TFPBEP.setText("P75 - P90");
                     }
                     if (rs.getDouble(19) == PBraE ) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Normal");
                         TFPBEP.setText("P90");
                     }
                     if (rs.getDouble(20) > PBraE && PBraE > rs.getDouble(19)) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Normal");
                         TFPBEP.setText("P90 - P97");
                     }
                     if (rs.getDouble(20) == PBraE ) {
+                        LINPBE.setForeground(Color.black);
                         LINPBE.setText("Alto");
                         TFPBEP.setText("P97");
                     }
                     if (rs.getDouble(20) < PBraE) {
+                        LINPBE.setForeground(Color.red);
                         LINPBE.setText("Obesidad");
                         TFPBEP.setText("> P97");
+                    }
+                    Double PTriE = Double.valueOf(TFPliTri.getText().trim()).doubleValue();
+                    if ( PTriE < rs.getDouble(21)) {
+                        LINPTE.setForeground(Color.RED);
+                        LINPTE.setText("Desnutrición");
+                        TFPTEP.setText("< P3");
+                    }
+                    if (rs.getDouble(21) == PTriE ) {
+                        LINPTE.setForeground(Color.BLACK);
+                        LINPTE.setText("Normal");
+                        TFPTEP.setText("P3");
+                    }
+                    if (rs.getDouble(22) > PTriE  && PTriE > rs.getDouble(21)) {
+                        LINPTE.setForeground(Color.BLACK);
+                        LINPTE.setText("Normal");
+                        TFPTEP.setText("P3 - P50");
+                    }
+                    if (rs.getDouble(22) == PTriE ) {
+                        LINPTE.setForeground(Color.BLACK);
+                        LINPTE.setText("Normal");
+                        TFPTEP.setText("P50");
+                    }
+                    if (rs.getDouble(23) > PTriE  && PTriE > rs.getDouble(22)) {
+                        LINPTE.setForeground(Color.BLACK);
+                        LINPTE.setText("Normal");
+                        TFPTEP.setText("P50 - P97");
+                    }
+                    if (rs.getDouble(23) == PTriE ) {
+                        LINPTE.setForeground(Color.BLACK);
+                        LINPTE.setText("Normal");
+                        TFPTEP.setText("P97");
+                    }
+                    if (rs.getDouble(23) < PTriE) {
+                        LINPTE.setForeground(Color.red);
+                        LINPTE.setText("Obesidad");
+                        TFPTEP.setText("> P97");
                     }
                     rs.close();
                     instruccion.close();
@@ -1262,184 +1337,229 @@ public class AntroAdoles extends javax.swing.JDialog {
                     TFIEP50.setText(rs.getString(20));
                     Double Lon = Double.valueOf(TFLongitud.getText().trim()).doubleValue();
                     if ( Lon < rs.getDouble(3)) {
+                        LINLE.setForeground(Color.red);
                         LINLE.setText("Desnutrición");
                         TFLEP.setText("< P3");
                     }
                     if (rs.getDouble(3) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P3");
                     }
                     if (rs.getDouble(4) > Lon  && Lon > rs.getDouble(3)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P3 - P10");
                     }
                     if (rs.getDouble(4) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P10");
                     }
                     if (rs.getDouble(5) > Lon  && Lon > rs.getDouble(4)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P10 - P25");
                     }
                     if (rs.getDouble(5) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P25");
                     }
                     if (rs.getDouble(6) > Lon && Lon > rs.getDouble(5)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P25 - P50");
                     }
                     if (rs.getDouble(6) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P50");
                     }
                     if (rs.getDouble(7) > Lon && Lon > rs.getDouble(6)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P50 - P75");
                     }
                     if (rs.getDouble(7) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P75");
                     }
                     if (rs.getDouble(8) > Lon && Lon > rs.getDouble(7)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P75 - P90");
                     }
                     if (rs.getDouble(8) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P90");
                     }
                     if (rs.getDouble(9) > Lon && Lon > rs.getDouble(8)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P90 - P97");
                     }
                     if (rs.getDouble(9) == Lon ) {
+                        LINLE.setForeground(Color.red);
                         LINLE.setText("Alto");
                         TFLEP.setText("P97");
                     }
                     if (rs.getDouble(9) < Lon) {
+                        LINLE.setForeground(Color.red);
                         LINLE.setText("Alto");
                         TFLEP.setText("> P97");
                     }
                     Double Peso = Double.valueOf(TFPeso.getText().trim()).doubleValue();
                      if ( Peso < rs.getDouble(10)) {
+                        LINPE.setForeground(Color.red);
                         LINPE.setText("Desnutrición");
                         TFPPE.setText("< P3");
                     }
                     if (rs.getDouble(10) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P3");
                     }
                     if (rs.getDouble(11) > Peso  && Peso > rs.getDouble(10)) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P3 - P10");
                     }
                     if (rs.getDouble(11) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P10");
                     }
                     if (rs.getDouble(12) > Peso && Peso > rs.getDouble(11)) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P10 - P25");
                     }
                     if (rs.getDouble(12) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P25");
                     }
                     if (rs.getDouble(13) > Peso && Peso > rs.getDouble(12)) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P25 - P50");
                     }
                     if (rs.getDouble(13) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P50");
                     }
                     if (rs.getDouble(14) > Peso && Peso > rs.getDouble(13)) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P50 - P75");
                     }
                     if (rs.getDouble(14) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P75");
                     }
                     if (rs.getDouble(15) > Peso && Peso > rs.getDouble(14)) {
+                        LINPE.setForeground(Color.yellow);
                         LINPE.setText("Sobrepeso");
                         TFPPE.setText("P75 - P90");
                     }
                     if (rs.getDouble(15) == Peso ) {
+                        LINPE.setForeground(Color.yellow);
                         LINPE.setText("Sobrepeso");
                         TFPPE.setText("P90");
                     }
                     if (rs.getDouble(16) > Peso && Peso > rs.getDouble(15)) {
+                        LINPE.setForeground(Color.yellow);
                         LINPE.setText("Sobrepeso");
                         TFPPE.setText("P90 - P97");
                     }
                     if (rs.getDouble(16) == Peso ) {
+                        LINPE.setForeground(Color.red);
                         LINPE.setText("Obesidad");
                         TFPPE.setText("P97");
                     }
                     if (rs.getDouble(16) < Peso) {
+                        LINPE.setForeground(Color.red);
                         LINPE.setText("Obesidad");
                         TFPPE.setText("> P97");
                     }
                     Double IMC = Double.valueOf(TFIMC.getText().trim()).doubleValue();
                     if ( IMC < rs.getDouble(17)) {
+                        LINIE.setForeground(Color.red);
                         LINIE.setText("Desnutrición");
                         TFIEP.setText("< P3");
                     }
                     if (rs.getDouble(17) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P3");
                     }
                     if (rs.getDouble(18) > IMC  && IMC > rs.getDouble(17)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P3 - P10");
                     }
                     if (rs.getDouble(18) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P10");
                     }
                     if (rs.getDouble(19) > IMC && IMC > rs.getDouble(18)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P10 - P25");
                     }
                     if (rs.getDouble(19) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P25");
                     }
                     if (rs.getDouble(20) > IMC && IMC > rs.getDouble(19)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P25 - P50");
                     }
                     if (rs.getDouble(20) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P50");
                     }
                     if (rs.getDouble(21) > IMC && IMC > rs.getDouble(20)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P50 - P75");
                     }
                     if (rs.getDouble(21) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P75");
                     }
                     if (rs.getDouble(22) > IMC && IMC > rs.getDouble(21)) {
+                        LINIE.setForeground(Color.yellow);
                         LINIE.setText("Sobrepeso");
                         TFIEP.setText("P75 - P90");
                     }
                     if (rs.getDouble(22) == IMC ) {
+                        LINIE.setForeground(Color.yellow);
                         LINIE.setText("Sobrepeso");
                         TFIEP.setText("P90");
                     }
                     if (rs.getDouble(23) > IMC && IMC > rs.getDouble(22)) {
+                        LINIE.setForeground(Color.yellow);
                         LINIE.setText("Sobrepeso");
                         TFIEP.setText("P90 - P97");
                     }
                     if (rs.getDouble(23) == IMC ) {
+                        LINIE.setForeground(Color.red);
                         LINIE.setText("Obesidad");
                         TFIEP.setText("P97");
                     }
                     if (rs.getDouble(23) < IMC) {
+                        LINIE.setForeground(Color.red);
                         LINIE.setText("Obesidad");
                         TFIEP.setText("> P97");
                     }
@@ -1509,240 +1629,299 @@ public class AntroAdoles extends javax.swing.JDialog {
                     TFIEP50.setText(rs.getString(25));
                     Double Lon = Double.valueOf(TFLongitud.getText().trim()).doubleValue();
                     if ( Lon < rs.getDouble(3)) {
+                        LINLE.setForeground(Color.red);
                         LINLE.setText("Desnutrición");
                         TFLEP.setText("< P3");
                     }
                     if (rs.getDouble(3) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P3");
                     }
                     if (rs.getDouble(4) > Lon  && Lon > rs.getDouble(3)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P3 - P5");
                     }
                     if (rs.getDouble(4) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P5");
                     }
                     if (rs.getDouble(5) > Lon  && Lon > rs.getDouble(4)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P5 - P10");
                     }
                     if (rs.getDouble(5) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P10");
                     }
                     if (rs.getDouble(6) > Lon && Lon > rs.getDouble(5)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P10 - P25");
                     }
                     if (rs.getDouble(6) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P25");
                     }
                     if (rs.getDouble(7) > Lon && Lon > rs.getDouble(6)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P25 - P50");
                     }
                     if (rs.getDouble(7) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P50");
                     }
                     if (rs.getDouble(8) > Lon && Lon > rs.getDouble(7)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P50 - P75");
                     }
                     if (rs.getDouble(8) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P75");
                     }
                     if (rs.getDouble(9) > Lon && Lon > rs.getDouble(8)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P75 - P90");
                     }
                     if (rs.getDouble(9) == Lon ) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P90");
                     }
                     if (rs.getDouble(10) > Lon && Lon > rs.getDouble(9)) {
+                        LINLE.setForeground(Color.black);
                         LINLE.setText("Normal");
                         TFLEP.setText("P90 - P95");
                     }
                     if (rs.getDouble(10) == Lon) {
+                        LINLE.setForeground(Color.red);
                         LINLE.setText("Alto");
                         TFLEP.setText("P95");
                     }
                     if (rs.getDouble(11) > Lon && Lon > rs.getDouble(10)) {
+                        LINLE.setForeground(Color.red);
                         LINLE.setText("Alto");
                         TFLEP.setText("P95 - P97");
                     }
                     if (rs.getDouble(11) == Lon) {
+                        LINLE.setForeground(Color.red);
                         LINLE.setText("Alto");
                         TFLEP.setText("P97");
                     }
                     if (rs.getDouble(11) < Lon) {
+                        LINLE.setForeground(Color.red);
                         LINLE.setText("Alto");
                         TFLEP.setText("> P97");
                     }
                     Double Peso = Double.valueOf(TFPeso.getText().trim()).doubleValue();
                      if ( Peso < rs.getDouble(12)) {
+                         LINPE.setForeground(Color.red);
                         LINPE.setText("Desnutrición");
                         TFPPE.setText("< P3");
                     }
                     if (rs.getDouble(12) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P3");
                     }
                     if (rs.getDouble(13) > Peso  && Peso > rs.getDouble(12)) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P3 - P5");
                     }
                     if (rs.getDouble(13) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P5");
                     }
                     if (rs.getDouble(14) > Peso && Peso > rs.getDouble(13)) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P5 - P10");
                     }
                     if (rs.getDouble(14) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P10");
                     }
                     if (rs.getDouble(15) > Peso && Peso > rs.getDouble(14)) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P10 - P25");
                     }
                     if (rs.getDouble(15) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P25");
                     }
                     if (rs.getDouble(16) > Peso && Peso > rs.getDouble(15)) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P25 - P50");
                     }
                     if (rs.getDouble(16) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P50");
                     }
                     if (rs.getDouble(17) > Peso && Peso > rs.getDouble(16)) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P50 - P75");
                     }
                     if (rs.getDouble(17) == Peso ) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P75");
                     }
                     if (rs.getDouble(18) > Peso && Peso > rs.getDouble(17)) {
+                        LINPE.setForeground(Color.black);
                         LINPE.setText("Normal");
                         TFPPE.setText("P75 - P90");
                     }
                     if (rs.getDouble(18) == Peso ) {
+                        LINPE.setForeground(Color.yellow);
                         LINPE.setText("Sobrepeso");
                         TFPPE.setText("P90");
                     }
                      if (rs.getDouble(19) > Peso && Peso > rs.getDouble(18)) {
+                        LINPE.setForeground(Color.yellow);
                         LINPE.setText("Sobrepeso");
                         TFPPE.setText("P90 - P95");
                     }
                     if (rs.getDouble(19) == Peso ) {
+                        LINPE.setForeground(Color.yellow);
                         LINPE.setText("Sobrepeso");
                         TFPPE.setText("P95");
                     }
                      if (rs.getDouble(20) > Peso && Peso > rs.getDouble(19)) {
+                        LINPE.setForeground(Color.red);
                         LINPE.setText("Obesidad");
                         TFPPE.setText("P95 - P97");
                     }
                     if (rs.getDouble(20) == Peso ) {
+                        LINPE.setForeground(Color.red);
                         LINPE.setText("Obesidad");
                         TFPPE.setText("P97");
                     }
                     if (rs.getDouble(20) < Peso) {
+                        LINPE.setForeground(Color.red);
                         LINPE.setText("Obesidad");
                         TFPPE.setText("> P97");
                     }
                     Double IMC = Double.valueOf(TFIMC.getText().trim()).doubleValue();
                     if ( IMC < rs.getDouble(21)) {
+                        LINIE.setForeground(Color.red);
                         LINIE.setText("Desnutrición");
                         TFIEP.setText("< P3");
                     }
                     if (rs.getDouble(21) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P3");
                     }
                     if (rs.getDouble(22) > IMC  && IMC > rs.getDouble(21)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P3 - P5");
                     }
                     if (rs.getDouble(22) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P5");
                     }
                     if (rs.getDouble(23) > IMC && IMC > rs.getDouble(22)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P5 - P10");
                     }
                     if (rs.getDouble(23) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P10");
                     }
                     if (rs.getDouble(24) > IMC && IMC > rs.getDouble(23)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P10 - P25");
                     }
                     if (rs.getDouble(24) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P25");
                     }
                     if (rs.getDouble(25) > IMC && IMC > rs.getDouble(24)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P25 - P50");
                     }
                     if (rs.getDouble(25) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P50");
                     }
                     if (rs.getDouble(26) > IMC && IMC > rs.getDouble(25)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P50 - P75");
                     }
                     if (rs.getDouble(26) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P75");
                     }
                     if (rs.getDouble(27) > IMC && IMC > rs.getDouble(26)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P75 - P85");
                     }
                     if (rs.getDouble(27) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P85");
                     }
                     if (rs.getDouble(28) > IMC && IMC > rs.getDouble(27)) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P85 - P90");
                     }
                     if (rs.getDouble(28) == IMC ) {
+                        LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
                         TFIEP.setText("P90");
                     }
                     if (rs.getDouble(29) > IMC && IMC > rs.getDouble(28)) {
+                        LINIE.setForeground(Color.yellow);
                         LINIE.setText("Sobrepeso");
                         TFIEP.setText("P90 - P95");
                     }
                     if (rs.getDouble(29) == IMC ) {
+                        LINIE.setForeground(Color.yellow);
                         LINIE.setText("Sobrepeso");
                         TFIEP.setText("P95");
                     }
                     if (rs.getDouble(30) > IMC && IMC > rs.getDouble(29)) {
+                        LINIE.setForeground(Color.yellow);
                         LINIE.setText("Sobrepeso");
                         TFIEP.setText("P95 - P97");
                     }
                     if (rs.getDouble(30) == IMC ) {
+                        LINIE.setForeground(Color.red);
                         LINIE.setText("Obesidad");
                         TFIEP.setText("P97");
                     }
                     if (rs.getDouble(30) < IMC) {
+                        LINIE.setForeground(Color.red);
                         LINIE.setText("Obesidad");
                         TFIEP.setText("> P97");
                     }
@@ -2138,8 +2317,8 @@ public class AntroAdoles extends javax.swing.JDialog {
     private javax.swing.JTextField TFPTEP;
     private javax.swing.JTextField TFPTEP50;
     private javax.swing.JTextField TFPerBra;
-    private javax.swing.JTextField TFPerBra1;
     private javax.swing.JTextField TFPeso;
+    private javax.swing.JTextField TFPliTri;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;

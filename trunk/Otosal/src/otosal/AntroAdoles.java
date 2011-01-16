@@ -1302,6 +1302,8 @@ public class AntroAdoles extends javax.swing.JDialog {
                 LTE.setEnabled(true);
                 LPE.setEnabled(true);
                 LPBE.setEnabled(false);
+                TFPBEP50.setText("");
+                TFPTEP50.setText("");
                 LPL.setEnabled(false);
                 LPTE.setEnabled(false);
                 RBTE.setEnabled(true);
@@ -1594,6 +1596,8 @@ public class AntroAdoles extends javax.swing.JDialog {
                 LTE.setEnabled(true);
                 LPE.setEnabled(true);
                 LPBE.setEnabled(false);
+                TFPBEP50.setText("");
+                TFPTEP50.setText("");
                 LPL.setEnabled(false);
                 LPTE.setEnabled(false);
                 RBTE.setEnabled(true);
@@ -1956,6 +1960,8 @@ public class AntroAdoles extends javax.swing.JDialog {
                 LTE.setEnabled(true);
                 LPE.setEnabled(true);
                 LPBE.setEnabled(false);
+                TFPBEP50.setText("");
+                TFPTEP50.setText("");
                 LPL.setEnabled(false);
                 LPTE.setEnabled(false);
                 RBTE.setEnabled(true);
@@ -1964,9 +1970,10 @@ public class AntroAdoles extends javax.swing.JDialog {
                 RBPT.setEnabled(false);
                 RBIE.setEnabled(true);
 
+
                 if (!TFPeso.getText().equals("") && !TFLongitud.getText().equals("")) {
 
-                    edadMes=calcularMeses(TFFechNac.getText());
+                    edadMes=calcularMesesCDC(TFFechNac.getText());
 
                     conexion = DriverManager.getConnection(baseDatos);
                     instruccion = conexion.createStatement();
@@ -2103,7 +2110,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                     if (rs.getDouble(13) < Lon) {
                         LINLE.setForeground(Color.red);
                         LINLE.setText("Alto");
-                        TFLEP.setText("> P97");
+                        TFLEP.setText("> P99");
                     }
                     Double Peso = Double.valueOf(TFPeso.getText().trim()).doubleValue();
                      if ( Peso < rs.getDouble(14)) {
@@ -2221,114 +2228,121 @@ public class AntroAdoles extends javax.swing.JDialog {
                         LINPE.setText("Obesidad");
                         TFPPE.setText("> P99");
                     }
-
-                    //Aqui me quedo
-                    
                     Double IMC = Double.valueOf(TFIMC.getText().trim()).doubleValue();
-                    if ( IMC < rs.getDouble(21)) {
+                    if ( IMC < rs.getDouble(25)) {
                         LINIE.setForeground(Color.red);
                         LINIE.setText("Desnutrición");
-                        TFIEP.setText("< P3");
-                    }
-                    if (rs.getDouble(21) == IMC ) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P3");
-                    }
-                    if (rs.getDouble(22) > IMC  && IMC > rs.getDouble(21)) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P3 - P5");
-                    }
-                    if (rs.getDouble(22) == IMC ) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P5");
-                    }
-                    if (rs.getDouble(23) > IMC && IMC > rs.getDouble(22)) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P5 - P10");
-                    }
-                    if (rs.getDouble(23) == IMC ) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P10");
-                    }
-                    if (rs.getDouble(24) > IMC && IMC > rs.getDouble(23)) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P10 - P25");
-                    }
-                    if (rs.getDouble(24) == IMC ) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P25");
-                    }
-                    if (rs.getDouble(25) > IMC && IMC > rs.getDouble(24)) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P25 - P50");
+                        TFIEP.setText("< P1");
                     }
                     if (rs.getDouble(25) == IMC ) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P50");
+                        LINIE.setForeground(Color.red);
+                        LINIE.setText("Desnutrición");
+                        TFIEP.setText("P1");
                     }
-                    if (rs.getDouble(26) > IMC && IMC > rs.getDouble(25)) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P50 - P75");
+                    if (rs.getDouble(26) > IMC  && IMC > rs.getDouble(25)) {
+                        LINIE.setForeground(Color.red);
+                        LINIE.setText("Desnutrición");
+                        TFIEP.setText("P1 - P3");
                     }
                     if (rs.getDouble(26) == IMC ) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P75");
+                        LINIE.setForeground(Color.yellow);
+                        LINIE.setText("Peligro Desnutrición");
+                        TFIEP.setText("P3");
                     }
                     if (rs.getDouble(27) > IMC && IMC > rs.getDouble(26)) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P75 - P85");
+                        LINIE.setForeground(Color.yellow);
+                        LINIE.setText("Peligro Desnutrición");
+                        TFIEP.setText("P3 - P5");
                     }
                     if (rs.getDouble(27) == IMC ) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P85");
+                        LINIE.setForeground(Color.yellow);
+                        LINIE.setText("Peligro Desnutrición");
+                        TFIEP.setText("P5");
                     }
                     if (rs.getDouble(28) > IMC && IMC > rs.getDouble(27)) {
-                        LINIE.setForeground(Color.black);
-                        LINIE.setText("Normal");
-                        TFIEP.setText("P85 - P90");
+                        LINIE.setForeground(Color.yellow);
+                        LINIE.setText("Peligro Desnutrición");
+                        TFIEP.setText("P5 - P15");
                     }
                     if (rs.getDouble(28) == IMC ) {
                         LINIE.setForeground(Color.black);
                         LINIE.setText("Normal");
-                        TFIEP.setText("P90");
+                        TFIEP.setText("P15");
                     }
                     if (rs.getDouble(29) > IMC && IMC > rs.getDouble(28)) {
-                        LINIE.setForeground(Color.yellow);
-                        LINIE.setText("Sobrepeso");
-                        TFIEP.setText("P90 - P95");
+                        LINIE.setForeground(Color.black);
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P15 - P25");
                     }
                     if (rs.getDouble(29) == IMC ) {
+                        LINIE.setForeground(Color.black);
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P25");
+                    }
+                    if (rs.getDouble(30) > IMC && IMC > rs.getDouble(29)) {
+                        LINIE.setForeground(Color.black);
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P25 - P50");
+                    }
+                    if (rs.getDouble(30) == IMC ) {
+                        LINIE.setForeground(Color.black);
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P50");
+                    }
+                    if (rs.getDouble(31) > IMC && IMC > rs.getDouble(30)) {
+                        LINIE.setForeground(Color.black);
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P50 - P75");
+                    }
+                    if (rs.getDouble(31) == IMC ) {
+                        LINIE.setForeground(Color.black);
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P75");
+                    }
+                    if (rs.getDouble(32) > IMC && IMC > rs.getDouble(31)) {
+                        LINIE.setForeground(Color.black);
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P75 - P85");
+                    }
+                    if (rs.getDouble(32) == IMC ) {
+                        LINIE.setForeground(Color.black);
+                        LINIE.setText("Normal");
+                        TFIEP.setText("P85");
+                    }
+                    if (rs.getDouble(33) > IMC && IMC > rs.getDouble(32)) {
+                        LINIE.setForeground(Color.yellow);
+                        LINIE.setText("Sobrepeso");
+                        TFIEP.setText("P85 - P95");
+                    }
+                    if (rs.getDouble(33) == IMC ) {
                         LINIE.setForeground(Color.yellow);
                         LINIE.setText("Sobrepeso");
                         TFIEP.setText("P95");
                     }
-                    if (rs.getDouble(30) > IMC && IMC > rs.getDouble(29)) {
+                    if (rs.getDouble(34) > IMC && IMC > rs.getDouble(33)) {
                         LINIE.setForeground(Color.yellow);
                         LINIE.setText("Sobrepeso");
                         TFIEP.setText("P95 - P97");
                     }
-                    if (rs.getDouble(30) == IMC ) {
-                        LINIE.setForeground(Color.red);
-                        LINIE.setText("Obesidad");
+                    if (rs.getDouble(34) == IMC ) {
+                        LINIE.setForeground(Color.yellow);
+                        LINIE.setText("Sobrepeso");
                         TFIEP.setText("P97");
                     }
-                    if (rs.getDouble(30) < IMC) {
+                    if (rs.getDouble(35) > IMC && IMC > rs.getDouble(34)) {
                         LINIE.setForeground(Color.red);
                         LINIE.setText("Obesidad");
-                        TFIEP.setText("> P97");
+                        TFIEP.setText("P97 - P99");
+                    }
+                    if (rs.getDouble(35) == IMC ) {
+                        LINIE.setForeground(Color.red);
+                        LINIE.setText("Obesidad");
+                        TFIEP.setText("P99");
+                    }
+                    if (rs.getDouble(35) < IMC) {
+                        LINIE.setForeground(Color.red);
+                        LINIE.setText("Obesidad");
+                        TFIEP.setText("> P99");
                     }
                     rs.close();
                     instruccion.close();
@@ -2413,6 +2427,87 @@ public class AntroAdoles extends javax.swing.JDialog {
                 renderer.setSeriesShapesVisible(5, false);
                 renderer.setSeriesShapesVisible(6, false);
                 renderer.setSeriesShapesVisible(7, true);
+
+                try {
+                    ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
+
+                File nombreFich = new File("grafico.jpg");
+
+                cargarImagen(DPImagen, nombreFich);
+
+
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        } else if (RBCDC.isSelected()) {
+            try {
+                conexion = DriverManager.getConnection(baseDatos);
+                instruccion = conexion.createStatement();
+                ResultSet rs=null;
+                if (RBVaron.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesCDCV");
+                else if (RBHembra.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesCDCM");
+                XYSeries seriep3 = new XYSeries("P3");
+                XYSeries seriep5 = new XYSeries("P5");
+                XYSeries seriep10 = new XYSeries("P10");
+                XYSeries seriep25 = new XYSeries("P25");
+                XYSeries seriep50 = new XYSeries("P50");
+                XYSeries seriep75 = new XYSeries("P75");
+                XYSeries seriep90 = new XYSeries("P90");
+                XYSeries seriep95 = new XYSeries("P95");
+                XYSeries seriep97 = new XYSeries("P97");
+                XYSeries serieInt = new XYSeries("Perc");
+                while (rs.next()) {
+                    seriep3.add(rs.getDouble(2)/12, rs.getDouble(3));
+                    seriep5.add(rs.getDouble(2)/12, rs.getDouble(4));
+                    seriep10.add(rs.getDouble(2)/12, rs.getDouble(5));
+                    seriep25.add(rs.getDouble(2)/12, rs.getDouble(6));
+                    seriep50.add(rs.getDouble(2)/12, rs.getDouble(7));
+                    seriep75.add(rs.getDouble(2)/12, rs.getDouble(8));
+                    seriep90.add(rs.getDouble(2)/12, rs.getDouble(9));
+                    seriep95.add(rs.getDouble(2)/12, rs.getDouble(10));
+                    seriep97.add(rs.getDouble(2)/12, rs.getDouble(11));
+                }
+                rs.close();
+                instruccion.close();
+                conexion.close();
+                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                juegoDatos.addSeries(seriep3);
+                juegoDatos.addSeries(seriep5);
+                juegoDatos.addSeries(seriep10);
+                juegoDatos.addSeries(seriep25);
+                juegoDatos.addSeries(seriep50);
+                juegoDatos.addSeries(seriep75);
+                juegoDatos.addSeries(seriep90);
+                juegoDatos.addSeries(seriep95);
+                juegoDatos.addSeries(seriep97);
+                serieInt.add(Double.parseDouble(calcularMeses(TFFechNac.getText()).toString()), Double.parseDouble(TFLongitud.getText().trim()));
+                juegoDatos.addSeries(serieInt);
+
+                JFreeChart chart = ChartFactory.createXYLineChart ("Longitud / Edad",
+                        "Edad","Longitud",juegoDatos,PlotOrientation.VERTICAL,
+                        true,
+                        true,
+                        true                // Show legend
+                        );
+
+                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+                //Puntos en las líneas o no
+                renderer.setSeriesShapesVisible(0, false);
+                renderer.setSeriesShapesVisible(1, false);
+                renderer.setSeriesShapesVisible(2, false);
+                renderer.setSeriesShapesVisible(3, false);
+                renderer.setSeriesShapesVisible(4, false);
+                renderer.setSeriesShapesVisible(5, false);
+                renderer.setSeriesShapesVisible(6, false);
+                renderer.setSeriesShapesVisible(7, false);
+                renderer.setSeriesShapesVisible(8, false);
+                renderer.setSeriesShapesVisible(9, true);
 
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);

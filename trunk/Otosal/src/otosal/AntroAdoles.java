@@ -2600,6 +2600,87 @@ public class AntroAdoles extends javax.swing.JDialog {
             } catch (Exception ex) {
                 System.out.println(ex);
             }
+        } else if (RBCDC.isSelected()) {
+            try {
+                conexion = DriverManager.getConnection(baseDatos);
+                instruccion = conexion.createStatement();
+                ResultSet rs=null;
+                if (RBVaron.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesCDCV");
+                else if (RBHembra.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesCDCM");
+                XYSeries seriep3 = new XYSeries("P3");
+                XYSeries seriep5 = new XYSeries("P5");
+                XYSeries seriep10 = new XYSeries("P10");
+                XYSeries seriep25 = new XYSeries("P25");
+                XYSeries seriep50 = new XYSeries("P50");
+                XYSeries seriep75 = new XYSeries("P75");
+                XYSeries seriep90 = new XYSeries("P90");
+                XYSeries seriep95 = new XYSeries("P95");
+                XYSeries seriep97 = new XYSeries("P97");
+                XYSeries serieInt = new XYSeries("Perc");
+                while (rs.next()) {
+                    seriep3.add(rs.getDouble(2)/12, rs.getDouble(12));
+                    seriep5.add(rs.getDouble(2)/12, rs.getDouble(13));
+                    seriep10.add(rs.getDouble(2)/12, rs.getDouble(14));
+                    seriep25.add(rs.getDouble(2)/12, rs.getDouble(15));
+                    seriep50.add(rs.getDouble(2)/12, rs.getDouble(16));
+                    seriep75.add(rs.getDouble(2)/12, rs.getDouble(17));
+                    seriep90.add(rs.getDouble(2)/12, rs.getDouble(18));
+                    seriep95.add(rs.getDouble(2)/12, rs.getDouble(19));
+                    seriep97.add(rs.getDouble(2)/12, rs.getDouble(20));
+                }
+                rs.close();
+                instruccion.close();
+                conexion.close();
+                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                juegoDatos.addSeries(seriep3);
+                juegoDatos.addSeries(seriep5);
+                juegoDatos.addSeries(seriep10);
+                juegoDatos.addSeries(seriep25);
+                juegoDatos.addSeries(seriep50);
+                juegoDatos.addSeries(seriep75);
+                juegoDatos.addSeries(seriep90);
+                juegoDatos.addSeries(seriep95);
+                juegoDatos.addSeries(seriep97);
+                serieInt.add(Double.parseDouble(calcularMeses(TFFechNac.getText()).toString()), Double.parseDouble(TFPeso.getText().trim()));
+                juegoDatos.addSeries(serieInt);
+
+                JFreeChart chart = ChartFactory.createXYLineChart ("Peso / Edad",
+                        "Edad","Peso",juegoDatos,PlotOrientation.VERTICAL,
+                        true,
+                        true,
+                        true                // Show legend
+                        );
+
+                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+                //Puntos en las líneas o no
+                renderer.setSeriesShapesVisible(0, false);
+                renderer.setSeriesShapesVisible(1, false);
+                renderer.setSeriesShapesVisible(2, false);
+                renderer.setSeriesShapesVisible(3, false);
+                renderer.setSeriesShapesVisible(4, false);
+                renderer.setSeriesShapesVisible(5, false);
+                renderer.setSeriesShapesVisible(6, false);
+                renderer.setSeriesShapesVisible(7, false);
+                renderer.setSeriesShapesVisible(8, false);
+                renderer.setSeriesShapesVisible(9, true);
+
+                try {
+                    ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
+
+                File nombreFich = new File("grafico.jpg");
+
+                cargarImagen(DPImagen, nombreFich);
+
+
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
         }
     }//GEN-LAST:event_RBPEActionPerformed
 
@@ -2662,6 +2743,91 @@ public class AntroAdoles extends javax.swing.JDialog {
                 renderer.setSeriesShapesVisible(5, false);
                 renderer.setSeriesShapesVisible(6, false);
                 renderer.setSeriesShapesVisible(7, true);
+
+                try {
+                    ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
+
+                File nombreFich = new File("grafico.jpg");
+
+                cargarImagen(DPImagen, nombreFich);
+
+
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        } else if (RBCDC.isSelected()) {
+            try {
+                conexion = DriverManager.getConnection(baseDatos);
+                instruccion = conexion.createStatement();
+                ResultSet rs=null;
+                if (RBVaron.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesCDCV");
+                else if (RBHembra.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesCDCM");
+                XYSeries seriep3 = new XYSeries("P3");
+                XYSeries seriep5 = new XYSeries("P5");
+                XYSeries seriep10 = new XYSeries("P10");
+                XYSeries seriep25 = new XYSeries("P25");
+                XYSeries seriep50 = new XYSeries("P50");
+                XYSeries seriep75 = new XYSeries("P75");
+                XYSeries seriep85 = new XYSeries("P85");
+                XYSeries seriep90 = new XYSeries("P90");
+                XYSeries seriep95 = new XYSeries("P95");
+                XYSeries seriep97 = new XYSeries("P97");
+                XYSeries serieInt = new XYSeries("Perc");
+                while (rs.next()) {
+                    seriep3.add(rs.getDouble(2)/12, rs.getDouble(21));
+                    seriep5.add(rs.getDouble(2)/12, rs.getDouble(22));
+                    seriep10.add(rs.getDouble(2)/12, rs.getDouble(23));
+                    seriep25.add(rs.getDouble(2)/12, rs.getDouble(24));
+                    seriep50.add(rs.getDouble(2)/12, rs.getDouble(25));
+                    seriep75.add(rs.getDouble(2)/12, rs.getDouble(26));
+                    seriep85.add(rs.getDouble(2)/12, rs.getDouble(27));
+                    seriep90.add(rs.getDouble(2)/12, rs.getDouble(28));
+                    seriep95.add(rs.getDouble(2)/12, rs.getDouble(29));
+                    seriep97.add(rs.getDouble(2)/12, rs.getDouble(30));
+                }
+                rs.close();
+                instruccion.close();
+                conexion.close();
+                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                juegoDatos.addSeries(seriep3);
+                juegoDatos.addSeries(seriep5);
+                juegoDatos.addSeries(seriep10);
+                juegoDatos.addSeries(seriep25);
+                juegoDatos.addSeries(seriep50);
+                juegoDatos.addSeries(seriep75);
+                juegoDatos.addSeries(seriep85);
+                juegoDatos.addSeries(seriep90);
+                juegoDatos.addSeries(seriep95);
+                juegoDatos.addSeries(seriep97);
+                serieInt.add(Double.parseDouble(calcularMeses(TFFechNac.getText()).toString()), Double.parseDouble(TFIMC.getText().trim()));
+                juegoDatos.addSeries(serieInt);
+
+                JFreeChart chart = ChartFactory.createXYLineChart ("I.M.C. / Edad",
+                        "Edad","I.M.C.",juegoDatos,PlotOrientation.VERTICAL,
+                        true,
+                        true,
+                        true                // Show legend
+                        );
+
+                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+                //Puntos en las líneas o no
+                renderer.setSeriesShapesVisible(0, false);
+                renderer.setSeriesShapesVisible(1, false);
+                renderer.setSeriesShapesVisible(2, false);
+                renderer.setSeriesShapesVisible(3, false);
+                renderer.setSeriesShapesVisible(4, false);
+                renderer.setSeriesShapesVisible(5, false);
+                renderer.setSeriesShapesVisible(6, false);
+                renderer.setSeriesShapesVisible(7, false);
+                renderer.setSeriesShapesVisible(8, false);
+                renderer.setSeriesShapesVisible(9, false);
+                renderer.setSeriesShapesVisible(10, true);
 
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);

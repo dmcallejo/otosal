@@ -781,6 +781,11 @@ public class AntroAdoles extends javax.swing.JDialog {
         BGGrafica.add(RBPBE);
         RBPBE.setText("Perimetro braquial / Edad");
         RBPBE.setName("RBPBE"); // NOI18N
+        RBPBE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBPBEActionPerformed(evt);
+            }
+        });
 
         RBIE.setBackground(new java.awt.Color(229, 184, 183));
         BGGrafica.add(RBIE);
@@ -998,7 +1003,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 LPL.setEnabled(false);
                 LPTE.setEnabled(true);
                 RBTE.setEnabled(true);
-                RBPE.setEnabled(false);
+                RBPE.setEnabled(true);
                 RBPBE.setEnabled(true);
                 RBPT.setEnabled(false);
                 RBIE.setEnabled(true);
@@ -2523,6 +2528,63 @@ public class AntroAdoles extends javax.swing.JDialog {
             } catch (Exception ex) {
                 System.out.println(ex);
             }
+        } else if (RBOrbegozo.isSelected()) {
+            try {
+                conexion = DriverManager.getConnection(baseDatos);
+                instruccion = conexion.createStatement();
+                ResultSet rs=null;
+                if (RBVaron.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesOrbegozoV");
+                else if (RBHembra.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesOrbegozoM");
+                XYSeries seriep3 = new XYSeries("P3");
+                XYSeries seriep50 = new XYSeries("P50");
+                XYSeries seriep97 = new XYSeries("P97");
+                XYSeries serieInt = new XYSeries("Perc");
+                while (rs.next()) {
+                    seriep3.add(rs.getDouble(2), rs.getDouble(3));
+                    seriep50.add(rs.getDouble(2), rs.getDouble(4));
+                    seriep97.add(rs.getDouble(2), rs.getDouble(5));
+                }
+                rs.close();
+                instruccion.close();
+                conexion.close();
+                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                juegoDatos.addSeries(seriep3);
+                juegoDatos.addSeries(seriep50);
+                juegoDatos.addSeries(seriep97);
+                serieInt.add(Double.parseDouble(calcularMeses(TFFechNac.getText()).toString()), Double.parseDouble(TFLongitud.getText().trim()));
+                juegoDatos.addSeries(serieInt);
+
+                JFreeChart chart = ChartFactory.createXYLineChart ("Longitud / Edad",
+                        "Edad","Longitud",juegoDatos,PlotOrientation.VERTICAL,
+                        true,
+                        true,
+                        true                // Show legend
+                        );
+
+                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+                //Puntos en las líneas o no
+                renderer.setSeriesShapesVisible(0, false);
+                renderer.setSeriesShapesVisible(1, false);
+                renderer.setSeriesShapesVisible(2, false);
+                renderer.setSeriesShapesVisible(3, true);
+                
+                try {
+                    ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
+
+                File nombreFich = new File("grafico.jpg");
+
+                cargarImagen(DPImagen, nombreFich);
+
+
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
         }
     }//GEN-LAST:event_RBTEActionPerformed
 
@@ -2667,6 +2729,63 @@ public class AntroAdoles extends javax.swing.JDialog {
                 renderer.setSeriesShapesVisible(8, false);
                 renderer.setSeriesShapesVisible(9, true);
 
+                try {
+                    ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
+
+                File nombreFich = new File("grafico.jpg");
+
+                cargarImagen(DPImagen, nombreFich);
+
+
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        } else if (RBOrbegozo.isSelected()) {
+            try {
+                conexion = DriverManager.getConnection(baseDatos);
+                instruccion = conexion.createStatement();
+                ResultSet rs=null;
+                if (RBVaron.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesOrbegozoV");
+                else if (RBHembra.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesOrbegozoM");
+                XYSeries seriep3 = new XYSeries("P3");
+                XYSeries seriep50 = new XYSeries("P50");
+                XYSeries seriep97 = new XYSeries("P97");
+                XYSeries serieInt = new XYSeries("Perc");
+                while (rs.next()) {
+                    seriep3.add(rs.getDouble(2), rs.getDouble(6));
+                    seriep50.add(rs.getDouble(2), rs.getDouble(7));
+                    seriep97.add(rs.getDouble(2), rs.getDouble(8));
+                }
+                rs.close();
+                instruccion.close();
+                conexion.close();
+                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                juegoDatos.addSeries(seriep3);
+                juegoDatos.addSeries(seriep50);
+                juegoDatos.addSeries(seriep97);
+                serieInt.add(Double.parseDouble(calcularMeses(TFFechNac.getText()).toString()), Double.parseDouble(TFPeso.getText().trim()));
+                juegoDatos.addSeries(serieInt);
+
+                JFreeChart chart = ChartFactory.createXYLineChart ("Peso / Edad",
+                        "Edad","Peso",juegoDatos,PlotOrientation.VERTICAL,
+                        true,
+                        true,
+                        true                // Show legend
+                        );
+
+                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+                //Puntos en las líneas o no
+                renderer.setSeriesShapesVisible(0, false);
+                renderer.setSeriesShapesVisible(1, false);
+                renderer.setSeriesShapesVisible(2, false);
+                renderer.setSeriesShapesVisible(3, true);
+                
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
                 } catch (Exception ex) {
@@ -2843,12 +2962,154 @@ public class AntroAdoles extends javax.swing.JDialog {
             } catch (Exception ex) {
                 System.out.println(ex);
             }
+        } else if (RBOrbegozo.isSelected()) {
+            try {
+                conexion = DriverManager.getConnection(baseDatos);
+                instruccion = conexion.createStatement();
+                ResultSet rs=null;
+                if (RBVaron.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesOrbegozoV");
+                else if (RBHembra.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesOrbegozoM");
+                XYSeries seriep3 = new XYSeries("P3");
+                XYSeries seriep50 = new XYSeries("P50");
+                XYSeries seriep85 = new XYSeries("P85");
+                XYSeries seriep90 = new XYSeries("P95");
+                XYSeries seriep97 = new XYSeries("P97");
+                XYSeries serieInt = new XYSeries("Perc");
+                while (rs.next()) {
+                    seriep3.add(rs.getDouble(2), rs.getDouble(17));
+                    seriep50.add(rs.getDouble(2), rs.getDouble(20));
+                    seriep85.add(rs.getDouble(2), rs.getDouble(21));
+                    seriep90.add(rs.getDouble(2), rs.getDouble(22));
+                    seriep97.add(rs.getDouble(2), rs.getDouble(23));
+                }
+                rs.close();
+                instruccion.close();
+                conexion.close();
+                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                juegoDatos.addSeries(seriep3);
+                juegoDatos.addSeries(seriep50);
+                juegoDatos.addSeries(seriep85);
+                juegoDatos.addSeries(seriep90);
+                juegoDatos.addSeries(seriep97);
+                serieInt.add(Double.parseDouble(calcularMeses(TFFechNac.getText()).toString()), Double.parseDouble(TFIMC.getText().trim()));
+                juegoDatos.addSeries(serieInt);
+
+                JFreeChart chart = ChartFactory.createXYLineChart ("I.M.C. / Edad",
+                        "Edad","I.M.C.",juegoDatos,PlotOrientation.VERTICAL,
+                        true,
+                        true,
+                        true                // Show legend
+                        );
+
+                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+                //Puntos en las líneas o no
+                renderer.setSeriesShapesVisible(0, false);
+                renderer.setSeriesShapesVisible(1, false);
+                renderer.setSeriesShapesVisible(2, false);
+                renderer.setSeriesShapesVisible(3, false);
+                renderer.setSeriesShapesVisible(4, false);
+                renderer.setSeriesShapesVisible(5, true);
+
+                try {
+                    ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
+
+                File nombreFich = new File("grafico.jpg");
+
+                cargarImagen(DPImagen, nombreFich);
+
+
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
         }
     }//GEN-LAST:event_RBIEActionPerformed
 
     private void RBSiriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBSiriActionPerformed
         
     }//GEN-LAST:event_RBSiriActionPerformed
+
+    private void RBPBEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBPBEActionPerformed
+       if (RBOrbegozo.isSelected()) {
+            try {
+                conexion = DriverManager.getConnection(baseDatos);
+                instruccion = conexion.createStatement();
+                ResultSet rs=null;
+                if (RBVaron.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesOrbegozoV");
+                else if (RBHembra.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesOrbegozoM");
+                XYSeries seriep3 = new XYSeries("P3");
+                XYSeries seriep10 = new XYSeries("P10");
+                XYSeries seriep25 = new XYSeries("P25");
+                XYSeries seriep50 = new XYSeries("P50");
+                XYSeries seriep75 = new XYSeries("P75");
+                XYSeries seriep90 = new XYSeries("P90");
+                XYSeries seriep97 = new XYSeries("P97");
+                XYSeries serieInt = new XYSeries("Perc");
+                while (rs.next()) {
+                    seriep3.add(rs.getDouble(2), rs.getDouble(14));
+                    seriep10.add(rs.getDouble(2), rs.getDouble(15));
+                    seriep25.add(rs.getDouble(2), rs.getDouble(16));
+                    seriep50.add(rs.getDouble(2), rs.getDouble(17));
+                    seriep75.add(rs.getDouble(2), rs.getDouble(18));
+                    seriep90.add(rs.getDouble(2), rs.getDouble(19));
+                    seriep97.add(rs.getDouble(2), rs.getDouble(20));
+                }
+                rs.close();
+                instruccion.close();
+                conexion.close();
+                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                juegoDatos.addSeries(seriep3);
+                juegoDatos.addSeries(seriep10);
+                juegoDatos.addSeries(seriep25);
+                juegoDatos.addSeries(seriep50);
+                juegoDatos.addSeries(seriep75);
+                juegoDatos.addSeries(seriep90);
+                juegoDatos.addSeries(seriep97);
+                serieInt.add(Double.parseDouble(calcularMeses(TFFechNac.getText()).toString()), Double.parseDouble(TFPeso.getText().trim()));
+                juegoDatos.addSeries(serieInt);
+
+                JFreeChart chart = ChartFactory.createXYLineChart ("Peso / Edad",
+                        "Edad","Peso",juegoDatos,PlotOrientation.VERTICAL,
+                        true,
+                        true,
+                        true                // Show legend
+                        );
+
+                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+                //Puntos en las líneas o no
+                renderer.setSeriesShapesVisible(0, false);
+                renderer.setSeriesShapesVisible(1, false);
+                renderer.setSeriesShapesVisible(2, false);
+                renderer.setSeriesShapesVisible(3, false);
+                renderer.setSeriesShapesVisible(4, false);
+                renderer.setSeriesShapesVisible(5, false);
+                renderer.setSeriesShapesVisible(6, false);
+                renderer.setSeriesShapesVisible(7, true);
+
+                try {
+                    ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
+
+                File nombreFich = new File("grafico.jpg");
+
+                cargarImagen(DPImagen, nombreFich);
+
+
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        }
+    }//GEN-LAST:event_RBPBEActionPerformed
 
     public  void cargarImagen(javax.swing.JDesktopPane jDeskp,File fileImagen)
     {

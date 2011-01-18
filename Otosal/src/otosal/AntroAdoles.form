@@ -1092,6 +1092,9 @@
                 <Property name="text" type="java.lang.String" value="Perimetro braquial / Edad"/>
                 <Property name="name" type="java.lang.String" value="RBPBE" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBPBEActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="RBIE">
               <Properties>

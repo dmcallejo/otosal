@@ -2436,7 +2436,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
                 } catch (Exception ex) {
-                    System.out.println(ex);
+                    ex.printStackTrace();
                 }
 
                 File nombreFich = new File("grafico.jpg");
@@ -2445,7 +2445,7 @@ public class AntroAdoles extends javax.swing.JDialog {
 
 
             } catch (Exception ex) {
-                System.out.println(ex);
+                ex.printStackTrace();
             }
         } else if (RBCDC.isSelected()) {
             try {
@@ -2517,7 +2517,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
                 } catch (Exception ex) {
-                    System.out.println(ex);
+                    ex.printStackTrace();
                 }
 
                 File nombreFich = new File("grafico.jpg");
@@ -2526,7 +2526,7 @@ public class AntroAdoles extends javax.swing.JDialog {
 
 
             } catch (Exception ex) {
-                System.out.println(ex);
+                ex.printStackTrace();
             }
         } else if (RBOrbegozo.isSelected()) {
             try {
@@ -2574,7 +2574,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
                 } catch (Exception ex) {
-                    System.out.println(ex);
+                    ex.printStackTrace();
                 }
 
                 File nombreFich = new File("grafico.jpg");
@@ -2583,7 +2583,96 @@ public class AntroAdoles extends javax.swing.JDialog {
 
 
             } catch (Exception ex) {
-                System.out.println(ex);
+                ex.printStackTrace();
+            }
+        } else if (RBWho.isSelected()) {
+            try {
+                conexion = DriverManager.getConnection(baseDatos);
+                instruccion = conexion.createStatement();
+                ResultSet rs=null;
+                if (RBVaron.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesWhoV");
+                else if (RBHembra.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesWhoM");
+                XYSeries seriep1 = new XYSeries("P1");
+                XYSeries seriep3 = new XYSeries("P3");
+                XYSeries seriep5 = new XYSeries("P5");
+                XYSeries seriep15 = new XYSeries("P15");
+                XYSeries seriep25 = new XYSeries("P25");
+                XYSeries seriep50 = new XYSeries("P50");
+                XYSeries seriep75 = new XYSeries("P75");
+                XYSeries seriep85 = new XYSeries("P85");
+                XYSeries seriep95 = new XYSeries("P95");
+                XYSeries seriep97 = new XYSeries("P97");
+                XYSeries seriep99 = new XYSeries("P99");
+                XYSeries serieInt = new XYSeries("Perc");
+                while (rs.next()) {
+                    seriep1.add(rs.getDouble(2)/12, rs.getDouble(3));
+                    seriep3.add(rs.getDouble(2)/12, rs.getDouble(4));
+                    seriep5.add(rs.getDouble(2)/12, rs.getDouble(5));
+                    seriep15.add(rs.getDouble(2)/12, rs.getDouble(6));
+                    seriep25.add(rs.getDouble(2)/12, rs.getDouble(7));
+                    seriep50.add(rs.getDouble(2)/12, rs.getDouble(8));
+                    seriep75.add(rs.getDouble(2)/12, rs.getDouble(9));
+                    seriep85.add(rs.getDouble(2)/12, rs.getDouble(10));
+                    seriep95.add(rs.getDouble(2)/12, rs.getDouble(11));
+                    seriep97.add(rs.getDouble(2)/12, rs.getDouble(12));
+                    seriep99.add(rs.getDouble(2)/12, rs.getDouble(13));
+                }
+                rs.close();
+                instruccion.close();
+                conexion.close();
+                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                juegoDatos.addSeries(seriep1);
+                juegoDatos.addSeries(seriep3);
+                juegoDatos.addSeries(seriep5);
+                juegoDatos.addSeries(seriep15);
+                juegoDatos.addSeries(seriep25);
+                juegoDatos.addSeries(seriep50);
+                juegoDatos.addSeries(seriep75);
+                juegoDatos.addSeries(seriep85);
+                juegoDatos.addSeries(seriep95);
+                juegoDatos.addSeries(seriep97);
+                juegoDatos.addSeries(seriep99);
+                serieInt.add(Double.parseDouble(calcularMeses(TFFechNac.getText()).toString()), Double.parseDouble(TFLongitud.getText().trim()));
+                juegoDatos.addSeries(serieInt);
+
+                JFreeChart chart = ChartFactory.createXYLineChart ("Longitud / Edad",
+                        "Edad","Longitud",juegoDatos,PlotOrientation.VERTICAL,
+                        true,
+                        true,
+                        true                // Show legend
+                        );
+
+                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+                //Puntos en las líneas o no
+                renderer.setSeriesShapesVisible(0, false);
+                renderer.setSeriesShapesVisible(1, false);
+                renderer.setSeriesShapesVisible(2, false);
+                renderer.setSeriesShapesVisible(3, false);
+                renderer.setSeriesShapesVisible(4, false);
+                renderer.setSeriesShapesVisible(5, false);
+                renderer.setSeriesShapesVisible(6, false);
+                renderer.setSeriesShapesVisible(7, false);
+                renderer.setSeriesShapesVisible(8, false);
+                renderer.setSeriesShapesVisible(9, false);
+                renderer.setSeriesShapesVisible(10, false);
+                renderer.setSeriesShapesVisible(11, true);
+
+                try {
+                    ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
+                File nombreFich = new File("grafico.jpg");
+
+                cargarImagen(DPImagen, nombreFich);
+
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         }
     }//GEN-LAST:event_RBTEActionPerformed
@@ -2651,7 +2740,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
                 } catch (Exception ex) {
-                    System.out.println(ex);
+                    ex.printStackTrace();
                 }
 
                 File nombreFich = new File("grafico.jpg");
@@ -2660,7 +2749,7 @@ public class AntroAdoles extends javax.swing.JDialog {
 
 
             } catch (Exception ex) {
-                System.out.println(ex);
+                ex.printStackTrace();
             }
         } else if (RBCDC.isSelected()) {
             try {
@@ -2732,7 +2821,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
                 } catch (Exception ex) {
-                    System.out.println(ex);
+                    ex.printStackTrace();
                 }
 
                 File nombreFich = new File("grafico.jpg");
@@ -2741,7 +2830,7 @@ public class AntroAdoles extends javax.swing.JDialog {
 
 
             } catch (Exception ex) {
-                System.out.println(ex);
+                ex.printStackTrace();
             }
         } else if (RBOrbegozo.isSelected()) {
             try {
@@ -2789,7 +2878,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
                 } catch (Exception ex) {
-                    System.out.println(ex);
+                    ex.printStackTrace();
                 }
 
                 File nombreFich = new File("grafico.jpg");
@@ -2798,7 +2887,7 @@ public class AntroAdoles extends javax.swing.JDialog {
 
 
             } catch (Exception ex) {
-                System.out.println(ex);
+                ex.printStackTrace();
             }
         }
     }//GEN-LAST:event_RBPEActionPerformed
@@ -2866,7 +2955,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
                 } catch (Exception ex) {
-                    System.out.println(ex);
+                    ex.printStackTrace();
                 }
 
                 File nombreFich = new File("grafico.jpg");
@@ -2875,7 +2964,7 @@ public class AntroAdoles extends javax.swing.JDialog {
 
 
             } catch (Exception ex) {
-                System.out.println(ex);
+                ex.printStackTrace();
             }
         } else if (RBCDC.isSelected()) {
             try {
@@ -2951,7 +3040,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
                 } catch (Exception ex) {
-                    System.out.println(ex);
+                    ex.printStackTrace();
                 }
 
                 File nombreFich = new File("grafico.jpg");
@@ -2960,7 +3049,7 @@ public class AntroAdoles extends javax.swing.JDialog {
 
 
             } catch (Exception ex) {
-                System.out.println(ex);
+                ex.printStackTrace();
             }
         } else if (RBOrbegozo.isSelected()) {
             try {
@@ -3016,7 +3105,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
                 } catch (Exception ex) {
-                    System.out.println(ex);
+                    ex.printStackTrace();
                 }
 
                 File nombreFich = new File("grafico.jpg");
@@ -3025,7 +3114,7 @@ public class AntroAdoles extends javax.swing.JDialog {
 
 
             } catch (Exception ex) {
-                System.out.println(ex);
+                ex.printStackTrace();
             }
         }
     }//GEN-LAST:event_RBIEActionPerformed
@@ -3097,7 +3186,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 try {
                     ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
                 } catch (Exception ex) {
-                    System.out.println(ex);
+                    ex.printStackTrace();
                 }
 
                 File nombreFich = new File("grafico.jpg");
@@ -3106,7 +3195,7 @@ public class AntroAdoles extends javax.swing.JDialog {
 
 
             } catch (Exception ex) {
-                System.out.println(ex);
+                ex.printStackTrace();
             }
         }
     }//GEN-LAST:event_RBPBEActionPerformed

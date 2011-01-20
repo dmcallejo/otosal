@@ -62,6 +62,7 @@ public class GraCorp extends javax.swing.JDialog {
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Porcentaje Grasa Corporal");
 
         jPanel1.setBackground(new java.awt.Color(229, 184, 183));
         jPanel1.setName("jPanel1"); // NOI18N

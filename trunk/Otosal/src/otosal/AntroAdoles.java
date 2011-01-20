@@ -24,6 +24,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.imageio.ImageIO;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
@@ -84,7 +86,6 @@ public class AntroAdoles extends javax.swing.JDialog {
             LPE.setEnabled(false);
             LPBE.setEnabled(false);
             LIE.setEnabled(false);
-            LPL.setEnabled(false);
             TFLEP.setEditable(false);
             TFLEP50.setEditable(false);
             TFPPE.setEditable(false);
@@ -93,15 +94,12 @@ public class AntroAdoles extends javax.swing.JDialog {
             TFPBEP50.setEditable(false);
             TFIEP.setEditable(false);
             TFIEP50.setEditable(false);
-            TFPL.setEditable(false);
-            TFPLP50.setEditable(false);
             TFPBEP.setEditable(false);
             TFPBEP50.setEditable(false);
             RBTE.setEnabled(false);
             RBPE.setEnabled(false);
             RBPBE.setEnabled(false);
             RBIE.setEnabled(false);
-            RBPT.setEnabled(false);
             LPTE.setEnabled(false);
             TFPTEP.setEditable(false);
             TFPTEP50.setEditable(false);
@@ -157,7 +155,7 @@ public class AntroAdoles extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BGraCorp = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
@@ -171,7 +169,6 @@ public class AntroAdoles extends javax.swing.JDialog {
         jPanel9 = new javax.swing.JPanel();
         LINPBE = new javax.swing.JLabel();
         LINIE = new javax.swing.JLabel();
-        LINLP = new javax.swing.JLabel();
         LINLE = new javax.swing.JLabel();
         LINPE = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -180,8 +177,6 @@ public class AntroAdoles extends javax.swing.JDialog {
         TFPEP50 = new javax.swing.JTextField();
         TFPBEP50 = new javax.swing.JTextField();
         TFIEP50 = new javax.swing.JTextField();
-        TFPLP50 = new javax.swing.JTextField();
-        TFPL = new javax.swing.JTextField();
         TFIEP = new javax.swing.JTextField();
         TFPBEP = new javax.swing.JTextField();
         TFPPE = new javax.swing.JTextField();
@@ -191,7 +186,6 @@ public class AntroAdoles extends javax.swing.JDialog {
         LPE = new javax.swing.JLabel();
         LPBE = new javax.swing.JLabel();
         LIE = new javax.swing.JLabel();
-        LPL = new javax.swing.JLabel();
         LINPTE = new javax.swing.JLabel();
         LPTE = new javax.swing.JLabel();
         TFPTEP = new javax.swing.JTextField();
@@ -202,7 +196,6 @@ public class AntroAdoles extends javax.swing.JDialog {
         RBPBE = new javax.swing.JRadioButton();
         RBIE = new javax.swing.JRadioButton();
         RBPE = new javax.swing.JRadioButton();
-        RBPT = new javax.swing.JRadioButton();
         DPImagen = new javax.swing.JDesktopPane();
         jPanel3 = new javax.swing.JPanel();
         BGuardar2 = new javax.swing.JButton();
@@ -378,8 +371,13 @@ public class AntroAdoles extends javax.swing.JDialog {
         jLabel13.setText("% de Agua corporal Total");
         jLabel13.setName("jLabel13"); // NOI18N
 
-        jButton1.setText("jButton1");
-        jButton1.setName("jButton1"); // NOI18N
+        BGraCorp.setText("jButton1");
+        BGraCorp.setName("BGraCorp"); // NOI18N
+        BGraCorp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BGraCorpActionPerformed(evt);
+            }
+        });
 
         jTextField1.setName("jTextField1"); // NOI18N
 
@@ -404,7 +402,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BGraCorp, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField2))
                     .addGroup(jPanel11Layout.createSequentialGroup()
@@ -419,7 +417,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BGraCorp, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -610,10 +608,6 @@ public class AntroAdoles extends javax.swing.JDialog {
         LINIE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINIE.setName("LINIE"); // NOI18N
 
-        LINLP.setFont(new java.awt.Font("Tahoma", 1, 12));
-        LINLP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LINLP.setName("LINLP"); // NOI18N
-
         LINLE.setFont(new java.awt.Font("Tahoma", 1, 12));
         LINLE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LINLE.setName("LINLE"); // NOI18N
@@ -641,12 +635,6 @@ public class AntroAdoles extends javax.swing.JDialog {
 
         TFIEP50.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TFIEP50.setName("TFIEP50"); // NOI18N
-
-        TFPLP50.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TFPLP50.setName("TFPLP50"); // NOI18N
-
-        TFPL.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TFPL.setName("TFPL"); // NOI18N
 
         TFIEP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TFIEP.setName("TFIEP"); // NOI18N
@@ -676,9 +664,6 @@ public class AntroAdoles extends javax.swing.JDialog {
 
         LIE.setText("I.M.C. / Edad");
         LIE.setName("LIE"); // NOI18N
-
-        LPL.setText("Peso / Longitud");
-        LPL.setName("LPL"); // NOI18N
 
         LINPTE.setFont(new java.awt.Font("Tahoma", 1, 12));
         LINPTE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -715,15 +700,13 @@ public class AntroAdoles extends javax.swing.JDialog {
                                     .addComponent(LPBE)
                                     .addComponent(LPE)
                                     .addComponent(LIE)
-                                    .addComponent(LPL)
                                     .addComponent(LPTE))
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TFPPE, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
                                     .addComponent(TFPBEP, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
                                     .addComponent(TFPTEP, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                                    .addComponent(TFIEP, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                                    .addComponent(TFPL, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))))
+                                    .addComponent(TFIEP, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))))
                         .addGap(68, 68, 68)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -731,7 +714,6 @@ public class AntroAdoles extends javax.swing.JDialog {
                     .addComponent(TFPBEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                     .addComponent(TFPTEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                     .addComponent(TFIEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                    .addComponent(TFPLP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                     .addComponent(TFLEP50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
@@ -742,7 +724,6 @@ public class AntroAdoles extends javax.swing.JDialog {
                         .addComponent(LINPBE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LINPTE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LINIE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LINLP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(171, 171, 171))
         );
@@ -772,11 +753,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LIE)
-                            .addComponent(TFIEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LPL)
-                            .addComponent(TFPL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(TFIEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
@@ -802,11 +779,7 @@ public class AntroAdoles extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TFIEP50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LINIE, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LINLP, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TFPLP50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(LINIE, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
 
@@ -816,9 +789,9 @@ public class AntroAdoles extends javax.swing.JDialog {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -827,8 +800,8 @@ public class AntroAdoles extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel10.setBackground(new java.awt.Color(229, 184, 183));
@@ -880,11 +853,6 @@ public class AntroAdoles extends javax.swing.JDialog {
             }
         });
 
-        RBPT.setBackground(new java.awt.Color(229, 184, 183));
-        BGGrafica.add(RBPT);
-        RBPT.setText("Peso / Talla");
-        RBPT.setName("RBPT"); // NOI18N
-
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -892,22 +860,17 @@ public class AntroAdoles extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RBTE)
-                            .addComponent(RBPBE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RBPE)
-                            .addComponent(RBIE))
-                        .addGap(48, 48, 48))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(RBPT)
-                        .addContainerGap(249, Short.MAX_VALUE))))
+                    .addComponent(RBTE)
+                    .addComponent(RBPBE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(RBPE)
+                    .addComponent(RBIE))
+                .addGap(38, 38, 38))
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(158, 158, 158)
                 .addComponent(jLabel15)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -919,14 +882,12 @@ public class AntroAdoles extends javax.swing.JDialog {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(RBTE)
                         .addGap(18, 18, 18)
-                        .addComponent(RBPBE)
-                        .addGap(18, 18, 18)
-                        .addComponent(RBPT))
+                        .addComponent(RBPBE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(RBIE))
                     .addComponent(RBPE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         DPImagen.setBackground(new java.awt.Color(229, 184, 183));
@@ -978,34 +939,32 @@ public class AntroAdoles extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DPImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))))
+                            .addComponent(DPImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DPImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
+                        .addComponent(DPImagen))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)))
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1077,12 +1036,10 @@ public class AntroAdoles extends javax.swing.JDialog {
                 LTE.setEnabled(true);
                 LPE.setEnabled(true);
                 LPBE.setEnabled(true);
-                LPL.setEnabled(false);
                 LPTE.setEnabled(true);
                 RBTE.setEnabled(true);
                 RBPE.setEnabled(true);
                 RBPBE.setEnabled(true);
-                RBPT.setEnabled(false);
                 RBIE.setEnabled(true);
             if (!TFPeso.getText().equals("") && !TFLongitud.getText().equals("")) {
 
@@ -1361,12 +1318,10 @@ public class AntroAdoles extends javax.swing.JDialog {
                     LTE.setEnabled(false);
                     LPE.setEnabled(false);
                     LPBE.setEnabled(false);
-                    LPL.setEnabled(false);
                     LPTE.setEnabled(false);
                     RBTE.setEnabled(false);
                     RBPE.setEnabled(false);
                     RBPBE.setEnabled(false);
-                    RBPT.setEnabled(false);
                     RBIE.setEnabled(false);
                     TFLongitud.requestFocus();
                     TFLongitud.selectAll();
@@ -1386,12 +1341,10 @@ public class AntroAdoles extends javax.swing.JDialog {
                 LPBE.setEnabled(false);
                 TFPBEP50.setText("");
                 TFPTEP50.setText("");
-                LPL.setEnabled(false);
                 LPTE.setEnabled(false);
                 RBTE.setEnabled(true);
                 RBPE.setEnabled(true);
                 RBPBE.setEnabled(false);
-                RBPT.setEnabled(false);
                 RBIE.setEnabled(true);
 
                 if (!TFPeso.getText().equals("") && !TFLongitud.getText().equals("")) {
@@ -1657,12 +1610,10 @@ public class AntroAdoles extends javax.swing.JDialog {
                     LTE.setEnabled(false);
                     LPE.setEnabled(false);
                     LPBE.setEnabled(false);
-                    LPL.setEnabled(false);
                     LPTE.setEnabled(false);
                     RBTE.setEnabled(false);
                     RBPE.setEnabled(false);
                     RBPBE.setEnabled(false);
-                    RBPT.setEnabled(false);
                     RBIE.setEnabled(false);
                     TFLongitud.requestFocus();
                     TFLongitud.selectAll();
@@ -1680,12 +1631,10 @@ public class AntroAdoles extends javax.swing.JDialog {
                 LPBE.setEnabled(false);
                 TFPBEP50.setText("");
                 TFPTEP50.setText("");
-                LPL.setEnabled(false);
                 LPTE.setEnabled(false);
                 RBTE.setEnabled(true);
                 RBPE.setEnabled(true);
                 RBPBE.setEnabled(false);
-                RBPT.setEnabled(false);
                 RBIE.setEnabled(true);
 
                 if (!TFPeso.getText().equals("") && !TFLongitud.getText().equals("")) {
@@ -2021,12 +1970,10 @@ public class AntroAdoles extends javax.swing.JDialog {
                     LTE.setEnabled(false);
                     LPE.setEnabled(false);
                     LPBE.setEnabled(false);
-                    LPL.setEnabled(false);
                     LPTE.setEnabled(false);
                     RBTE.setEnabled(false);
                     RBPE.setEnabled(false);
                     RBPBE.setEnabled(false);
-                    RBPT.setEnabled(false);
                     RBIE.setEnabled(false);
                     TFLongitud.requestFocus();
                     TFLongitud.selectAll();
@@ -2044,12 +1991,10 @@ public class AntroAdoles extends javax.swing.JDialog {
                 LPBE.setEnabled(false);
                 TFPBEP50.setText("");
                 TFPTEP50.setText("");
-                LPL.setEnabled(false);
                 LPTE.setEnabled(false);
                 RBTE.setEnabled(true);
                 RBPE.setEnabled(true);
                 RBPBE.setEnabled(false);
-                RBPT.setEnabled(false);
                 RBIE.setEnabled(true);
 
 
@@ -2436,12 +2381,10 @@ public class AntroAdoles extends javax.swing.JDialog {
                     LTE.setEnabled(false);
                     LPE.setEnabled(false);
                     LPBE.setEnabled(false);
-                    LPL.setEnabled(false);
                     LPTE.setEnabled(false);
                     RBTE.setEnabled(false);
                     RBPE.setEnabled(false);
                     RBPBE.setEnabled(false);
-                    RBPT.setEnabled(false);
                     RBIE.setEnabled(false);
                     TFLongitud.requestFocus();
                     TFLongitud.selectAll();
@@ -2966,6 +2909,97 @@ public class AntroAdoles extends javax.swing.JDialog {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+        } else if (RBWho.isSelected()) {
+            try {
+                conexion = DriverManager.getConnection(baseDatos);
+                instruccion = conexion.createStatement();
+                ResultSet rs=null;
+                if (RBVaron.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesWhoV");
+                else if (RBHembra.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesWhoM");
+                XYSeries seriep1 = new XYSeries("P1");
+                XYSeries seriep3 = new XYSeries("P3");
+                XYSeries seriep5 = new XYSeries("P5");
+                XYSeries seriep15 = new XYSeries("P15");
+                XYSeries seriep25 = new XYSeries("P25");
+                XYSeries seriep50 = new XYSeries("P50");
+                XYSeries seriep75 = new XYSeries("P75");
+                XYSeries seriep85 = new XYSeries("P85");
+                XYSeries seriep95 = new XYSeries("P95");
+                XYSeries seriep97 = new XYSeries("P97");
+                XYSeries seriep99 = new XYSeries("P99");
+                XYSeries serieInt = new XYSeries("Perc");
+                while (rs.next()) {
+                    if (!(rs.getDouble(14) == 0.0)) {
+                        seriep1.add(rs.getDouble(2)/12, rs.getDouble(14));
+                        seriep3.add(rs.getDouble(2)/12, rs.getDouble(15));
+                        seriep5.add(rs.getDouble(2)/12, rs.getDouble(16));
+                        seriep15.add(rs.getDouble(2)/12, rs.getDouble(17));
+                        seriep25.add(rs.getDouble(2)/12, rs.getDouble(18));
+                        seriep50.add(rs.getDouble(2)/12, rs.getDouble(19));
+                        seriep75.add(rs.getDouble(2)/12, rs.getDouble(20));
+                        seriep85.add(rs.getDouble(2)/12, rs.getDouble(21));
+                        seriep95.add(rs.getDouble(2)/12, rs.getDouble(22));
+                        seriep97.add(rs.getDouble(2)/12, rs.getDouble(23));
+                        seriep99.add(rs.getDouble(2)/12, rs.getDouble(24));
+                    }
+                }
+                rs.close();
+                instruccion.close();
+                conexion.close();
+                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                juegoDatos.addSeries(seriep1);
+                juegoDatos.addSeries(seriep3);
+                juegoDatos.addSeries(seriep5);
+                juegoDatos.addSeries(seriep15);
+                juegoDatos.addSeries(seriep25);
+                juegoDatos.addSeries(seriep50);
+                juegoDatos.addSeries(seriep75);
+                juegoDatos.addSeries(seriep85);
+                juegoDatos.addSeries(seriep95);
+                juegoDatos.addSeries(seriep97);
+                juegoDatos.addSeries(seriep99);
+                serieInt.add(Double.parseDouble(calcularMeses(TFFechNac.getText()).toString()), Double.parseDouble(TFPeso.getText().trim()));
+                juegoDatos.addSeries(serieInt);
+
+                JFreeChart chart = ChartFactory.createXYLineChart ("Peso / Edad",
+                        "Edad","Peso",juegoDatos,PlotOrientation.VERTICAL,
+                        true,
+                        true,
+                        true                // Show legend
+                        );
+
+                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+                //Puntos en las líneas o no
+                renderer.setSeriesShapesVisible(0, false);
+                renderer.setSeriesShapesVisible(1, false);
+                renderer.setSeriesShapesVisible(2, false);
+                renderer.setSeriesShapesVisible(3, false);
+                renderer.setSeriesShapesVisible(4, false);
+                renderer.setSeriesShapesVisible(5, false);
+                renderer.setSeriesShapesVisible(6, false);
+                renderer.setSeriesShapesVisible(7, false);
+                renderer.setSeriesShapesVisible(8, false);
+                renderer.setSeriesShapesVisible(9, false);
+                renderer.setSeriesShapesVisible(10, false);
+                renderer.setSeriesShapesVisible(11, true);
+
+                try {
+                    ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
+                File nombreFich = new File("grafico.jpg");
+
+                cargarImagen(DPImagen, nombreFich);
+
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }//GEN-LAST:event_RBPEActionPerformed
 
@@ -3193,6 +3227,95 @@ public class AntroAdoles extends javax.swing.JDialog {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+        } else if (RBWho.isSelected()) {
+            try {
+                conexion = DriverManager.getConnection(baseDatos);
+                instruccion = conexion.createStatement();
+                ResultSet rs=null;
+                if (RBVaron.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesWhoV");
+                else if (RBHembra.isSelected())
+                    rs = instruccion.executeQuery("Select * from AdolesWhoM");
+                XYSeries seriep1 = new XYSeries("P1");
+                XYSeries seriep3 = new XYSeries("P3");
+                XYSeries seriep5 = new XYSeries("P5");
+                XYSeries seriep15 = new XYSeries("P15");
+                XYSeries seriep25 = new XYSeries("P25");
+                XYSeries seriep50 = new XYSeries("P50");
+                XYSeries seriep75 = new XYSeries("P75");
+                XYSeries seriep85 = new XYSeries("P85");
+                XYSeries seriep95 = new XYSeries("P95");
+                XYSeries seriep97 = new XYSeries("P97");
+                XYSeries seriep99 = new XYSeries("P99");
+                XYSeries serieInt = new XYSeries("Perc");
+                while (rs.next()) {
+                    seriep1.add(rs.getDouble(2)/12, rs.getDouble(25));
+                    seriep3.add(rs.getDouble(2)/12, rs.getDouble(26));
+                    seriep5.add(rs.getDouble(2)/12, rs.getDouble(27));
+                    seriep15.add(rs.getDouble(2)/12, rs.getDouble(28));
+                    seriep25.add(rs.getDouble(2)/12, rs.getDouble(29));
+                    seriep50.add(rs.getDouble(2)/12, rs.getDouble(30));
+                    seriep75.add(rs.getDouble(2)/12, rs.getDouble(31));
+                    seriep85.add(rs.getDouble(2)/12, rs.getDouble(32));
+                    seriep95.add(rs.getDouble(2)/12, rs.getDouble(33));
+                    seriep97.add(rs.getDouble(2)/12, rs.getDouble(34));
+                    seriep99.add(rs.getDouble(2)/12, rs.getDouble(35));
+                }
+                rs.close();
+                instruccion.close();
+                conexion.close();
+                XYSeriesCollection juegoDatos= new XYSeriesCollection();
+                juegoDatos.addSeries(seriep1);
+                juegoDatos.addSeries(seriep3);
+                juegoDatos.addSeries(seriep5);
+                juegoDatos.addSeries(seriep15);
+                juegoDatos.addSeries(seriep25);
+                juegoDatos.addSeries(seriep50);
+                juegoDatos.addSeries(seriep75);
+                juegoDatos.addSeries(seriep85);
+                juegoDatos.addSeries(seriep95);
+                juegoDatos.addSeries(seriep97);
+                juegoDatos.addSeries(seriep99);
+                serieInt.add(Double.parseDouble(calcularMeses(TFFechNac.getText()).toString()), Double.parseDouble(TFIMC.getText().trim()));
+                juegoDatos.addSeries(serieInt);
+
+                JFreeChart chart = ChartFactory.createXYLineChart ("I.M.C. / Edad",
+                        "Edad","I.M.C.",juegoDatos,PlotOrientation.VERTICAL,
+                        true,
+                        true,
+                        true                // Show legend
+                        );
+
+                XYPlot plot =  (XYPlot) chart.getPlot();
+                XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+                //Puntos en las líneas o no
+                renderer.setSeriesShapesVisible(0, false);
+                renderer.setSeriesShapesVisible(1, false);
+                renderer.setSeriesShapesVisible(2, false);
+                renderer.setSeriesShapesVisible(3, false);
+                renderer.setSeriesShapesVisible(4, false);
+                renderer.setSeriesShapesVisible(5, false);
+                renderer.setSeriesShapesVisible(6, false);
+                renderer.setSeriesShapesVisible(7, false);
+                renderer.setSeriesShapesVisible(8, false);
+                renderer.setSeriesShapesVisible(9, false);
+                renderer.setSeriesShapesVisible(10, false);
+                renderer.setSeriesShapesVisible(11, true);
+
+                try {
+                    ChartUtilities.saveChartAsJPEG(new File("grafico.jpg"), chart, 300, 300);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
+                File nombreFich = new File("grafico.jpg");
+
+                cargarImagen(DPImagen, nombreFich);
+
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }//GEN-LAST:event_RBIEActionPerformed
 
@@ -3273,6 +3396,14 @@ public class AntroAdoles extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_RBPBEActionPerformed
 
+    private void BGraCorpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGraCorpActionPerformed
+        grasaCorp = null;
+        if (grasaCorp == null) {
+            grasaCorp = new GraCorp(new JFrame() ,true);
+            grasaCorp.setVisible(true);
+        }
+    }//GEN-LAST:event_BGraCorpActionPerformed
+
     public  void cargarImagen(javax.swing.JDesktopPane jDeskp,File fileImagen)
     {
         try{
@@ -3345,18 +3476,17 @@ public class AntroAdoles extends javax.swing.JDialog {
     private javax.swing.JButton BCerrar;
     private javax.swing.ButtonGroup BGGrafica;
     private javax.swing.ButtonGroup BGPaper;
+    private javax.swing.JButton BGraCorp;
     private javax.swing.JButton BGuardar2;
     private javax.swing.JDesktopPane DPImagen;
     private javax.swing.JLabel LIE;
     private javax.swing.JLabel LINIE;
     private javax.swing.JLabel LINLE;
-    private javax.swing.JLabel LINLP;
     private javax.swing.JLabel LINPBE;
     private javax.swing.JLabel LINPE;
     private javax.swing.JLabel LINPTE;
     private javax.swing.JLabel LPBE;
     private javax.swing.JLabel LPE;
-    private javax.swing.JLabel LPL;
     private javax.swing.JLabel LPTE;
     private javax.swing.JLabel LTE;
     private javax.swing.JRadioButton RBCDC;
@@ -3366,7 +3496,6 @@ public class AntroAdoles extends javax.swing.JDialog {
     private javax.swing.JRadioButton RBOrbegozo;
     private javax.swing.JRadioButton RBPBE;
     private javax.swing.JRadioButton RBPE;
-    private javax.swing.JRadioButton RBPT;
     private javax.swing.JRadioButton RBTE;
     private javax.swing.JRadioButton RBVaron;
     private javax.swing.JRadioButton RBWho;
@@ -3383,15 +3512,12 @@ public class AntroAdoles extends javax.swing.JDialog {
     private javax.swing.JTextField TFPBEP;
     private javax.swing.JTextField TFPBEP50;
     private javax.swing.JTextField TFPEP50;
-    private javax.swing.JTextField TFPL;
-    private javax.swing.JTextField TFPLP50;
     private javax.swing.JTextField TFPPE;
     private javax.swing.JTextField TFPTEP;
     private javax.swing.JTextField TFPTEP50;
     private javax.swing.JTextField TFPerBra;
     private javax.swing.JTextField TFPeso;
     private javax.swing.JTextField TFPliTri;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -3425,4 +3551,5 @@ public class AntroAdoles extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 
+    private JDialog grasaCorp;
 }

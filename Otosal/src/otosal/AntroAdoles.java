@@ -47,9 +47,14 @@ public class AntroAdoles extends javax.swing.JDialog {
     private Connection conexion;
     private Statement instruccion;
     Double edadMes;
+     Integer edad;
     int cod = new Integer(0);
 
     /** Creates new form AntroAdoles */
+    public AntroAdoles() {
+        //Constructor para poder llamarlo desde otro formulario
+    }
+
     public AntroAdoles(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
 
@@ -65,7 +70,7 @@ public class AntroAdoles extends javax.swing.JDialog {
             TFCod.setText(rs.getString(1));
             TFNombre.setText(rs.getString(2));
             TFFechNac.setText(rs.getString(3));
-            Integer edad = calcularEdad(TFFechNac.getText());
+            edad = calcularEdad(TFFechNac.getText());
             edadMes = calcularMeses(TFFechNac.getText());
             TFEdad.setText(edad.toString());
             if (rs.getString(4).equals("Varon"))
@@ -115,6 +120,39 @@ public class AntroAdoles extends javax.swing.JDialog {
         }
     }
 
+
+    public Integer edad() {
+        edad = 0;
+        try{
+            Class.forName(ControladorJDBC);
+            conexion = DriverManager.getConnection(baseDatos);
+            instruccion = conexion.createStatement();
+            System.out.println("Base de datos cargada");
+            ResultSet rs = instruccion.executeQuery("Select FechNac  from TempPaci");
+            rs.next();
+            edad = calcularEdad(TFFechNac.getText());
+            rs.close();
+            instruccion.close();
+            conexion.close();
+        } catch(Exception e) {}
+        return edad;
+    }
+    public String sexo () {
+        String sex = "";
+        try{
+            Class.forName(ControladorJDBC);
+            conexion = DriverManager.getConnection(baseDatos);
+            instruccion = conexion.createStatement();
+            System.out.println("Base de datos cargada");
+            ResultSet rs = instruccion.executeQuery("Select sexo from TempPaci");
+            rs.next();
+            sex = rs.getString(1);
+            rs.close();
+            instruccion.close();
+            conexion.close();
+        } catch(Exception e) {}
+        return sex;
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is

@@ -17,10 +17,45 @@ package otosal;
  */
 public class GraCorp extends javax.swing.JDialog {
 
+    AntroAdoles aAdoles = new AntroAdoles();
+    Integer edad = new Integer(0);
+    Double formula1 = new Double (0.0);
+    Double formula2 = new Double (0.0);
+
     /** Creates new form GraCorp */
     public GraCorp(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        edad= aAdoles.edad();
+        if (aAdoles.sexo()== "Varon") {
+            if (edad >= 2 && edad<=11 ) {
+                formula1 = 1.1690;
+                formula2 = 0.0788;
+            } else if (edad>=12 && edad<=16) {
+                formula1 = 1.1533;
+                formula2 = 0.0643;
+            } else if (edad >= 17 && edad <= 18) {
+                formula1 = 1.1765;
+                formula2 = 0.0744;
+            }
+        } else {
+            if (edad >= 2 && edad<=11 ) {
+                formula1 = 1.2063;
+                formula2 = 0.0999;
+            } else if (edad>=12 && edad<=16) {
+                formula1 = 1.1369;
+                formula2 = 0.0598;
+            } else if (edad >= 17 && edad <= 18) {
+                formula1 = 1.1567;
+                formula2 = 0.0717;
+            }
+        }
+        if (edad < 6) {
+            jPanel3.setEnabled(false);
+            jPanel4.setEnabled(false);
+            jPanel5.setEnabled(false);
+        }
     }
 
     /** This method is called from within the constructor to
@@ -40,26 +75,26 @@ public class GraCorp extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        TFPliTri = new javax.swing.JTextField();
+        TFPliBi = new javax.swing.JTextField();
+        TFPliSub = new javax.swing.JTextField();
+        TFPliSup = new javax.swing.JTextField();
+        TFDenCor = new javax.swing.JTextField();
+        TFGraCorp1 = new javax.swing.JTextField();
+        BAcept1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        TFGraCor2 = new javax.swing.JTextField();
+        BAcept2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        TFGraCor3 = new javax.swing.JTextField();
+        BAcept3 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        TFGraCor4 = new javax.swing.JTextField();
+        BAcept4 = new javax.swing.JButton();
+        BClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Porcentaje Grasa Corporal");
@@ -89,20 +124,20 @@ public class GraCorp extends javax.swing.JDialog {
         jLabel6.setText("% Grasa Corporal");
         jLabel6.setName("jLabel6"); // NOI18N
 
-        jTextField1.setName("jTextField1"); // NOI18N
+        TFPliTri.setName("TFPliTri"); // NOI18N
 
-        jTextField2.setName("jTextField2"); // NOI18N
+        TFPliBi.setName("TFPliBi"); // NOI18N
 
-        jTextField3.setName("jTextField3"); // NOI18N
+        TFPliSub.setName("TFPliSub"); // NOI18N
 
-        jTextField4.setName("jTextField4"); // NOI18N
+        TFPliSup.setName("TFPliSup"); // NOI18N
 
-        jTextField5.setName("jTextField5"); // NOI18N
+        TFDenCor.setName("TFDenCor"); // NOI18N
 
-        jTextField6.setName("jTextField6"); // NOI18N
+        TFGraCorp1.setName("TFGraCorp1"); // NOI18N
 
-        jButton1.setText("Aceptar");
-        jButton1.setName("jButton1"); // NOI18N
+        BAcept1.setText("Aceptar");
+        BAcept1.setName("BAcept1"); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -119,43 +154,43 @@ public class GraCorp extends javax.swing.JDialog {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+                    .addComponent(TFPliSub)
+                    .addComponent(TFPliTri, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(TFGraCorp1, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(TFDenCor, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(TFPliSup, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(TFPliBi, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(BAcept1)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFPliTri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFPliBi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFPliSub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFPliSup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TFDenCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(TFGraCorp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BAcept1))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -166,10 +201,10 @@ public class GraCorp extends javax.swing.JDialog {
         jLabel7.setText("% Grasa Corporal");
         jLabel7.setName("jLabel7"); // NOI18N
 
-        jTextField7.setName("jTextField7"); // NOI18N
+        TFGraCor2.setName("TFGraCor2"); // NOI18N
 
-        jButton2.setText("Aceptar");
-        jButton2.setName("jButton2"); // NOI18N
+        BAcept2.setText("Aceptar");
+        BAcept2.setName("BAcept2"); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -181,9 +216,9 @@ public class GraCorp extends javax.swing.JDialog {
                     .addGap(18, 18, 18)
                     .addComponent(jLabel7)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TFGraCor2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addComponent(jButton2)
+                    .addComponent(BAcept2)
                     .addGap(18, 18, 18)))
         );
         jPanel3Layout.setVerticalGroup(
@@ -194,22 +229,22 @@ public class GraCorp extends javax.swing.JDialog {
                     .addGap(9, 9, 9)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2))
+                        .addComponent(TFGraCor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BAcept2))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jPanel4.setBackground(new java.awt.Color(229, 184, 183));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Dexa"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Impedancia Bioeléctrica"));
         jPanel4.setName("jPanel4"); // NOI18N
 
         jLabel8.setText("% Grasa Corporal");
         jLabel8.setName("jLabel8"); // NOI18N
 
-        jTextField8.setName("jTextField8"); // NOI18N
+        TFGraCor3.setName("TFGraCor3"); // NOI18N
 
-        jButton3.setText("Aceptar");
-        jButton3.setName("jButton3"); // NOI18N
+        BAcept3.setText("Aceptar");
+        BAcept3.setName("BAcept3"); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -221,9 +256,9 @@ public class GraCorp extends javax.swing.JDialog {
                     .addGap(18, 18, 18)
                     .addComponent(jLabel8)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TFGraCor3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addComponent(jButton3)
+                    .addComponent(BAcept3)
                     .addGap(18, 18, 18)))
         );
         jPanel4Layout.setVerticalGroup(
@@ -234,22 +269,22 @@ public class GraCorp extends javax.swing.JDialog {
                     .addGap(9, 9, 9)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton3))
+                        .addComponent(TFGraCor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BAcept3))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jPanel5.setBackground(new java.awt.Color(229, 184, 183));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Dexa"));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("BOD - POD"));
         jPanel5.setName("jPanel5"); // NOI18N
 
         jLabel9.setText("% Grasa Corporal");
         jLabel9.setName("jLabel9"); // NOI18N
 
-        jTextField9.setName("jTextField9"); // NOI18N
+        TFGraCor4.setName("TFGraCor4"); // NOI18N
 
-        jButton4.setText("Aceptar");
-        jButton4.setName("jButton4"); // NOI18N
+        BAcept4.setText("Aceptar");
+        BAcept4.setName("BAcept4"); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -261,9 +296,9 @@ public class GraCorp extends javax.swing.JDialog {
                     .addGap(18, 18, 18)
                     .addComponent(jLabel9)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TFGraCor4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addComponent(jButton4)
+                    .addComponent(BAcept4)
                     .addGap(18, 18, 18)))
         );
         jPanel5Layout.setVerticalGroup(
@@ -274,16 +309,16 @@ public class GraCorp extends javax.swing.JDialog {
                     .addGap(9, 9, 9)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton4))
+                        .addComponent(TFGraCor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BAcept4))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        jButton5.setText("Cancelar");
-        jButton5.setName("jButton5"); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        BClose.setText("Cancelar");
+        BClose.setName("BClose"); // NOI18N
+        BClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                BCloseActionPerformed(evt);
             }
         });
 
@@ -302,7 +337,7 @@ public class GraCorp extends javax.swing.JDialog {
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton5)
+                        .addComponent(BClose)
                         .addGap(33, 33, 33))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -317,7 +352,7 @@ public class GraCorp extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
+                .addComponent(BClose)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -335,17 +370,26 @@ public class GraCorp extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void BCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCloseActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_BCloseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton BAcept1;
+    private javax.swing.JButton BAcept2;
+    private javax.swing.JButton BAcept3;
+    private javax.swing.JButton BAcept4;
+    private javax.swing.JButton BClose;
+    private javax.swing.JTextField TFDenCor;
+    private javax.swing.JTextField TFGraCor2;
+    private javax.swing.JTextField TFGraCor3;
+    private javax.swing.JTextField TFGraCor4;
+    private javax.swing.JTextField TFGraCorp1;
+    private javax.swing.JTextField TFPliBi;
+    private javax.swing.JTextField TFPliSub;
+    private javax.swing.JTextField TFPliSup;
+    private javax.swing.JTextField TFPliTri;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -360,15 +404,6 @@ public class GraCorp extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -128,9 +128,10 @@ public class OtosalView extends FrameView {
         MIAdultos = new javax.swing.JMenuItem();
         MIAncianos = new javax.swing.JMenuItem();
         MHisClin = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
+        MAntClinicos = new javax.swing.JMenu();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
+        MIAnamnesis = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -243,20 +244,25 @@ public class OtosalView extends FrameView {
         MHisClin.setText(resourceMap.getString("MHisClin.text")); // NOI18N
         MHisClin.setName("MHisClin"); // NOI18N
 
-        jMenu7.setText(resourceMap.getString("jMenu7.text")); // NOI18N
-        jMenu7.setName("jMenu7"); // NOI18N
+        MAntClinicos.setText(resourceMap.getString("MAntClinicos.text")); // NOI18N
+        MAntClinicos.setName("MAntClinicos"); // NOI18N
 
         jMenuItem12.setAction(actionMap.get("MIAntFamiliares")); // NOI18N
         jMenuItem12.setText(resourceMap.getString("jMenuItem12.text")); // NOI18N
         jMenuItem12.setName("jMenuItem12"); // NOI18N
-        jMenu7.add(jMenuItem12);
+        MAntClinicos.add(jMenuItem12);
 
         jMenuItem13.setAction(actionMap.get("MIAntPersonales")); // NOI18N
         jMenuItem13.setText(resourceMap.getString("jMenuItem13.text")); // NOI18N
         jMenuItem13.setName("jMenuItem13"); // NOI18N
-        jMenu7.add(jMenuItem13);
+        MAntClinicos.add(jMenuItem13);
 
-        MHisClin.add(jMenu7);
+        MHisClin.add(MAntClinicos);
+
+        MIAnamnesis.setAction(actionMap.get("MIAnamnesisActionPerformed")); // NOI18N
+        MIAnamnesis.setText(resourceMap.getString("MIAnamnesis.text")); // NOI18N
+        MIAnamnesis.setName("MIAnamnesis"); // NOI18N
+        MHisClin.add(MIAnamnesis);
 
         menuBar.add(MHisClin);
 
@@ -478,6 +484,8 @@ public class OtosalView extends FrameView {
         JDialog dialogo = new AntFamiliares(mainFrame, true);
         dialogo.setLocationRelativeTo(mainFrame);
         OtosalApp.getApplication().show(dialogo);
+        mainFrame=null;
+        dialogo=null;
     }
 
     @Action
@@ -486,13 +494,27 @@ public class OtosalView extends FrameView {
         JDialog dialogo = new AntPersonales(mainFrame, true);
         dialogo.setLocationRelativeTo(mainFrame);
         OtosalApp.getApplication().show(dialogo);
+        mainFrame=null;
+        dialogo=null;
+    }
+
+    @Action
+    public void MIAnamnesisActionPerformed() {
+        JFrame mainFrame = OtosalApp.getApplication().getMainFrame();
+        JDialog dialogo = new Anamnesis(mainFrame, true);
+        dialogo.setLocationRelativeTo(mainFrame);
+        OtosalApp.getApplication().show(dialogo);
+        mainFrame=null;
+        dialogo=null;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu MAntClinicos;
     private javax.swing.JMenu MAntro;
     private javax.swing.JMenu MHisClin;
     private javax.swing.JMenuItem MIAPac;
     private javax.swing.JMenuItem MIAdolescentes;
     private javax.swing.JMenuItem MIAdultos;
+    private javax.swing.JMenuItem MIAnamnesis;
     private javax.swing.JMenuItem MIAncianos;
     private javax.swing.JMenuItem MIHPac;
     private javax.swing.JMenuItem MIInfancia;
@@ -505,7 +527,6 @@ public class OtosalView extends FrameView {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;

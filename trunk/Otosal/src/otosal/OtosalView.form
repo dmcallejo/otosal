@@ -143,10 +143,10 @@
             <Property name="name" type="java.lang.String" value="MHisClin" noResource="true"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu7">
+            <Menu class="javax.swing.JMenu" name="MAntClinicos">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jMenu7.text"/>
-                <Property name="name" type="java.lang.String" value="jMenu7" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="MAntClinicos.text"/>
+                <Property name="name" type="java.lang.String" value="MAntClinicos" noResource="true"/>
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem12">
@@ -169,6 +169,15 @@
                 </MenuItem>
               </SubComponents>
             </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="MIAnamnesis">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="otosal.OtosalView" id="MIAnamnesisActionPerformed" methodName="MIAnamnesisActionPerformed"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="MIAnamnesis.text"/>
+                <Property name="name" type="java.lang.String" value="MIAnamnesis" noResource="true"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
